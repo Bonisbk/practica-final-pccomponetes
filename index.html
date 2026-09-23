@@ -1,13 +1,726 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>TRABAJO_PC_COMPONENTES_BONI</title>
+
+    <!-- Estilos de Bootstrap -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+    <!-- Iconos de Bootstrap -->
+    <link rel="stylesheet" href="bootstrap-icons-1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Mis estilos personalizados -->
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body>
+
+    <header>
+
+        <nav class="navbar bg-white border-bottom py-3">
+
+            <div class="container-fluid contenedor-header">
+
+                <!-- BOTÓN HAMBURGUESA
+                 Solo aparece en móvil y tablet.
+                 Abre directamente el menú lateral de categorías. -->
+                <button class="btn boton-menu d-xl-none" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#menuCategorias" aria-controls="menuCategorias" aria-label="Abrir categorías">
+
+                    <i class="bi bi-list fs-2"></i>
+
+                </button>
+
+
+                <!-- LOGOTIPO -->
+                <a class="navbar-brand logo-contenedor" href="#">
+
+                    <!-- Logotipo completo:
+                     solamente se muestra en ordenador -->
+                    <img src="imagenes/Logo_1.png" alt="Logo de PcComponentes" class="logo-completo d-none d-xl-block">
+
+
+                    <!-- En móvil recortamos la imagen para mostrar
+                     solamente el símbolo naranja -->
+                    <span class="logo-movil-contenedor d-xl-none">
+
+                        <img src="imagenes/Logo_1.png" alt="PcComponentes" class="logo-movil">
+
+                    </span>
+
+                </a>
+
+
+                <!-- BOTÓN DE CATEGORÍAS
+                 Solo aparece en pantallas grandes -->
+                <button class="btn boton-categorias text-nowrap d-none d-xl-flex" type="button"
+                    data-bs-toggle="offcanvas" data-bs-target="#menuCategorias" aria-controls="menuCategorias">
+
+                    <i class="bi bi-list fs-3"></i>
+
+                    <span>Todas las categorías</span>
+
+                </button>
+
+
+                <!-- BUSCADOR
+                 Siempre permanece visible -->
+                <form class="input-group buscador" role="search" onsubmit="return false;">
+
+                    <!-- El selector solo aparece en ordenador -->
+                    <select class="form-select selector-catalogo d-none d-xl-block"
+                        aria-label="Seleccionar parte del catálogo">
+
+                        <option selected>Todo el catálogo</option>
+                        <option value="1">Reacondicionados</option>
+                    </select>
+
+
+                    <input class="form-control" type="search" placeholder="Buscar" aria-label="Buscar">
+
+
+                    <button class="btn btn-outline-secondary boton-lupa" type="submit" aria-label="Realizar búsqueda">
+
+                        <i class="bi bi-search fs-4"></i>
+
+                    </button>
+
+                </form>
+
+
+                <!-- BUSCAR CON IA
+                 Solo aparece en ordenador porque en móvil
+                 ocuparía demasiado espacio -->
+                <button class="btn btn-outline-secondary boton-ia text-nowrap d-none d-xl-flex">
+
+                    <span class="icono-ia">✦</span>
+
+                    Buscar con IA
+
+                </button>
+
+
+                <!-- MI CUENTA
+                 El texto desaparece en móvil, pero el icono permanece -->
+                <a class="nav-link enlace-navegacion" href="#">
+
+                    <i class="bi bi-person fs-4"></i>
+
+                    <span class="d-none d-xl-inline">
+                        Mi cuenta
+                    </span>
+
+                </a>
+
+
+                <!-- MI CESTA
+                 El texto desaparece en móvil, pero el icono permanece -->
+                <a class="nav-link enlace-navegacion" href="#">
+
+                    <span class="position-relative">
+
+                        <i class="bi bi-cart3 fs-4"></i>
+
+                        <span class="badge rounded-pill bg-danger contador-cesta">
+                            0
+                        </span>
+
+                    </span>
+
+                    <span class="d-none d-xl-inline">
+                        Mi cesta
+                    </span>
+
+                </a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <!-- Menú lateral de categorías -->
+
+    <!-- ==================================================
+     MENÚ LATERAL DE CATEGORÍAS
+    ================================================== -->
+
+    <div class="offcanvas offcanvas-start offcanvas-categorias" tabindex="-1" id="menuCategorias"
+        aria-labelledby="tituloCategorias">
+
+        <!-- Botón X para cerrar -->
+        <div class="offcanvas-header menu-cabecera">
+
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar">
+            </button>
+
+        </div>
+
+
+        <!-- Contenido del menú -->
+        <div class="offcanvas-body menu-cuerpo">
+
+            <!-- Esta parte permanece fija y no tiene scroll -->
+            <div class="menu-superior">
+
+                <button type="button" class="opcion-ofertas">
+
+                    <span>Campañas y ofertas</span>
+
+                    <i class="bi bi-chevron-right"></i>
+
+                </button>
+
+                <!-- Línea horizontal -->
+                <hr class="linea-menu">
+
+            </div>
+
+
+            <!--
+            El scroll empieza aquí:
+            justo debajo de la línea horizontal.
+        -->
+            <div class="menu-scroll">
+
+                <h5 class="titulo-categorias" id="tituloCategorias">
+                    Categorías
+                </h5>
+
+
+                <ul class="lista-categorias">
+
+                    <!-- Componentes -->
+                    <li>
+
+                        <button type="button" class="opcion-categoria">
+
+                            <span class="contenido-categoria">
+
+                                <i class="bi bi-cpu"></i>
+
+                                <span>Componentes</span>
+
+                            </span>
+
+                            <i class="bi bi-chevron-right flecha"></i>
+
+                        </button>
+
+                    </li>
+
+
+                    <!-- Ordenadores -->
+                    <li>
+
+                        <button type="button" class="opcion-categoria">
+
+                            <span class="contenido-categoria">
+
+                                <i class="bi bi-pc-display"></i>
+
+                                <span>Ordenadores</span>
+
+                            </span>
+
+                            <i class="bi bi-chevron-right flecha"></i>
+
+                        </button>
+
+                    </li>
+
+
+                    <!-- Periféricos -->
+                    <li>
+
+                        <button type="button" class="opcion-categoria">
+
+                            <span class="contenido-categoria">
+
+                                <i class="bi bi-mouse"></i>
+
+                                <span>Periféricos</span>
+
+                            </span>
+
+                            <i class="bi bi-chevron-right flecha"></i>
+
+                        </button>
+
+                    </li>
+
+
+                    <!-- Consolas y videojuegos -->
+                    <li>
+
+                        <button type="button" class="opcion-categoria">
+
+                            <span class="contenido-categoria">
+
+                                <i class="bi bi-controller"></i>
+
+                                <span>Consolas y videojuegos</span>
+
+                            </span>
+
+                            <i class="bi bi-chevron-right flecha"></i>
+
+                        </button>
+
+                    </li>
+
+
+                    <!-- Móviles y tablets -->
+                    <li>
+
+                        <button type="button" class="opcion-categoria">
+
+                            <span class="contenido-categoria">
+
+                                <i class="bi bi-phone"></i>
+
+                                <span>Móviles y tablets</span>
+
+                            </span>
+
+                            <i class="bi bi-chevron-right flecha"></i>
+
+                        </button>
+
+                    </li>
+
+
+                    <!-- Televisores -->
+                    <li>
+
+                        <button type="button" class="opcion-categoria">
+
+                            <span class="contenido-categoria">
+
+                                <i class="bi bi-tv"></i>
+
+                                <span>Televisores</span>
+
+                            </span>
+
+                            <i class="bi bi-chevron-right flecha"></i>
+
+                        </button>
+
+                    </li>
+
+
+                    <!-- Electrodomésticos -->
+                    <li>
+
+                        <button type="button" class="opcion-categoria">
+
+                            <span class="contenido-categoria">
+
+                                <i class="bi bi-door-closed"></i>
+
+                                <span>Electrodomésticos</span>
+
+                            </span>
+
+                            <i class="bi bi-chevron-right flecha"></i>
+
+                        </button>
+
+                    </li>
+
+
+                    <!-- Domótica -->
+                    <li>
+
+                        <button type="button" class="opcion-categoria">
+
+                            <span class="contenido-categoria">
+
+                                <i class="bi bi-house-gear"></i>
+
+                                <span>Domótica y smarthome</span>
+
+                            </span>
+
+                            <i class="bi bi-chevron-right flecha"></i>
+
+                        </button>
+
+                    </li>
+
+
+                    <!-- Hogar -->
+                    <li>
+
+                        <button type="button" class="opcion-categoria">
+
+                            <span class="contenido-categoria">
+
+                                <i class="bi bi-house-door"></i>
+
+                                <span>Hogar</span>
+
+                            </span>
+
+                            <i class="bi bi-chevron-right flecha"></i>
+
+                        </button>
+
+                    </li>
+
+
+                    <!-- Belleza y salud -->
+                    <li>
+
+                        <button type="button" class="opcion-categoria">
+
+                            <span class="contenido-categoria">
+
+                                <i class="bi bi-heart-pulse"></i>
+
+                                <span>Belleza y salud</span>
+
+                            </span>
+
+                            <i class="bi bi-chevron-right flecha"></i>
+
+                        </button>
+
+                    </li>
+
+
+                    <!-- Sonido -->
+                    <li>
+
+                        <button type="button" class="opcion-categoria">
+
+                            <span class="contenido-categoria">
+
+                                <i class="bi bi-headphones"></i>
+
+                                <span>Sonido</span>
+
+                            </span>
+
+                            <i class="bi bi-chevron-right flecha"></i>
+
+                        </button>
+
+                    </li>
+
+
+                    <!-- Smartwatches -->
+                    <li>
+
+                        <button type="button" class="opcion-categoria">
+
+                            <span class="contenido-categoria">
+
+                                <i class="bi bi-smartwatch"></i>
+
+                                <span>Smartwatches y wearables</span>
+
+                            </span>
+
+                            <i class="bi bi-chevron-right flecha"></i>
+
+                        </button>
+
+                    </li>
+
+
+                    <!-- Fotografía -->
+                    <li>
+
+                        <button type="button" class="opcion-categoria">
+
+                            <span class="contenido-categoria">
+
+                                <i class="bi bi-camera"></i>
+
+                                <span>Fotografía</span>
+
+                            </span>
+
+                            <i class="bi bi-chevron-right flecha"></i>
+
+                        </button>
+
+                    </li>
+
+                    <!-- Movilidad urbana -->
+                    <li>
+
+                        <button type="button" class="opcion-categoria">
+
+                            <span class="contenido-categoria">
+
+                                <i class="bi bi-scooter"></i>
+
+                                <span>Movilidad urbana</span>
+
+                            </span>
+
+                            <i class="bi bi-chevron-right flecha"></i>
+
+                        </button>
+
+                    </li>
+
+
+                    <!-- Juguetes y juegos -->
+                    <li>
+
+                        <button type="button" class="opcion-categoria">
+
+                            <span class="contenido-categoria">
+
+                                <i class="bi bi-star"></i>
+
+                                <span>Juguetes y juegos</span>
+
+                            </span>
+
+                            <i class="bi bi-chevron-right flecha"></i>
+
+                        </button>
+
+                    </li>
+
+
+                    <!-- Productos reacondicionados -->
+                    <li>
+
+                        <button type="button" class="opcion-categoria">
+
+                            <span class="contenido-categoria">
+
+                                <i class="bi bi-arrow-repeat"></i>
+
+                                <span>Productos Reacondicionados</span>
+
+                            </span>
+
+                            <i class="bi bi-chevron-right flecha"></i>
+
+                        </button>
+
+                    </li>
+
+                </ul>
+
+                <!-- ==================================================
+                SEPARACIÓN ENTRE CATEGORÍAS Y TRENDING
+                ================================================== -->
+
+                <hr class="linea-trending">
+
+
+                <!-- Título del segundo apartado -->
+                <h5 class="titulo-trending">
+                    Trending
+                </h5>
+
+
+                <!-- Lista Trending -->
+                <ul class="lista-trending">
+
+                    <!-- Configurador de PC -->
+                    <li>
+
+                        <button type="button" class="opcion-trending opcion-configurador">
+
+                            <span>Configurador PCs</span>
+
+                            <!--
+                        Esta etiqueta permanece siempre naranja.
+                        No depende del hover. -->
+                            <span class="etiqueta-recomendado">
+                                Te recomendamos
+                            </span>
+
+                        </button>
+
+                    </li>
+
+
+                    <!-- Servicios -->
+                    <li>
+
+                        <button type="button" class="opcion-trending">
+                            Servicios
+                        </button>
+
+                    </li>
+
+
+                    <!-- Reacondicionados -->
+                    <li>
+
+                        <button type="button" class="opcion-trending">
+                            Reacondicionados
+                        </button>
+
+                    </li>
+
+
+                    <!-- Nuestras tiendas -->
+                    <li>
+
+                        <button type="button" class="opcion-trending">
+                            Nuestras tiendas
+                        </button>
+
+                    </li>
+
+
+                    <!-- Espacio Apple -->
+                    <li>
+
+                        <button type="button" class="opcion-trending">
+                            Espacio Apple
+                        </button>
+
+                    </li>
+
+
+                    <!-- Empresas y profesionales -->
+                    <li>
+
+                        <button type="button" class="opcion-trending">
+                            Empresas y profesionales
+                        </button>
+
+                    </li>
+
+                </ul>
+                </ul>
+
+                <ul class="lista-trending">
+
+                    <!-- Opciones Trending -->
+
+                </ul>
+
+            </div>
+            <!-- Fin de menu-scroll -->
+
+        </div>
+        <!-- Fin de offcanvas-body -->
+
+    </div>
+    <!-- Fin de offcanvas -->
+
+    <!-- ==================================================
+     CONTENIDO PRINCIPAL
+================================================== -->
+
+    <main>
+
+        <!-- ==================================================
+         FRANJA DE ENLACES SUPERIORES
+    ================================================== -->
+
+        <section class="border-bottom bg-white">
+
+            <div class="container-fluid">
+
+                <!--
+                d-flex:
+                coloca los botones en horizontal.
+
+                justify-content-end:
+                lleva los botones hacia la derecha.
+
+                gap-4:
+                deja separación entre los dos botones.
+            -->
+                <div class="d-flex justify-content-end align-items-center gap-4 py-3">
+
+                    <!--
+                    Usamos button y no un enlace <a>,
+                    por eso no conduce a ninguna página.
+                -->
+                    <button type="button" class="btn btn-link text-dark text-decoration-none p-0 boton-superior">
+
+                        Reacondicionados
+
+                    </button>
+
+
+                    <!-- Campañas y ofertas -->
+                    <button type="button"
+                        class="btn btn-link text-decoration-none p-0 fw-bold boton-superior texto-naranja">
+
+                        Campañas y ofertas
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+         SECCIÓN DEL BANNER PUBLICITARIO
+        ================================================== -->
+
+        <section class="seccion-publicidad">
+
+            <div class="container-fluid py-4">
+
+                <!-- Texto superior de la publicidad -->
+                <p class="mb-4 texto-expertos">
+
+                    <strong>Expertos en tecnología</strong>
+
+                    <span> con un servicio 5 estrellas</span>
+
+                </p>
+
+
+                <!-- Imagen publicitaria hipervinculada -->
+                <div class="overflow-hidden rounded-4">
+
+                    <!--
+        Más adelante sustituiremos # por la dirección
+        de la página de la oferta.
+
+        onclick="return false;" evita que ahora
+        el enlace realice ninguna navegación.
+    -->
+                    <a href="#" class="d-block enlace-publicidad" onclick="return false;"
+                        aria-label="Ver oferta del iPhone 18 Pro">
+
+                        <img src="imagenes/banner-iphone.png" class="img-fluid w-100 d-block imagen-publicidad"
+                            alt="Oferta de iPhone 18 Pro">
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    </div>
+
+    </div>
+
+    </div>
+
+    <!-- JavaScript de Bootstrap -->
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

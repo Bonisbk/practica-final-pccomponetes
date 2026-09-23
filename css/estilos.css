@@ -1,0 +1,1613 @@
+/* =========================================================
+   1. CONTENEDOR PRINCIPAL DEL HEADER
+   ========================================================= */
+
+/*
+Bootstrap intenta repartir los elementos del navbar
+y permite que bajen a otra línea.
+
+Con flex-wrap: nowrap impedimos que eso ocurra.
+Así, en ordenador, todo permanece en una única fila.
+*/
+.navbar > .container-fluid.contenedor-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    flex-wrap: nowrap;
+
+    width: 100%;
+
+    gap: 16px;
+}
+
+
+/* =========================================================
+   2. LOGOTIPO
+   ========================================================= */
+
+/*
+flex-shrink: 0 impide que Bootstrap aplaste
+o deforme el logotipo cuando falta espacio.
+*/
+.logo-contenedor {
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 0;
+}
+
+
+/*
+Logotipo completo.
+
+Se utiliza en pantallas grandes porque en el HTML
+tiene las clases: d-none d-xl-block.
+*/
+.logo-completo {
+    display: block;
+
+    width: 180px;
+    height: 70px;
+
+    object-fit: contain;
+}
+
+
+/*
+En móvil solamente queremos enseñar el símbolo naranja.
+
+Esta caja funciona como una ventana pequeña que oculta
+la parte del texto PC Componentes.
+*/
+.logo-movil-contenedor {
+    display: block;
+
+    width: 45px;
+    height: 48px;
+
+    overflow: hidden;
+}
+
+
+/*
+La imagen continúa siendo más ancha que la caja,
+pero solamente vemos su parte izquierda.
+*/
+.logo-movil {
+    display: block;
+
+    width: auto;
+    max-width: none;
+    height: 48px;
+
+    object-fit: contain;
+    object-position: left center;
+}
+
+
+/* =========================================================
+   3. BOTÓN HAMBURGUESA
+   ========================================================= */
+
+/*
+Este botón solamente aparece en tablet y móvil
+porque en el HTML tiene la clase d-xl-none.
+*/
+.boton-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 auto;
+
+    padding: 4px;
+
+    border: none;
+    background-color: transparent;
+}
+
+
+/*
+Quitamos la sombra azul que Bootstrap puede mostrar
+cuando pulsamos el botón.
+*/
+.boton-menu:focus,
+.boton-menu:active {
+    border: none;
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   4. BOTÓN "TODAS LAS CATEGORÍAS"
+   ========================================================= */
+
+/*
+Este botón solo aparece en ordenador.
+
+flex: 0 0 auto significa que conservará el espacio
+que necesita y no se deformará.
+*/
+.boton-categorias {
+    align-items: center;
+
+    flex: 0 0 auto;
+
+    gap: 10px;
+
+    padding-left: 8px;
+    padding-right: 8px;
+
+    border: none;
+    background-color: transparent;
+
+    font-size: 18px;
+}
+
+
+/*
+Al pasar el ratón cambiamos ligeramente el fondo.
+*/
+.boton-categorias:hover {
+    background-color: #f5f5f5;
+}
+
+
+/* =========================================================
+   5. BUSCADOR
+   ========================================================= */
+
+/*
+Bootstrap aplica width: 100% a los input-group.
+
+Eso hacía que el buscador ocupase una línea completa.
+Con width: auto permitimos que comparta la fila con
+el logotipo, las categorías, la IA, la cuenta y la cesta.
+*/
+.navbar .buscador {
+    width: auto;
+    min-width: 250px;
+
+    /*
+    El buscador ocupa todo el espacio que quede libre,
+    pero puede reducirse cuando la pantalla sea menor.
+    */
+    flex: 1 1 300px;
+
+    /*
+    El selector, el campo de búsqueda y la lupa
+    permanecen siempre en la misma línea.
+    */
+    flex-wrap: nowrap;
+}
+
+
+/*
+Permite que el campo de búsqueda se haga más pequeño
+sin empujar los demás elementos fuera de la pantalla.
+*/
+.navbar .buscador .form-control {
+    width: 1%;
+    min-width: 0;
+
+    flex: 1 1 auto;
+}
+
+
+/*
+Anchura del selector "Todo el catálogo".
+*/
+.selector-catalogo {
+    width: 210px;
+    max-width: 210px;
+
+    flex: 0 0 210px;
+}
+
+
+/*
+Altura de los elementos del buscador en ordenador.
+*/
+.buscador .form-control,
+.buscador .form-select,
+.boton-lupa,
+.boton-ia {
+    min-height: 60px;
+}
+
+
+/*
+Quitamos la sombra azul de Bootstrap cuando
+pulsamos dentro del buscador.
+*/
+.buscador .form-control:focus,
+.buscador .form-select:focus {
+    z-index: 1;
+
+    border-color: #ff6000;
+    box-shadow: none;
+}
+
+
+/*
+Botón que contiene el icono de la lupa.
+*/
+.boton-lupa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 auto;
+
+    padding-left: 18px;
+    padding-right: 18px;
+}
+
+
+/*
+Cuando pasamos el ratón, usamos el naranja
+característico de PcComponentes.
+*/
+.boton-lupa:hover {
+    color: white;
+    background-color: #ff6000;
+    border-color: #ff6000;
+}
+
+
+/* =========================================================
+   6. BOTÓN "BUSCAR CON IA"
+   ========================================================= */
+
+/*
+Este botón se muestra en pantallas grandes.
+
+No permitimos que se reduzca ni que su texto
+se divida en dos líneas.
+*/
+.boton-ia {
+    align-items: center;
+
+    flex: 0 0 auto;
+
+    padding-left: 16px;
+    padding-right: 16px;
+
+    white-space: nowrap;
+
+    font-size: 18px;
+}
+
+
+/*
+Estrella naranja situada antes del texto.
+*/
+.icono-ia {
+    margin-right: 6px;
+
+    color: #ff6000;
+
+    font-size: 26px;
+    line-height: 1;
+}
+
+
+/*
+Color del botón cuando pasamos el ratón.
+*/
+.boton-ia:hover {
+    color: #212529;
+
+    background-color: #f5f5f5;
+    border-color: #6c757d;
+}
+
+
+/* =========================================================
+   7. MI CUENTA Y MI CESTA
+   ========================================================= */
+
+/*
+En ordenador aparecen el icono y el texto.
+
+En móvil, Bootstrap oculta el texto gracias a:
+d-none d-xl-inline.
+*/
+.enlace-navegacion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 auto;
+
+    gap: 8px;
+
+    padding: 8px;
+
+    color: #212529;
+
+    white-space: nowrap;
+
+    font-size: 18px;
+}
+
+
+/*
+Color naranja al pasar el ratón.
+*/
+.enlace-navegacion:hover {
+    color: #ff6000;
+}
+
+
+/* =========================================================
+   8. CONTADOR ROJO DE LA CESTA
+   ========================================================= */
+
+.contador-cesta {
+    position: absolute;
+
+    top: -9px;
+    right: -12px;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   9. PANTALLAS ENTRE 1200 Y 1399 PÍXELES
+   ========================================================= */
+
+/*
+Estas pantallas ya son consideradas xl por Bootstrap,
+pero todavía pueden ser un poco estrechas.
+
+Reducimos algunos tamaños y ocultamos el botón de IA
+para evitar que el header se desborde.
+*/
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+
+    .navbar > .container-fluid.contenedor-header {
+        gap: 10px;
+    }
+
+    .logo-completo {
+        width: 145px;
+    }
+
+    .boton-categorias {
+        gap: 5px;
+
+        padding-left: 4px;
+        padding-right: 4px;
+
+        font-size: 15px;
+    }
+
+    .selector-catalogo {
+        width: 165px;
+        max-width: 165px;
+
+        flex-basis: 165px;
+    }
+
+    /*
+    Ocultamos solamente la IA en este tamaño.
+    El resto del header continúa visible.
+    */
+    .boton-ia {
+        display: none !important;
+    }
+
+    .enlace-navegacion {
+        gap: 5px;
+
+        padding-left: 4px;
+        padding-right: 4px;
+
+        font-size: 15px;
+    }
+}
+
+
+/* =========================================================
+   10. TABLET Y MÓVIL
+   Pantallas menores de 1200 píxeles
+   ========================================================= */
+
+@media (max-width: 1199.98px) {
+
+    /*
+    Todos los elementos siguen en una única línea.
+    */
+    .navbar > .container-fluid.contenedor-header {
+        justify-content: flex-start;
+
+        flex-wrap: nowrap;
+
+        gap: 12px;
+    }
+
+    /*
+    El buscador puede ocupar todo el espacio libre,
+    pero también puede hacerse pequeño.
+    */
+    .navbar .buscador {
+        width: auto;
+        min-width: 0;
+
+        flex: 1 1 auto;
+    }
+
+    /*
+    Reducimos la altura del buscador.
+    */
+    .buscador .form-control,
+    .boton-lupa {
+        min-height: 48px;
+    }
+
+    .boton-lupa {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    /*
+    Cuenta y cesta solamente muestran sus iconos.
+    */
+    .enlace-navegacion {
+        padding: 8px;
+    }
+}
+
+
+/* =========================================================
+   11. MÓVILES
+   Pantallas menores de 576 píxeles
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+    /*
+    Reducimos los espacios laterales y la separación
+    entre elementos para que todo pueda caber.
+    */
+    .navbar > .container-fluid.contenedor-header {
+        gap: 7px;
+
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    /*
+    El símbolo naranja se hace un poco más pequeño.
+    */
+    .logo-movil-contenedor {
+        width: 38px;
+        height: 42px;
+    }
+
+    .logo-movil {
+        height: 42px;
+    }
+
+    /*
+    Reducimos la altura del buscador.
+    */
+    .buscador .form-control,
+    .boton-lupa {
+        min-height: 44px;
+    }
+
+    /*
+    Reducimos el espacio interior del texto Buscar.
+    */
+    .buscador .form-control {
+        padding-left: 10px;
+        padding-right: 5px;
+    }
+
+    /*
+    Reducimos el espacio interior de la lupa.
+    */
+    .boton-lupa {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    /*
+    Cuenta y cesta ocupan menos espacio.
+    */
+    .enlace-navegacion {
+        padding: 5px;
+    }
+}
+
+
+/* =========================================================
+   12. MÓVILES MUY PEQUEÑOS
+   Pantallas menores de 401 píxeles
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    /*
+    En una pantalla muy estrecha ocultamos el logotipo
+    para dar más espacio al buscador.
+
+    Todavía permanecen visibles:
+    hamburguesa, buscador, cuenta y cesta.
+    */
+    .logo-contenedor {
+        display: none;
+    }
+
+    .navbar > .container-fluid.contenedor-header {
+        gap: 5px;
+
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+
+    .enlace-navegacion {
+        padding: 3px;
+    }
+}
+
+/* =========================================================
+   MENÚ LATERAL DE CATEGORÍAS
+========================================================= */
+
+/*
+Anchura del menú lateral.
+
+Bootstrap utiliza por defecto 400px aproximadamente.
+Nosotros lo hacemos un poco más ancho, como el original.
+*/
+.offcanvas-categorias {
+    width: 460px;
+    max-width: 100%;
+}
+
+
+/*
+Reducimos el espacio inferior de la cabecera porque
+solamente contiene el botón de cerrar.
+*/
+.offcanvas-categorias .offcanvas-header {
+    padding: 24px 24px 10px;
+}
+
+
+/*
+Espacio interior del contenido.
+*/
+.offcanvas-categorias .offcanvas-body {
+    padding: 10px 24px 30px;
+
+    /*
+    Si la lista no cabe verticalmente,
+    aparecerá una barra para desplazarse.
+    */
+    overflow-y: auto;
+}
+
+
+/* =========================================================
+   CAMPAÑAS Y OFERTAS
+========================================================= */
+
+/*
+Aunque parece un enlace, utilizamos un button porque
+no queremos que lleve a otra página.
+*/
+.opcion-destacada {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    padding: 10px 0 18px;
+
+    border: none;
+    background-color: transparent;
+
+    color: #ff6000;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    text-align: left;
+
+    cursor: pointer;
+}
+
+
+/*
+Tamaño de la flecha situada a la derecha.
+*/
+.opcion-destacada .bi-chevron-right {
+    font-size: 18px;
+}
+
+
+/*
+Cuando pasamos el ratón, cambiamos ligeramente
+el tono naranja.
+*/
+.opcion-destacada:hover {
+    color: #d95100;
+}
+
+
+/* =========================================================
+   LÍNEA SEPARADORA
+========================================================= */
+
+.separador-menu {
+    margin: 12px 0 22px;
+
+    border: 0;
+    border-top: 1px solid #bdbdbd;
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   TÍTULO CATEGORÍAS
+========================================================= */
+
+.titulo-categorias {
+    margin: 0 0 20px;
+
+    color: #212529;
+
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   LISTA DE CATEGORÍAS
+========================================================= */
+
+/*
+Quitamos los puntos y espacios que normalmente
+tienen las listas HTML.
+*/
+.lista-categorias {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+
+/*
+Cada elemento ocupa toda la anchura disponible.
+*/
+.lista-categorias li {
+    width: 100%;
+}
+
+
+/*
+Este botón representa cada categoría.
+
+justify-content: space-between coloca:
+- icono y texto a la izquierda;
+- flecha a la derecha.
+*/
+.opcion-categoria {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    min-height: 56px;
+
+    padding: 10px 4px;
+
+    border: none;
+    border-radius: 6px;
+
+    background-color: transparent;
+
+    color: #212529;
+
+    font-size: 20px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    /*
+    Hace que el cambio de color sea suave.
+    */
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        padding-left 0.2s ease;
+}
+
+
+/*
+Agrupa el icono y el nombre de la categoría.
+*/
+.categoria-izquierda {
+    display: flex;
+    align-items: center;
+
+    min-width: 0;
+
+    gap: 14px;
+}
+
+
+/*
+Todos los iconos tienen el mismo espacio.
+Así los textos empiezan alineados.
+*/
+.icono-categoria {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 26px;
+
+    flex: 0 0 26px;
+
+    font-size: 24px;
+}
+
+
+/*
+Flecha situada a la derecha.
+*/
+.flecha-categoria {
+    flex: 0 0 auto;
+
+    margin-left: 15px;
+
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   EFECTO HOVER
+========================================================= */
+
+/*
+Cuando pasamos el ratón por una categoría:
+
+1. El texto se vuelve naranja.
+2. El icono se vuelve naranja.
+3. La flecha se vuelve naranja.
+4. Aparece un fondo muy suave.
+5. El contenido se desplaza ligeramente a la derecha.
+*/
+.opcion-categoria:hover {
+    padding-left: 10px;
+
+    color: #ff6000;
+    background-color: #fff4ed;
+}
+
+
+/*
+Bootstrap puede aplicar estilos al pulsar un botón.
+Los dejamos también en naranja.
+*/
+.opcion-categoria:focus,
+.opcion-categoria:active {
+    color: #ff6000;
+    background-color: #fff4ed;
+
+    outline: none;
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   MENÚ LATERAL COMPLETO
+========================================================= */
+
+/*
+El menú tiene una anchura parecida a la página original.
+
+display: flex y flex-direction: column permiten dividirlo
+en una zona fija y otra zona con scroll.
+*/
+.offcanvas.offcanvas-start.offcanvas-categorias {
+    width: 500px;
+    max-width: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================================================
+   CABECERA DEL MENÚ: BOTÓN X
+========================================================= */
+
+.offcanvas-categorias .menu-cabecera {
+    display: flex;
+    justify-content: flex-end;
+
+    flex: 0 0 auto;
+
+    min-height: 75px;
+
+    padding: 20px 28px 10px;
+
+    border: none;
+}
+
+
+/* Quitamos sombras del botón de cerrar */
+.offcanvas-categorias .btn-close:focus {
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   CUERPO GENERAL DEL MENÚ
+========================================================= */
+
+/*
+El cuerpo no tendrá scroll.
+
+El scroll estará solamente en .menu-scroll,
+que comienza debajo de la línea horizontal.
+*/
+.offcanvas-categorias .menu-cuerpo {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1 1 auto;
+
+    min-height: 0;
+
+    padding: 0;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   PARTE SUPERIOR FIJA
+========================================================= */
+
+.offcanvas-categorias .menu-superior {
+    flex: 0 0 auto;
+
+    padding: 0 28px;
+}
+
+
+/* =========================================================
+   CAMPAÑAS Y OFERTAS
+========================================================= */
+
+.offcanvas-categorias .opcion-ofertas {
+    appearance: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    padding: 15px 0 20px;
+
+    border: 0 !important;
+    border-radius: 0;
+
+    background: transparent !important;
+
+    color: #ff6000;
+
+    font-family: inherit;
+    font-size: 27px;
+    font-weight: 700;
+
+    text-align: left;
+
+    cursor: pointer;
+}
+
+
+/* Flecha de Campañas y ofertas */
+.offcanvas-categorias .opcion-ofertas .bi-chevron-right {
+    flex: 0 0 auto;
+
+    margin-left: 20px;
+
+    font-size: 18px;
+}
+
+
+/* Efecto hover naranja */
+.offcanvas-categorias .opcion-ofertas:hover,
+.offcanvas-categorias .opcion-ofertas:focus {
+    color: #d95100;
+
+    outline: none;
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   LÍNEA HORIZONTAL
+========================================================= */
+
+.offcanvas-categorias .linea-menu {
+    height: 1px;
+
+    margin: 0;
+
+    border: 0;
+
+    background-color: #d4d4d4;
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   ZONA CON SCROLL
+========================================================= */
+
+/*
+El scroll comienza exactamente debajo del hr.
+
+min-height: 0 es importante para que el scroll
+funcione dentro de un contenedor flex.
+*/
+.offcanvas-categorias .menu-scroll {
+    flex: 1 1 auto;
+
+    min-height: 0;
+
+    padding: 22px 28px 30px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    scrollbar-width: auto;
+    scrollbar-color: #888 transparent;
+}
+
+
+/*
+Personalización del scroll para Chrome y Edge.
+*/
+.offcanvas-categorias .menu-scroll::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+.offcanvas-categorias .menu-scroll::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+
+.offcanvas-categorias .menu-scroll::-webkit-scrollbar-thumb {
+    background-color: #888;
+
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+
+.offcanvas-categorias .menu-scroll::-webkit-scrollbar-thumb:hover {
+    background-color: #666;
+}
+
+
+/* =========================================================
+   TÍTULO "CATEGORÍAS"
+========================================================= */
+
+.offcanvas-categorias .titulo-categorias {
+    margin: 0 0 16px;
+
+    color: #212529;
+
+    font-size: 25px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   LISTA DE CATEGORÍAS
+========================================================= */
+
+/*
+Eliminamos completamente:
+
+- Los puntos de la lista.
+- Los márgenes automáticos.
+- Los espacios interiores.
+*/
+.offcanvas-categorias .lista-categorias {
+    display: block;
+
+    width: 100%;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    list-style: none !important;
+}
+
+
+/*
+También eliminamos el marcador directamente
+de cada elemento li.
+*/
+.offcanvas-categorias .lista-categorias li {
+    display: block;
+
+    width: 100%;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    list-style: none !important;
+}
+
+
+/*
+Esto elimina los puntos incluso si el navegador
+intenta añadirlos mediante ::marker.
+*/
+.offcanvas-categorias .lista-categorias li::marker {
+    content: "";
+    display: none;
+}
+
+
+/* =========================================================
+   BOTÓN DE CADA CATEGORÍA
+========================================================= */
+
+/*
+Cada botón ocupa toda la anchura del menú.
+
+No tiene borde, no tiene fondo y no parece
+el botón gris que aparece en tu imagen izquierda.
+*/
+.offcanvas-categorias .opcion-categoria {
+    appearance: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    min-height: 56px;
+
+    margin: 0;
+    padding: 8px 4px;
+
+    border: 0 !important;
+    border-radius: 0;
+
+    background: transparent !important;
+
+    color: #212529;
+
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: 400;
+
+    line-height: 1.3;
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: color 0.2s ease;
+}
+
+
+/* =========================================================
+   ICONO Y TEXTO DE LA IZQUIERDA
+========================================================= */
+
+.offcanvas-categorias .contenido-categoria {
+    display: flex;
+    align-items: center;
+
+    min-width: 0;
+
+    gap: 14px;
+}
+
+
+/*
+Damos a todos los iconos la misma anchura.
+
+Así todos los nombres empiezan en la misma posición.
+*/
+.offcanvas-categorias .contenido-categoria > i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 26px;
+
+    flex: 0 0 26px;
+
+    color: inherit;
+
+    font-size: 24px;
+}
+
+
+/* =========================================================
+   SIGNO > DE LA DERECHA
+========================================================= */
+
+.offcanvas-categorias .opcion-categoria .flecha {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 auto;
+
+    margin-left: 20px;
+
+    color: inherit;
+
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   EFECTO HOVER NARANJA
+========================================================= */
+
+/*
+Al pasar el ratón por cualquier parte de la fila:
+
+- El texto cambia a naranja.
+- El icono cambia a naranja.
+- La flecha > cambia a naranja.
+
+No ponemos un fondo naranja porque en la página
+original solamente cambia el color del contenido.
+*/
+.offcanvas-categorias .opcion-categoria:hover {
+    color: #ff6000 !important;
+}
+
+
+/*
+También mantenemos el naranja cuando el botón
+recibe el foco mediante el teclado.
+*/
+.offcanvas-categorias .opcion-categoria:focus {
+    color: #ff6000 !important;
+
+    outline: none;
+    box-shadow: none;
+}
+
+
+/*
+Evitamos el fondo gris o azul que Bootstrap o
+el navegador podrían aplicar al pulsar.
+*/
+.offcanvas-categorias .opcion-categoria:active {
+    color: #ff6000 !important;
+
+    background: transparent !important;
+
+    outline: none;
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   RESPONSIVE DEL MENÚ
+========================================================= */
+
+@media (max-width: 575.98px) {
+
+    /*
+    En móvil el menú ocupa toda la pantalla.
+    */
+    .offcanvas.offcanvas-start.offcanvas-categorias {
+        width: 100%;
+    }
+
+    .offcanvas-categorias .menu-cabecera {
+        min-height: 65px;
+
+        padding: 16px 20px 8px;
+    }
+
+    .offcanvas-categorias .menu-superior {
+        padding: 0 20px;
+    }
+
+    .offcanvas-categorias .opcion-ofertas {
+        padding: 12px 0 18px;
+
+        font-size: 24px;
+    }
+
+    .offcanvas-categorias .menu-scroll {
+        padding: 20px 20px 25px;
+    }
+
+    .offcanvas-categorias .titulo-categorias {
+        font-size: 23px;
+    }
+
+    .offcanvas-categorias .opcion-categoria {
+        min-height: 54px;
+
+        font-size: 18px;
+    }
+
+    .offcanvas-categorias .contenido-categoria > i {
+        font-size: 22px;
+    }
+}
+
+/* =========================================================
+   LÍNEA ENTRE CATEGORÍAS Y TRENDING
+========================================================= */
+
+.offcanvas-categorias .linea-trending {
+    height: 1px;
+
+    margin: 20px 0 22px;
+
+    border: 0;
+
+    background-color: #d4d4d4;
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   TÍTULO TRENDING
+========================================================= */
+
+.offcanvas-categorias .titulo-trending {
+    margin: 0 0 18px;
+
+    color: #212529;
+
+    font-size: 25px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   LISTA TRENDING
+========================================================= */
+
+/*
+Eliminamos completamente los puntos y espacios
+que las listas tienen por defecto.
+*/
+.offcanvas-categorias .lista-trending {
+    display: block;
+
+    width: 100%;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    list-style: none !important;
+}
+
+
+/*
+Cada elemento ocupa toda la anchura.
+*/
+.offcanvas-categorias .lista-trending li {
+    display: block;
+
+    width: 100%;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    list-style: none !important;
+}
+
+
+/*
+Eliminamos el punto de cada elemento de la lista.
+*/
+.offcanvas-categorias .lista-trending li::marker {
+    content: "";
+    display: none;
+}
+
+
+/* =========================================================
+   BOTONES TRENDING
+========================================================= */
+
+/*
+Aunque visualmente parecen enlaces, son botones
+sin ninguna acción.
+
+Por eso no llevan a ninguna página.
+*/
+.offcanvas-categorias .opcion-trending {
+    appearance: none;
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    min-height: 50px;
+
+    margin: 0;
+    padding: 8px 0;
+
+    border: 0 !important;
+    border-radius: 0;
+
+    background: transparent !important;
+
+    color: #4a4a4a;
+
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 400;
+
+    line-height: 1.3;
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: color 0.2s ease;
+}
+
+
+/* =========================================================
+   HOVER NARANJA DE TRENDING
+========================================================= */
+
+/*
+Cuando pasamos el ratón por una opción Trending,
+su texto se vuelve naranja.
+*/
+.offcanvas-categorias .opcion-trending:hover {
+    color: #ff6000 !important;
+}
+
+
+/*
+También usamos el naranja cuando se selecciona
+con el teclado.
+*/
+.offcanvas-categorias .opcion-trending:focus {
+    color: #ff6000 !important;
+
+    outline: none;
+    box-shadow: none;
+}
+
+
+/*
+Quitamos cualquier fondo que el navegador pueda
+añadir al pulsar el botón.
+*/
+.offcanvas-categorias .opcion-trending:active {
+    color: #ff6000 !important;
+
+    background: transparent !important;
+
+    outline: none;
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   CONFIGURADOR DE PCS
+========================================================= */
+
+/*
+El texto y la etiqueta aparecen en la misma línea.
+*/
+.offcanvas-categorias .opcion-configurador {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   ETIQUETA "TE RECOMENDAMOS"
+========================================================= */
+
+/*
+Esta etiqueta siempre tiene la letra naranja.
+
+No necesita hover porque nunca cambia de color.
+*/
+.offcanvas-categorias .etiqueta-recomendado {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 6px 10px;
+
+    border: 1px solid #d5d5d5;
+    border-radius: 5px;
+
+    background-color: white;
+
+    color: #ff6000 !important;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    line-height: 1;
+}
+
+
+/*
+Aunque pasemos el ratón por Configurador PCs,
+la etiqueta continúa siendo naranja.
+*/
+.offcanvas-categorias .opcion-configurador:hover
+.etiqueta-recomendado {
+    color: #ff6000 !important;
+}
+
+
+/* =========================================================
+   RESPONSIVE DEL APARTADO TRENDING
+========================================================= */
+
+@media (max-width: 575.98px) {
+
+    .offcanvas-categorias .linea-trending {
+        margin-top: 18px;
+        margin-bottom: 20px;
+    }
+
+    .offcanvas-categorias .titulo-trending {
+        font-size: 23px;
+    }
+
+    .offcanvas-categorias .opcion-trending {
+        min-height: 48px;
+
+        font-size: 17px;
+    }
+
+    .offcanvas-categorias .etiqueta-recomendado {
+        padding: 5px 8px;
+
+        font-size: 13px;
+    }
+}
+
+/* =========================================================
+   FRANJA SUPERIOR: REACONDICIONADOS Y CAMPAÑAS
+========================================================= */
+
+/*
+Bootstrap no tiene exactamente el naranja de PcComponentes,
+por eso creamos una clase personalizada.
+*/
+.texto-naranja {
+    color: #ff6000 !important;
+}
+
+
+/*
+Aspecto de los dos botones de la franja superior.
+*/
+.boton-superior {
+    font-size: 17px;
+
+    /*
+    transition hace que el cambio de color del hover
+    sea más suave.
+    */
+    transition: color 0.2s ease;
+}
+
+
+/*
+Reacondicionados se pondrá naranja al pasar el ratón.
+*/
+.boton-superior.text-dark:hover {
+    color: #ff6000 !important;
+}
+
+
+/*
+Campañas y ofertas ya es naranja.
+
+Al pasar el ratón usamos un naranja un poco más oscuro.
+*/
+.boton-superior.texto-naranja:hover {
+    color: #d95100 !important;
+}
+
+
+/*
+Quitamos la sombra que Bootstrap puede poner
+al seleccionar los botones.
+*/
+.boton-superior:focus,
+.boton-superior:active {
+    box-shadow: none !important;
+}
+
+
+/* =========================================================
+   SECCIÓN PUBLICITARIA
+========================================================= */
+
+.seccion-publicidad {
+    background-color: white;
+}
+
+
+/*
+Texto situado encima de la imagen.
+*/
+.texto-expertos {
+    color: #212529;
+
+    font-size: 18px;
+}
+
+
+/*
+La imagen ocupará toda la anchura disponible.
+
+height: auto impide que la imagen se deforme.
+*/
+.imagen-publicidad {
+    width: 100%;
+    height: auto;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   RESPONSIVE DE LA PUBLICIDAD
+========================================================= */
+
+@media (max-width: 575.98px) {
+
+    /*
+    Reducimos el espacio entre los dos botones
+    en pantallas pequeñas.
+    */
+    .boton-superior {
+        font-size: 14px;
+    }
+
+    /*
+    El texto superior también se hace más pequeño.
+    */
+    .texto-expertos {
+        margin-bottom: 16px !important;
+
+        font-size: 15px;
+    }
+}
