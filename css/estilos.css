@@ -1,0 +1,5296 @@
+/* =========================================================
+   1. CONTENEDOR PRINCIPAL DEL HEADER
+   ========================================================= */
+
+/*
+Bootstrap intenta repartir los elementos del navbar
+y permite que bajen a otra lÃ­nea.
+
+Con flex-wrap: nowrap impedimos que eso ocurra.
+Así, en ordenador, todo permanece en una única fila.
+*/
+.navbar > .container-fluid.contenedor-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    flex-wrap: nowrap;
+
+    width: 100%;
+
+    gap: 16px;
+}
+
+
+/* =========================================================
+   2. LOGOTIPO
+   ========================================================= */
+
+/*
+flex-shrink: 0 impide que Bootstrap aplaste
+o deforme el logotipo cuando falta espacio.
+*/
+.logo-contenedor {
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 0;
+}
+
+
+/*
+Logotipo completo.
+
+Se utiliza en pantallas grandes porque en el HTML
+tiene las clases: d-none d-xl-block.
+*/
+.logo-completo {
+    display: block;
+
+    width: 180px;
+    height: 70px;
+
+    object-fit: contain;
+}
+
+
+/*
+En móvil solamente queremos enseñar el sí­mbolo naranja.
+
+Esta caja funciona como una ventana pequeña que oculta
+la parte del texto PC Componentes.
+*/
+.logo-movil-contenedor {
+    display: block;
+
+    width: 45px;
+    height: 48px;
+
+    overflow: hidden;
+}
+
+
+/*
+La imagen continúa siendo más ancha que la caja,
+pero solamente vemos su parte izquierda.
+*/
+.logo-movil {
+    display: block;
+
+    width: auto;
+    max-width: none;
+    height: 48px;
+
+    object-fit: contain;
+    object-position: left center;
+}
+
+
+/* =========================================================
+   3. BOTÓN HAMBURGUESA
+   ========================================================= */
+
+/*
+Este botón solamente aparece en tablet y móvil
+porque en el HTML tiene la clase d-xl-none.
+*/
+.boton-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 auto;
+
+    padding: 4px;
+
+    border: none;
+    background-color: transparent;
+}
+
+
+/*
+Quitamos la sombra azul que Bootstrap puede mostrar
+cuando pulsamos el botÃ³n.
+*/
+.boton-menu:focus,
+.boton-menu:active {
+    border: none;
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   4. BOTÓN "TODAS LAS CATEGORÍAS"
+   ========================================================= */
+
+/*
+Este botón solo aparece en ordenador.
+
+flex: 0 0 auto significa que conservará el espacio
+que necesita y no se deformarÃ¡.
+*/
+.boton-categorias {
+    align-items: center;
+
+    flex: 0 0 auto;
+
+    gap: 10px;
+
+    padding-left: 8px;
+    padding-right: 8px;
+
+    border: none;
+    background-color: transparent;
+
+    font-size: 18px;
+}
+
+
+/*
+Al pasar el ratón cambiamos ligeramente el fondo.
+*/
+.boton-categorias:hover {
+    background-color: #f5f5f5;
+}
+
+
+/* =========================================================
+   5. BUSCADOR
+   ========================================================= */
+
+/*
+Bootstrap aplica width: 100% a los input-group.
+
+Eso hací­a que el buscador ocupase una línea completa.
+Con width: auto permitimos que comparta la fila con
+el logotipo, las categorí­as, la IA, la cuenta y la cesta.
+*/
+.navbar .buscador {
+    width: auto;
+    min-width: 250px;
+
+    /*
+    El buscador ocupa todo el espacio que quede libre,
+    pero puede reducirse cuando la pantalla sea menor.
+    */
+    flex: 1 1 300px;
+
+    /*
+    El selector, el campo de búsqueda y la lupa
+    permanecen siempre en la misma línea.
+    */
+    flex-wrap: nowrap;
+}
+
+
+/*
+Permite que el campo de búsqueda se haga más pequeño
+sin empujar los demás elementos fuera de la pantalla.
+*/
+.navbar .buscador .form-control {
+    width: 1%;
+    min-width: 0;
+
+    flex: 1 1 auto;
+}
+
+
+/*
+Anchura del selector "Todo el catálogo".
+*/
+.selector-catalogo {
+    width: 210px;
+    max-width: 210px;
+
+    flex: 0 0 210px;
+}
+
+
+/*
+Altura de los elementos del buscador en ordenador.
+*/
+.buscador .form-control,
+.buscador .form-select,
+.boton-lupa,
+.boton-ia {
+    min-height: 60px;
+}
+
+
+/*
+Quitamos la sombra azul de Bootstrap cuando
+pulsamos dentro del buscador.
+*/
+.buscador .form-control:focus,
+.buscador .form-select:focus {
+    z-index: 1;
+
+    border-color: #000000;
+    box-shadow: none;
+}
+.buscador .form-control:hover ,
+.buscador .form-select:hover  {
+    border-color: #000000;
+}
+
+
+/*
+Botón que contiene el icono de la lupa.
+*/
+.boton-lupa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 auto;
+
+    padding-left: 18px;
+    padding-right: 18px;
+}
+
+
+/*
+Cuando pasamos el ratón, usamos el naranja
+caracterÃístico de PcComponentes.
+*/
+.boton-lupa:hover {
+    color: white;
+
+   
+}
+
+
+/* =========================================================
+   6. BOTÓN "BUSCAR CON IA"
+   ========================================================= */
+
+/*
+Este botón se muestra en pantallas grandes.
+
+No permitimos que se reduzca ni que su texto
+se divida en dos lÃ­neas.
+*/
+.boton-ia {
+    align-items: center;
+
+    flex: 0 0 auto;
+
+    padding-left: 16px;
+    padding-right: 16px;
+
+    white-space: nowrap;
+
+    font-size: 18px;
+}
+
+
+/*
+Estrella naranja situada antes del texto.
+*/
+.icono-ia {
+    margin-right: 6px;
+
+    color: #ff6000;
+
+    font-size: 26px;
+    line-height: 1;
+}
+
+
+/*
+Color del botón cuando pasamos el ratón.
+*/
+.boton-ia:hover {
+    color: #212529;
+
+    background-color: #f5f5f5;
+    border-color: #6c757d;
+}
+
+
+/* =========================================================
+   7. MI CUENTA Y MI CESTA
+   ========================================================= */
+
+/*
+En ordenador aparecen el icono y el texto.
+
+En móvil, Bootstrap oculta el texto gracias a:
+d-none d-xl-inline.
+*/
+.enlace-navegacion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 auto;
+
+    gap: 8px;
+
+    padding: 8px;
+
+    color: #212529;
+
+    white-space: nowrap;
+
+    font-size: 18px;
+}
+
+
+/*
+Color naranja al pasar el ratÃ³n.
+*/
+.enlace-navegacion:hover {
+    color: #ff6000;
+}
+
+
+/* =========================================================
+   8. CONTADOR ROJO DE LA CESTA
+   ========================================================= */
+
+.contador-cesta {
+    position: absolute;
+
+    top: -9px;
+    right: -12px;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   9. PANTALLAS ENTRE 1200 Y 1399 PÍXELES
+   ========================================================= */
+
+/*
+Estas pantallas ya son consideradas xl por Bootstrap,
+pero todaví­a pueden ser un poco estrechas.
+
+Reducimos algunos tamaños y ocultamos el botón de IA
+para evitar que el header se desborde.
+*/
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+
+    .navbar > .container-fluid.contenedor-header {
+        gap: 10px;
+    }
+
+    .logo-completo {
+        width: 145px;
+    }
+
+    .boton-categorias {
+        gap: 5px;
+
+        padding-left: 4px;
+        padding-right: 4px;
+
+        font-size: 15px;
+    }
+
+    .selector-catalogo {
+        width: 165px;
+        max-width: 165px;
+
+        flex-basis: 165px;
+    }
+
+    /*
+    Ocultamos solamente la IA en este tamaño.
+    El resto del header continúa visible.
+    */
+    .boton-ia {
+        display: none !important;
+    }
+
+    .enlace-navegacion {
+        gap: 5px;
+
+        padding-left: 4px;
+        padding-right: 4px;
+
+        font-size: 15px;
+    }
+}
+
+
+/* =========================================================
+   10. TABLET Y MÓVIL
+   Pantallas menores de 1200 píxeles
+   ========================================================= */
+
+@media (max-width: 1199.98px) {
+
+    /*
+    Todos los elementos siguen en una Ãºnica lÃ­nea.
+    */
+    .navbar > .container-fluid.contenedor-header {
+        justify-content: flex-start;
+
+        flex-wrap: nowrap;
+
+        gap: 12px;
+    }
+
+    /*
+    El buscador puede ocupar todo el espacio libre,
+    pero tambiÃ©n puede hacerse pequeÃ±o.
+    */
+    .navbar .buscador {
+        width: auto;
+        min-width: 0;
+
+        flex: 1 1 auto;
+    }
+
+    /*
+    Reducimos la altura del buscador.
+    */
+    .buscador .form-control,
+    .boton-lupa {
+        min-height: 48px;
+    }
+
+    .boton-lupa {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    /*
+    Cuenta y cesta solamente muestran sus iconos.
+    */
+    .enlace-navegacion {
+        padding: 8px;
+    }
+}
+
+
+/* =========================================================
+   11. MÓVILES
+   Pantallas menores de 576 píxeles
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+    /*
+    Reducimos los espacios laterales y la separación
+    entre elementos para que todo pueda caber.
+    */
+    .navbar > .container-fluid.contenedor-header {
+        gap: 7px;
+
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    /*
+    El símbolo naranja se hace un poco más pequeño.
+    */
+    .logo-movil-contenedor {
+        width: 38px;
+        height: 42px;
+    }
+
+    .logo-movil {
+        height: 42px;
+    }
+
+    /*
+    Reducimos la altura del buscador.
+    */
+    .buscador .form-control,
+    .boton-lupa {
+        min-height: 44px;
+    }
+
+    /*
+    Reducimos el espacio interior del texto Buscar.
+    */
+    .buscador .form-control {
+        padding-left: 10px;
+        padding-right: 5px;
+    }
+
+    /*
+    Reducimos el espacio interior de la lupa.
+    */
+    .boton-lupa {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    /*
+    Cuenta y cesta ocupan menos espacio.
+    */
+    .enlace-navegacion {
+        padding: 5px;
+    }
+}
+
+
+/* =========================================================
+   12. MÓVILES MUY PEQUEÑOS
+   Pantallas menores de 401 píxeles
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    /*
+    En una pantalla muy estrecha ocultamos el logotipo
+    para dar más espacio al buscador.
+
+    Todavia permanecen visibles:
+    hamburguesa, buscador, cuenta y cesta.
+    */
+    .logo-contenedor {
+        display: none;
+    }
+
+    .navbar > .container-fluid.contenedor-header {
+        gap: 5px;
+
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+
+    .enlace-navegacion {
+        padding: 3px;
+    }
+}
+
+/* =========================================================
+   MENÚ LATERAL DE CATEGORÍAS
+========================================================= */
+
+/*
+Anchura del menÚ lateral.
+
+Bootstrap utiliza por defecto 400px aproximadamente.
+Nosotros lo hacemos un poco más ancho, como el original.
+*/
+.offcanvas-categorias {
+    width: 460px;
+    max-width: 100%;
+}
+
+
+/*
+Reducimos el espacio inferior de la cabecera porque
+solamente contiene el botÃ³n de cerrar.
+*/
+.offcanvas-categorias .offcanvas-header {
+    padding: 24px 24px 10px;
+}
+
+
+/*
+Espacio interior del contenido.
+*/
+.offcanvas-categorias .offcanvas-body {
+    padding: 10px 24px 30px;
+
+    /*
+    Si la lista no cabe verticalmente,
+    aparecerÃ¡ una barra para desplazarse.
+    */
+    overflow-y: auto;
+}
+
+
+/* =========================================================
+   CAMPAÑAS Y OFERTAS
+========================================================= */
+
+/*
+Aunque parece un enlace, utilizamos un button porque
+no queremos que lleve a otra página.
+*/
+.opcion-destacada {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    padding: 10px 0 18px;
+
+    border: none;
+    background-color: transparent;
+
+    color: #ff6000;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    text-align: left;
+
+    cursor: pointer;
+}
+
+
+/*
+Tamaño de la flecha situada a la derecha.
+*/
+.opcion-destacada .bi-chevron-right {
+    font-size: 18px;
+}
+
+
+/*
+Cuando pasamos el ratón, cambiamos ligeramente
+el tono naranja.
+*/
+.opcion-destacada:hover {
+    color: #d95100;
+}
+
+
+/* =========================================================
+   LÍNEA SEPARADORA
+========================================================= */
+
+.separador-menu {
+    margin: 12px 0 22px;
+
+    border: 0;
+    border-top: 1px solid #bdbdbd;
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   TÍTULO CATEGORÍAS
+========================================================= */
+
+.titulo-categorias {
+    margin: 0 0 20px;
+
+    color: #212529;
+
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   LISTA DE CATEGORÃAS
+========================================================= */
+
+/*
+Quitamos los puntos y espacios que normalmente
+tienen las listas HTML.
+*/
+.lista-categorias {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+
+/*
+Cada elemento ocupa toda la anchura disponible.
+*/
+.lista-categorias li {
+    width: 100%;
+}
+
+
+/*
+Este botón representa cada categoría.
+
+justify-content: space-between coloca:
+- icono y texto a la izquierda;
+- flecha a la derecha.
+*/
+.opcion-categoria {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    min-height: 56px;
+
+    padding: 10px 4px;
+
+    border: none;
+    border-radius: 6px;
+
+    background-color: transparent;
+
+    color: #212529;
+
+    font-size: 20px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    /*
+    Hace que el cambio de color sea suave.
+    */
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        padding-left 0.2s ease;
+}
+
+
+/*
+Agrupa el icono y el nombre de la categorÃ­a.
+*/
+.categoria-izquierda {
+    display: flex;
+    align-items: center;
+
+    min-width: 0;
+
+    gap: 14px;
+}
+
+
+/*
+Todos los iconos tienen el mismo espacio.
+AsÃ­ los textos empiezan alineados.
+*/
+.icono-categoria {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 26px;
+
+    flex: 0 0 26px;
+
+    font-size: 24px;
+}
+
+
+/*
+Flecha situada a la derecha.
+*/
+.flecha-categoria {
+    flex: 0 0 auto;
+
+    margin-left: 15px;
+
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   EFECTO HOVER
+========================================================= */
+
+/*
+Cuando pasamos el ratón por una categoría:
+
+1. El texto se vuelve naranja.
+2. El icono se vuelve naranja.
+3. La flecha se vuelve naranja.
+4. Aparece un fondo muy suave.
+5. El contenido se desplaza ligeramente a la derecha.
+*/
+.opcion-categoria:hover {
+    padding-left: 10px;
+
+    color: #ff6000;
+    background-color: #fff4ed;
+}
+
+
+/*
+Bootstrap puede aplicar estilos al pulsar un botÃ³n.
+Los dejamos también en naranja.
+*/
+.opcion-categoria:focus,
+.opcion-categoria:active {
+    color: #ff6000;
+    background-color: #fff4ed;
+
+    outline: none;
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   MENÚ LATERAL COMPLETO
+========================================================= */
+
+/*
+El menú tiene una anchura parecida a la pÃ¡gina original.
+
+display: flex y flex-direction: column permiten dividirlo
+en una zona fija y otra zona con scroll.
+*/
+.offcanvas.offcanvas-start.offcanvas-categorias {
+    width: 500px;
+    max-width: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================================================
+   CABECERA DEL MENÚ: BOTÓN X
+========================================================= */
+
+.offcanvas-categorias .menu-cabecera {
+    display: flex;
+    justify-content: flex-end;
+
+    flex: 0 0 auto;
+
+    min-height: 75px;
+
+    padding: 20px 28px 10px;
+
+    border: none;
+}
+
+
+/* Quitamos sombras del botón de cerrar */
+.offcanvas-categorias .btn-close:focus {
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   CUERPO GENERAL DEL MENÚ
+========================================================= */
+
+/*
+El cuerpo no tendrÃ¡ scroll.
+
+El scroll estará solamente en .menu-scroll,
+que comienza debajo de la línea horizontal.
+*/
+.offcanvas-categorias .menu-cuerpo {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1 1 auto;
+
+    min-height: 0;
+
+    padding: 0;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   PARTE SUPERIOR FIJA
+========================================================= */
+
+.offcanvas-categorias .menu-superior {
+    flex: 0 0 auto;
+
+    padding: 0 28px;
+}
+
+
+/* =========================================================
+   CAMPAÑAS Y OFERTAS
+========================================================= */
+
+.offcanvas-categorias .opcion-ofertas {
+    appearance: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    padding: 15px 0 20px;
+
+    border: 0 !important;
+    border-radius: 0;
+
+    background: transparent !important;
+
+    color: #ff6000;
+
+    font-family: inherit;
+    font-size: 27px;
+    font-weight: 700;
+
+    text-align: left;
+
+    cursor: pointer;
+}
+
+
+/* Flecha de Campañas y ofertas */
+.offcanvas-categorias .opcion-ofertas .bi-chevron-right {
+    flex: 0 0 auto;
+
+    margin-left: 20px;
+
+    font-size: 18px;
+}
+
+
+/* Efecto hover naranja */
+.offcanvas-categorias .opcion-ofertas:hover,
+.offcanvas-categorias .opcion-ofertas:focus {
+    color: #d95100;
+
+    outline: none;
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   LÍNEA HORIZONTAL
+========================================================= */
+
+.offcanvas-categorias .linea-menu {
+    height: 1px;
+
+    margin: 0;
+
+    border: 0;
+
+    background-color: #d4d4d4;
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   ZONA CON SCROLL
+========================================================= */
+
+/*
+El scroll comienza exactamente debajo del hr.
+
+min-height: 0 es importante para que el scroll
+funcione dentro de un contenedor flex.
+*/
+.offcanvas-categorias .menu-scroll {
+    flex: 1 1 auto;
+
+    min-height: 0;
+
+    padding: 22px 28px 30px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    scrollbar-width: auto;
+    scrollbar-color: #888 transparent;
+}
+
+
+/*
+Personalización del scroll para Chrome y Edge.
+*/
+.offcanvas-categorias .menu-scroll::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+.offcanvas-categorias .menu-scroll::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+
+.offcanvas-categorias .menu-scroll::-webkit-scrollbar-thumb {
+    background-color: #888;
+
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+
+.offcanvas-categorias .menu-scroll::-webkit-scrollbar-thumb:hover {
+    background-color: #666;
+}
+
+
+/* =========================================================
+   TÍTULO "CATEGORÍAS"
+========================================================= */
+
+.offcanvas-categorias .titulo-categorias {
+    margin: 0 0 16px;
+
+    color: #212529;
+
+    font-size: 25px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   LISTA DE CATEGORÍAS
+========================================================= */
+
+/*
+Eliminamos completamente:
+
+- Los puntos de la lista.
+- Los mÃ¡rgenes automÃ¡ticos.
+- Los espacios interiores.
+*/
+.offcanvas-categorias .lista-categorias {
+    display: block;
+
+    width: 100%;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    list-style: none !important;
+}
+
+
+/*
+También eliminamos el marcador directamente
+de cada elemento li.
+*/
+.offcanvas-categorias .lista-categorias li {
+    display: block;
+
+    width: 100%;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    list-style: none !important;
+}
+
+
+/*
+Esto elimina los puntos incluso si el navegador
+intenta añadirlos mediante ::marker.
+*/
+.offcanvas-categorias .lista-categorias li::marker {
+    content: "";
+    display: none;
+}
+
+
+/* =========================================================
+   BOTÓN DE CADA CATEGORÍA
+========================================================= */
+
+/*
+Cada botón ocupa toda la anchura del menú.
+
+No tiene borde, no tiene fondo y no parece
+el botónn gris que aparece en tu imagen izquierda.
+*/
+.offcanvas-categorias .opcion-categoria {
+    appearance: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    min-height: 56px;
+
+    margin: 0;
+    padding: 8px 4px;
+
+    border: 0 !important;
+    border-radius: 0;
+
+    background: transparent !important;
+
+    color: #212529;
+
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: 400;
+
+    line-height: 1.3;
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: color 0.2s ease;
+}
+
+
+/* =========================================================
+   ICONO Y TEXTO DE LA IZQUIERDA
+========================================================= */
+
+.offcanvas-categorias .contenido-categoria {
+    display: flex;
+    align-items: center;
+
+    min-width: 0;
+
+    gap: 14px;
+}
+
+
+/*
+Damos a todos los iconos la misma anchura.
+
+AsÃ­ todos los nombres empiezan en la misma posiciÃ³n.
+*/
+.offcanvas-categorias .contenido-categoria > i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 26px;
+
+    flex: 0 0 26px;
+
+    color: inherit;
+
+    font-size: 24px;
+}
+
+
+/* =========================================================
+   SIGNO > DE LA DERECHA
+========================================================= */
+
+.offcanvas-categorias .opcion-categoria .flecha {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 auto;
+
+    margin-left: 20px;
+
+    color: inherit;
+
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   EFECTO HOVER NARANJA
+========================================================= */
+
+/*
+Al pasar el ratón por cualquier parte de la fila:
+
+- El texto cambia a naranja.
+- El icono cambia a naranja.
+- La flecha > cambia a naranja.
+
+No ponemos un fondo naranja porque en la página
+original solamente cambia el color del contenido.
+*/
+.offcanvas-categorias .opcion-categoria:hover {
+    color: #ff6000 !important;
+}
+
+
+/*
+También mantenemos el naranja cuando el botón
+recibe el foco mediante el teclado.
+*/
+.offcanvas-categorias .opcion-categoria:focus {
+    color: #ff6000 !important;
+
+    outline: none;
+    box-shadow: none;
+}
+
+
+/*
+Evitamos el fondo gris o azul que Bootstrap o
+el navegador podrían aplicar al pulsar.
+*/
+.offcanvas-categorias .opcion-categoria:active {
+    color: #ff6000 !important;
+
+    background: transparent !important;
+
+    outline: none;
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   RESPONSIVE DEL MENÚ
+========================================================= */
+
+@media (max-width: 575.98px) {
+
+    /*
+    En móvil el menú ocupa toda la pantalla.
+    */
+    .offcanvas.offcanvas-start.offcanvas-categorias {
+        width: 100%;
+    }
+
+    .offcanvas-categorias .menu-cabecera {
+        min-height: 65px;
+
+        padding: 16px 20px 8px;
+    }
+
+    .offcanvas-categorias .menu-superior {
+        padding: 0 20px;
+    }
+
+    .offcanvas-categorias .opcion-ofertas {
+        padding: 12px 0 18px;
+
+        font-size: 24px;
+    }
+
+    .offcanvas-categorias .menu-scroll {
+        padding: 20px 20px 25px;
+    }
+
+    .offcanvas-categorias .titulo-categorias {
+        font-size: 23px;
+    }
+
+    .offcanvas-categorias .opcion-categoria {
+        min-height: 54px;
+
+        font-size: 18px;
+    }
+
+    .offcanvas-categorias .contenido-categoria > i {
+        font-size: 22px;
+    }
+}
+
+/* =========================================================
+   LÍNEA ENTRE CATEGORIAS Y TRENDING
+========================================================= */
+
+.offcanvas-categorias .linea-trending {
+    height: 1px;
+
+    margin: 20px 0 22px;
+
+    border: 0;
+
+    background-color: #d4d4d4;
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   TÍTULO TRENDING
+========================================================= */
+
+.offcanvas-categorias .titulo-trending {
+    margin: 0 0 18px;
+
+    color: #212529;
+
+    font-size: 25px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   LISTA TRENDING
+========================================================= */
+
+/*
+Eliminamos completamente los puntos y espacios
+que las listas tienen por defecto.
+*/
+.offcanvas-categorias .lista-trending {
+    display: block;
+
+    width: 100%;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    list-style: none !important;
+}
+
+
+/*
+Cada elemento ocupa toda la anchura.
+*/
+.offcanvas-categorias .lista-trending li {
+    display: block;
+
+    width: 100%;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    list-style: none !important;
+}
+
+
+/*
+Eliminamos el punto de cada elemento de la lista.
+*/
+.offcanvas-categorias .lista-trending li::marker {
+    content: "";
+    display: none;
+}
+
+
+/* =========================================================
+   BOTONES TRENDING
+========================================================= */
+
+/*
+Aunque visualmente parecen enlaces, son botones
+sin ninguna acción.
+
+Por eso no llevan a ninguna página.
+*/
+.offcanvas-categorias .opcion-trending {
+    appearance: none;
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    min-height: 50px;
+
+    margin: 0;
+    padding: 8px 0;
+
+    border: 0 !important;
+    border-radius: 0;
+
+    background: transparent !important;
+
+    color: #4a4a4a;
+
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 400;
+
+    line-height: 1.3;
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: color 0.2s ease;
+}
+
+
+/* =========================================================
+   HOVER NARANJA DE TRENDING
+========================================================= */
+
+/*
+Cuando pasamos el ratón por una opción Trending,
+su texto se vuelve naranja.
+*/
+.offcanvas-categorias .opcion-trending:hover {
+    color: #ff6000 !important;
+}
+
+
+/*
+Tambión usamos el naranja cuando se selecciona
+con el teclado.
+*/
+.offcanvas-categorias .opcion-trending:focus {
+    color: #ff6000 !important;
+
+    outline: none;
+    box-shadow: none;
+}
+
+
+/*
+Quitamos cualquier fondo que el navegador pueda
+añadir al pulsar el botón.
+*/
+.offcanvas-categorias .opcion-trending:active {
+    color: #ff6000 !important;
+
+    background: transparent !important;
+
+    outline: none;
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   CONFIGURADOR DE PCS
+========================================================= */
+
+/*
+El texto y la etiqueta aparecen en la misma lÃ­nea.
+*/
+.offcanvas-categorias .opcion-configurador {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   ETIQUETA "TE RECOMENDAMOS"
+========================================================= */
+
+/*
+Esta etiqueta siempre tiene la letra naranja.
+
+No necesita hover porque nunca cambia de color.
+*/
+.offcanvas-categorias .etiqueta-recomendado {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 6px 10px;
+
+    border: 1px solid #d5d5d5;
+    border-radius: 5px;
+
+    background-color: white;
+
+    color: #ff6000 !important;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    line-height: 1;
+}
+
+
+/*
+Aunque pasemos el ratón por Configurador PCs,
+la etiqueta continÃºa siendo naranja.
+*/
+.offcanvas-categorias .opcion-configurador:hover
+.etiqueta-recomendado {
+    color: #ff6000 !important;
+}
+
+
+/* =========================================================
+   RESPONSIVE DEL APARTADO TRENDING
+========================================================= */
+
+@media (max-width: 575.98px) {
+
+    .offcanvas-categorias .linea-trending {
+        margin-top: 18px;
+        margin-bottom: 20px;
+    }
+
+    .offcanvas-categorias .titulo-trending {
+        font-size: 23px;
+    }
+
+    .offcanvas-categorias .opcion-trending {
+        min-height: 48px;
+
+        font-size: 17px;
+    }
+
+    .offcanvas-categorias .etiqueta-recomendado {
+        padding: 5px 8px;
+
+        font-size: 13px;
+    }
+}
+
+/* =========================================================
+   FRANJA SUPERIOR: REACONDICIONADOS Y CAMPAÑAS
+========================================================= */
+
+/*
+Bootstrap no tiene exactamente el naranja de PcComponentes,
+por eso creamos una clase personalizada.
+*/
+.texto-naranja {
+    color: #ff6000 !important;
+}
+
+
+/*
+Aspecto de los dos botones de la franja superior.
+*/
+.boton-superior {
+    font-size: 17px;
+
+    /*
+    transition hace que el cambio de color del hover
+    sea mÃ¡s suave.
+    */
+    transition: color 0.2s ease;
+}
+
+
+/*
+Reacondicionados se pondrÃ¡ naranja al pasar el botón.
+*/
+.boton-superior.text-dark:hover {
+    color: #ff6000 !important;
+}
+
+
+/*
+Campañas y ofertas ya es naranja.
+
+Al pasar el botón usamos un naranja un poco más oscuro.
+*/
+.boton-superior.texto-naranja:hover {
+    color: #d95100 !important;
+}
+
+
+/*
+Quitamos la sombra que Bootstrap puede poner
+al seleccionar los botones.
+*/
+.boton-superior:focus,
+.boton-superior:active {
+    box-shadow: none !important;
+}
+
+
+/* =========================================================
+   SECCIÓN PUBLICITARIA
+========================================================= */
+
+.seccion-publicidad {
+    background-color: white;
+}
+
+
+/*
+Texto situado encima de la imagen.
+*/
+.texto-expertos {
+    color: #212529;
+
+    font-size: 18px;
+}
+
+
+/*
+La imagen ocuparÍ toda la anchura disponible.
+
+height: auto impide que la imagen se deforme.
+*/
+.imagen-publicidad {
+    width: 100%;
+    height: auto;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   RESPONSIVE DE LA PUBLICIDAD
+========================================================= */
+
+@media (max-width: 575.98px) {
+
+    /*
+    Reducimos el espacio entre los dos botones
+    en pantallas pequeÃ±as.
+    */
+    .boton-superior {
+        font-size: 14px;
+    }
+
+    /*
+    El texto superior tambiÃ©n se hace más pequeño.
+    */
+    .texto-expertos {
+        margin-bottom: 16px !important;
+
+        font-size: 15px;
+    }
+}
+
+/* ==================================================
+   CATEGORÍAS DESTACADAS
+   ================================================== */
+
+/* Tí­tulo de la sección */
+.titulo-categorias {
+    color: #1f1f1f;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+/*
+   En pantallas grandes, los productos forman
+   una cuadrícula de 6 columnas.
+*/
+.categorias-contenedor {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 35px 24px;
+}
+
+/*
+   display: contents hace que los dos grupos no alteren
+   la cuadrÃ­cula cuando estamos en un ordenador.
+*/
+.grupo-categorias {
+    display: contents;
+}
+
+/* Enlace que rodea cada categoría */
+.categoria-enlace {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Producto completo: imagen y nombre */
+.categoria-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    text-align: center;
+    cursor: pointer;
+
+    /* Animación de imagen y texto al mismo tiempo */
+    transition: transform 0.3s ease;
+}
+
+/* Imagen circular */
+.categoria-imagen {
+    width: 130px;
+    height: 130px;
+    padding: 10px;
+    object-fit: contain;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+}
+
+/* Nombre del producto */
+.categoria-nombre {
+    margin: 12px 0 0;
+    color: #333;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+
+    transition:
+        color 0.3s ease,
+        font-weight 0.3s ease;
+}
+
+/*
+   Al pasar el botón, crece todo el producto:
+   tanto la imagen como el texto.
+*/
+.categoria-enlace:hover .categoria-card {
+    transform: scale(1.07);
+}
+
+/* El texto se vuelve negro y más grueso */
+.categoria-enlace:hover .categoria-nombre {
+    color: #000;
+    font-weight: 600;
+}
+
+/* Mismo efecto cuando se selecciona usando el teclado */
+.categoria-enlace:focus .categoria-card {
+    transform: scale(1.07);
+}
+
+.categoria-enlace:focus .categoria-nombre {
+    color: #000;
+    font-weight: 600;
+}
+
+.categoria-enlace:focus {
+    outline: none;
+}
+
+/* ==================================================
+   TABLETS Y MÓVILES: DESPLAZAMIENTO HORIZONTAL
+   ================================================== */
+
+@media (max-width: 767.98px) {
+
+    .titulo-categorias {
+        font-size: 26px;
+    }
+
+    /*
+       Convertimos el contenedor en una fila horizontal.
+       overflow-x permite desplazarse hacia la derecha.
+    */
+    .categorias-contenedor {
+        display: flex;
+        gap: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        /* Hace que cada grupo encaje al terminar el scroll */
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+
+        /* Permite deslizar cÃ³modamente con el dedo */
+        -webkit-overflow-scrolling: touch;
+
+        padding: 5px 0 15px;
+    }
+
+    /*
+       Cada grupo ocupa todo el ancho de la pantalla
+       y contiene 3 columnas y 2 filas.
+    */
+    .grupo-categorias {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-rows: repeat(2, auto);
+        gap: 38px 10px;
+
+        flex: 0 0 100%;
+        min-width: 100%;
+
+        scroll-snap-align: start;
+    }
+
+    /* ImÃ¡genes adaptadas al espacio disponible */
+    .categoria-imagen {
+        width: clamp(80px, 20vw, 115px);
+        height: clamp(80px, 20vw, 115px);
+        padding: 8px;
+    }
+
+    .categoria-nombre {
+        margin-top: 10px;
+        font-size: 16px;
+    }
+
+    /* Reducimos el aumento porque hay menos espacio */
+    .categoria-enlace:hover .categoria-card,
+    .categoria-enlace:focus .categoria-card {
+        transform: scale(1.04);
+    }
+
+    /* PersonalizaciÃ³n de la barra horizontal */
+    .categorias-contenedor::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .categorias-contenedor::-webkit-scrollbar-track {
+        background-color: #eeeeee;
+        border-radius: 10px;
+    }
+
+    .categorias-contenedor::-webkit-scrollbar-thumb {
+        background-color: #777777;
+        border-radius: 10px;
+    }
+}
+
+/* ==================================================
+   MÓVILES MUY PEQUEÑOS
+   ================================================== */
+
+@media (max-width: 400px) {
+
+    .titulo-categorias {
+        font-size: 23px;
+    }
+
+    .grupo-categorias {
+        gap: 30px 6px;
+    }
+
+    .categoria-imagen {
+        width: 82px;
+        height: 82px;
+    }
+
+    .categoria-nombre {
+        font-size: 14px;
+    }
+}
+
+/* ==================================================
+   REACONDICIONADOS Y SERVICIOS POSVENTA
+   ================================================== */
+
+/*
+   Caja principal del carrusel.
+   position: relative permite colocar las flechas
+   sobre los laterales.
+*/
+.carrusel-reacondicionados {
+    position: relative;
+    width: 100%;
+    padding: 0 45px;
+}
+
+/*
+   Fila horizontal que contiene todos los productos.
+*/
+.lista-reacondicionados {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+
+    /* Permite desplazarse horizontalmente */
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+
+    padding: 10px 4px 18px;
+
+    /* Permite deslizar con el dedo en mÃ³viles */
+    -webkit-overflow-scrolling: touch;
+
+    /* Oculta la barra en Firefox */
+    scrollbar-width: none;
+}
+
+/* Oculta la barra horizontal en Chrome y Edge */
+.lista-reacondicionados::-webkit-scrollbar {
+    display: none;
+}
+
+/*
+   Enlace de cada servicio.
+   En ordenador intentamos mostrar los siete.
+*/
+.reacondicionado-enlace {
+    flex: 0 0 calc((100% - 120px) / 7);
+    min-width: 155px;
+
+    color: inherit;
+    text-decoration: none;
+
+    scroll-snap-align: start;
+}
+
+/* Tarjeta de cada servicio */
+.reacondicionado-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    height: 100%;
+    text-align: center;
+}
+
+/* Imagen de cada servicio */
+.reacondicionado-imagen {
+    width: 130px;
+    height: 130px;
+    padding: 10px;
+
+    object-fit: contain;
+
+    border-radius: 50%;
+    background-color: #f5f5f5;
+}
+
+/* Texto situado debajo de la imagen */
+.reacondicionado-nombre {
+    margin: 12px 0 0;
+
+    color: #333;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.3;
+    text-align: center;
+}
+
+/*
+   No aÃ±adimos ninguna regla :hover.
+   Por eso la imagen y el texto no crecen
+   ni cambian de color al pasar el ratÃ³n.
+*/
+
+/* ==================================================
+   FLECHAS DEL DESPLAZAMIENTO
+   ================================================== */
+
+.flecha-reacondicionados {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid #d5d5d5;
+    border-radius: 50%;
+
+    background-color: #ffffff;
+    color: #222222;
+
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1;
+
+    cursor: pointer;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+
+    transform: translateY(-50%);
+}
+
+/* PosiciÃ³n de la flecha izquierda */
+.flecha-izquierda {
+    left: 0;
+}
+
+/* PosiciÃ³n de la flecha derecha */
+.flecha-derecha {
+    right: 0;
+}
+
+/*
+   Las flechas solo cambian ligeramente de fondo.
+   Las imÃ¡genes y los textos siguen sin hover.
+*/
+.flecha-reacondicionados:hover {
+    background-color: #f2f2f2;
+}
+
+/* Marcado visible para navegar con el teclado */
+.flecha-reacondicionados:focus-visible {
+    outline: 3px solid rgba(255, 96, 0, 0.35);
+    outline-offset: 2px;
+}
+
+/* ==================================================
+   TABLETS
+   Mostramos aproximadamente cuatro elementos.
+   ================================================== */
+
+@media (max-width: 991.98px) {
+
+    .reacondicionado-enlace {
+        flex-basis: calc((100% - 60px) / 4);
+        min-width: 160px;
+    }
+
+    .reacondicionado-imagen {
+        width: 120px;
+        height: 120px;
+    }
+
+    .reacondicionado-nombre {
+        font-size: 16px;
+    }
+}
+
+/* ==================================================
+   MÓVILES
+   Mostramos aproximadamente tres elementos.
+   ================================================== */
+
+@media (max-width: 767.98px) {
+
+    .carrusel-reacondicionados {
+        padding: 0 36px;
+    }
+
+    .lista-reacondicionados {
+        gap: 12px;
+    }
+
+    .reacondicionado-enlace {
+        flex-basis: calc((100% - 24px) / 3);
+        min-width: 105px;
+    }
+
+    .reacondicionado-imagen {
+        width: clamp(80px, 22vw, 105px);
+        height: clamp(80px, 22vw, 105px);
+        padding: 7px;
+    }
+
+    .reacondicionado-nombre {
+        font-size: 14px;
+    }
+
+    .flecha-reacondicionados {
+        width: 34px;
+        height: 34px;
+        font-size: 21px;
+    }
+}
+
+/* ==================================================
+   MÓVILES MUY PEQUEÑOS
+   Mostramos aproximadamente dos elementos.
+   ================================================== */
+
+@media (max-width: 400px) {
+
+    .reacondicionado-enlace {
+        flex-basis: calc((100% - 12px) / 2);
+        min-width: 110px;
+    }
+
+    .reacondicionado-imagen {
+        width: 90px;
+        height: 90px;
+    }
+
+    .reacondicionado-nombre {
+        font-size: 13px;
+    }
+}
+
+/* ==================================================
+   LAS MEJORES OFERTAS DE DÍAS NARANJAS
+   ================================================== */
+
+/* Caja principal de la sección */
+.seccion-ofertas-dias-naranjas {
+    margin: 20px 0;
+    padding: 28px 24px 32px;
+
+    border-radius: 12px;
+    background-color: #ffffff;
+}
+
+/* Cabecera: tí­tulo y enlace Ver más */
+.cabecera-ofertas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    margin-bottom: 10px;
+}
+/* Titulo principal */
+.titulo-ofertas {
+    margin: 0;
+
+    color: #2f2f2f;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+/* Enlace situado arriba a la derecha */
+.enlace-ver-mas {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+
+    color: #333333;
+    font-size: 17px;
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+}
+
+/* Cambio a naranja al pasar el ratÃ³n por Ver mÃ¡s */
+.enlace-ver-mas:hover {
+    color: #ff6000;
+}
+
+/* Caja que contiene la lista y las flechas */
+.carrusel-ofertas {
+    position: relative;
+}
+
+/* Fila horizontal de productos */
+.lista-ofertas {
+    display: flex;
+    align-items: stretch;
+    gap: 15px;
+    width: 100%
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding: 0 8px 12px;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+.lista-ofertas > * {
+    flex: 0 0 calc((100% - 75px) / 6);
+    max-width: calc((100% - 75px) / 6);
+}
+
+
+/* Oculta la barra en Chrome y Edge */
+.lista-ofertas::-webkit-scrollbar {
+    display: none;
+}
+
+/* Enlace que contiene toda la tarjeta */
+.enlace-producto-oferta {
+    flex: 0 0 calc((100% - 112px) / 5);
+    min-width: 230px;
+
+    color: inherit;
+    text-decoration: none;
+
+    scroll-snap-align: start;
+}
+
+/* Tarjeta completa */
+.tarjeta-producto-oferta {
+    height: 100%;
+
+    border: none;
+    border-radius: 0;
+
+    background-color: transparent;
+}
+
+/* Caja reservada para la imagen */
+.contenedor-imagen-oferta {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 210px;
+
+    background-color: #ffffff;
+}
+
+/* Imagen del producto */
+.imagen-producto-oferta {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+/* Porcentaje situado arriba a la izquierda */
+.descuento-oferta {
+    position: absolute;
+    top: 4px;
+    left: 0;
+    z-index: 2;
+
+    padding: 5px 9px;
+
+    border-radius: 5px;
+
+    background-color: #cc001b;
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* Cuerpo inferior de la tarjeta */
+.cuerpo-producto-oferta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 13px 0 0;
+}
+
+/* Nombre del producto */
+.nombre-producto-oferta {
+    display: -webkit-box;
+    min-height: 66px;
+    margin: 0 0 12px;
+    overflow: hidden;
+
+    color: #444444;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.3;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+/* Fila del precio actual y anterior */
+.precios-producto-oferta {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 9px;
+
+    margin-bottom: 11px;
+}
+
+/* Precio actual */
+.precio-actual-oferta {
+    color: #c60024;
+    font-size: 29px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* Precio anterior tachado */
+.precio-anterior-oferta {
+    color: #929292;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* Mensaje de precio mÃ­nimo */
+.precio-minimo-oferta {
+    min-height: 22px;
+    margin: 0 0 7px;
+
+    color: #c60024;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* ValoraciÃ³n y opiniones */
+.valoracion-producto-oferta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+
+    margin: 0 0 8px;
+
+    color: #606060;
+    font-size: 14px;
+}
+
+/* Estrella naranja */
+.estrella-oferta {
+    color: #ff9900;
+    font-size: 20px;
+    line-height: 1;
+}
+
+/* InformaciÃ³n de envÃ­o */
+.envio-producto-oferta {
+    margin: 0;
+
+    color: #087b16;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+/* PequeÃ±o icono naranja del envÃ­o */
+.icono-envio-oferta {
+    display: inline-block;
+    margin-right: 5px;
+
+    color: #ff7300;
+    transform: rotate(15deg);
+}
+
+/* Etiqueta Recomendado */
+.etiqueta-recomendado-oferta {
+    display: inline-block;
+
+    margin-bottom: 8px;
+    padding: 6px 10px;
+
+    border-radius: 5px;
+
+    background-color: #ff7800;
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* Fila de colores y otras opciones */
+.opciones-color-oferta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 7px;
+
+    margin-top: 10px;
+}
+
+/* CÃ­rculos de color */
+.color-oferta {
+    display: inline-block;
+
+    width: 20px;
+    height: 20px;
+
+    border: 1px solid #999999;
+    border-radius: 50%;
+}
+
+.color-azul {
+    background-color: #10189d;
+}
+
+.color-naranja {
+    background-color: #ffa000;
+}
+
+.color-gris {
+    background-color: #dedede;
+}
+
+.color-gris-oscuro {
+    background-color: #909090;
+}
+
+.color-negro {
+    background-color: #111111;
+}
+
+/* Texto Ver otras opciones */
+.texto-otras-opciones {
+    color: #929292;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ==================================================
+   FLECHAS DEL CARRUSEL
+   ================================================== */
+
+.flecha-ofertas {
+    position: absolute;
+    top: 38%;
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 46px;
+    height: 58px;
+
+    border: 1px solid #d3d3d3;
+    border-radius: 6px;
+
+    background-color: #ffffff;
+    color: #333333;
+
+    font-size: 29px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.12);
+
+    transform: translateY(-50%);
+}
+
+/* Flecha izquierda */
+.flecha-ofertas-izquierda {
+    left: -18px;
+}
+
+/* Flecha derecha */
+.flecha-ofertas-derecha {
+    right: -18px;
+}
+
+/*
+   No añadimos reglas :hover.
+   Ninguna tarjeta, imagen o texto cambia
+   al pasar el ratÃ³n por encima.
+*/
+
+/* ==================================================
+   TABLETS
+   ================================================== */
+
+@media (max-width: 991.98px) {
+
+    .seccion-ofertas-dias-naranjas {
+        padding: 25px 18px 28px;
+    }
+
+    .titulo-ofertas {
+        font-size: 26px;
+    }
+
+    /* Se muestran aproximadamente tres productos */
+    .enlace-producto-oferta {
+        flex-basis: calc((100% - 48px) / 3);
+        min-width: 220px;
+    }
+
+    .contenedor-imagen-oferta {
+        height: 195px;
+    }
+
+    .precio-actual-oferta {
+        font-size: 26px;
+    }
+}
+
+/* ==================================================
+   MÓVILES
+   ================================================== */
+
+@media (max-width: 767.98px) {
+
+    .seccion-ofertas-dias-naranjas {
+        margin: 30px 0;
+        padding: 22px 12px 25px;
+    }
+
+    .cabecera-ofertas {
+        align-items: flex-start;
+        margin-bottom: 22px;
+    }
+
+    .titulo-ofertas {
+        font-size: 23px;
+    }
+
+    .enlace-ver-mas {
+        gap: 6px;
+        font-size: 15px;
+    }
+
+    .lista-ofertas {
+        gap: 16px;
+        padding-right: 4px;
+        padding-left: 4px;
+    }
+
+    /* Se muestran aproximadamente dos productos */
+    .enlace-producto-oferta {
+        flex-basis: calc((100% - 16px) / 2);
+        min-width: 190px;
+    }
+
+    .contenedor-imagen-oferta {
+        height: 175px;
+    }
+
+    .nombre-producto-oferta {
+        min-height: 61px;
+        font-size: 15px;
+    }
+
+    .precio-actual-oferta {
+        font-size: 24px;
+    }
+
+    .precio-anterior-oferta,
+    .precio-minimo-oferta {
+        font-size: 14px;
+    }
+
+    .valoracion-producto-oferta,
+    .envio-producto-oferta,
+    .texto-otras-opciones {
+        font-size: 13px;
+    }
+
+    .flecha-ofertas {
+        width: 38px;
+        height: 50px;
+        font-size: 24px;
+    }
+
+    .flecha-ofertas-izquierda {
+        left: -9px;
+    }
+
+    .flecha-ofertas-derecha {
+        right: -9px;
+    }
+}
+
+/* ==================================================
+   MÓVILES MUY PEQUEÑOS
+   ================================================== */
+
+@media (max-width: 400px) {
+
+    .cabecera-ofertas {
+        gap: 10px;
+    }
+
+    .titulo-ofertas {
+        font-size: 20px;
+    }
+
+    .enlace-ver-mas {
+        font-size: 13px;
+    }
+
+    /* Se muestra una tarjeta completa y parte de la siguiente */
+    .enlace-producto-oferta {
+        flex-basis: 78%;
+        min-width: 210px;
+    }
+
+    .contenedor-imagen-oferta {
+        height: 185px;
+    }
+}
+
+
+/* ==================================================
+   NUESTRO EQUIPO EXPERTO TE AYUDA A ELEGIR
+   ================================================== */
+
+/* Fondo gris claro y espacio alrededor de la secciÃ³n */
+.seccion-equipo-experto {
+    padding: 25px 22px;
+    background-color: #f4f4f4;
+}
+
+/* TÃ­tulo principal de la secciÃ³n */
+.titulo-equipo-experto {
+    margin: 0 0 20px;
+    color: #2e2e2e;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+/* Tarjeta blanca que contiene la imagen y el texto */
+.tarjeta-equipo {
+    padding: 30px;
+    overflow: hidden;
+    border: none;
+    border-radius: 12px;
+    background-color: #ffffff;
+}
+
+/* Enlace que contiene la imagen y el texto */
+.enlace-equipo {
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 9px;
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Imagen panorÃ¡mica */
+.imagen-equipo {
+    display: block;
+    width: 100%;
+
+    /* Mantiene las dos imÃ¡genes con el mismo tamaÃ±o */
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+
+    border-radius: 9px;
+
+    /* Prepara el aumento suave de la imagen */
+    transition: transform 0.3s ease;
+}
+
+/* Zona donde se encuentra el texto */
+.cuerpo-tarjeta-equipo {
+    padding: 12px 0 0;
+}
+
+/* Texto situado debajo de la imagen */
+.texto-equipo {
+    margin: 0;
+    color: #2e2e2e;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.35;
+
+    /*
+       Prepara el cambio de color y el aumento
+       suave del texto.
+    */
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+/*
+   Al pasar el ratÃ³n por cualquier parte del enlace,
+   la imagen aumenta ligeramente.
+*/
+.enlace-equipo:hover .imagen-equipo {
+    transform: scale(1.03);
+}
+
+/*
+   Al pasar el ratÃ³n, el texto tambiÃ©n aumenta
+   y cambia a naranja.
+*/
+.enlace-equipo:hover .texto-equipo {
+    color: #ff6000;
+    transform: scale(1.02);
+    transform-origin: left center;
+}
+
+/* Mismo efecto al navegar utilizando el teclado */
+.enlace-equipo:focus-visible .imagen-equipo {
+    transform: scale(1.03);
+}
+
+.enlace-equipo:focus-visible .texto-equipo {
+    color: #ff6000;
+    transform: scale(1.02);
+    transform-origin: left center;
+}
+
+/* Borde de selecciÃ³n para la navegaciÃ³n con teclado */
+.enlace-equipo:focus-visible {
+    outline: 3px solid rgba(255, 96, 0, 0.35);
+    outline-offset: 5px;
+}
+
+/* ==================================================
+   TABLETS Y MÓVILES
+   ================================================== */
+
+@media (max-width: 767.98px) {
+
+    .seccion-equipo-experto {
+        padding: 25px 12px;
+    }
+
+    .titulo-equipo-experto {
+        margin-bottom: 22px;
+        font-size: 24px;
+    }
+
+    /*
+       En mÃ³vil las tarjetas se colocan una debajo
+       de la otra gracias a row-cols-1.
+    */
+    .tarjeta-equipo {
+        padding: 18px;
+    }
+
+    .texto-equipo {
+        font-size: 16px;
+    }
+
+    /* El aumento es un poco menor en pantallas pequeñas */
+    .enlace-equipo:hover .imagen-equipo,
+    .enlace-equipo:focus-visible .imagen-equipo {
+        transform: scale(1.02);
+    }
+
+    .enlace-equipo:hover .texto-equipo,
+    .enlace-equipo:focus-visible .texto-equipo {
+        transform: scale(1.01);
+    }
+}
+
+/* ==================================================
+   MÓVILES MUY PEQUEÑOS
+   ================================================== */
+
+@media (max-width: 400px) {
+
+    .titulo-equipo-experto {
+        font-size: 22px;
+    }
+
+    .tarjeta-equipo {
+        padding: 14px;
+    }
+
+    .texto-equipo {
+        font-size: 15px;
+    }
+}
+
+
+/* ==================================================
+   ORGANIZA TU CASA, TU TRABAJO Y TU RUTINA
+   ================================================== */
+
+.seccion-organiza-rutina {
+    width: 100%;
+    padding: 30px 18px 38px;
+
+    background-color: #f4f4f4;
+}
+
+
+.contenedor-organiza-rutina {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+
+/* Título principal */
+
+.titulo-organiza-rutina {
+    margin: 0 0 28px;
+
+    color: #333333;
+
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+
+/* Contenedor necesario para colocar la flecha */
+
+.carrusel-organiza-rutina {
+    position: relative;
+
+    width: 100%;
+}
+
+
+/* ==================================================
+   DISTRIBUCIÓN EN ORDENADOR
+   ================================================== */
+
+.rejilla-organiza-rutina {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: stretch;
+
+    width: 100%;
+
+    gap: 28px;
+}
+
+
+/* Tarjeta blanca */
+
+.tarjeta-organiza-rutina {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+    padding: 28px 30px;
+
+    border-radius: 10px;
+
+    background-color: #ffffff;
+}
+
+
+/* Título de cada tarjeta */
+
+.titulo-tarjeta-organiza {
+    margin: 0 0 22px;
+
+    overflow: hidden;
+
+    color: #363636;
+
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* Enlace que contiene la imagen y el texto */
+
+.enlace-organiza-rutina {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
+    min-width: 0;
+
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* Contenedor de las imágenes grandes */
+
+.contenedor-imagen-organiza {
+    width: 100%;
+
+    /*
+    Hace las imágenes verticales y rectangulares,
+    como las tarjetas laterales de la captura.
+    */
+    aspect-ratio: 4 / 5;
+
+    overflow: hidden;
+
+    border-radius: 9px;
+}
+
+
+/* Imagen */
+
+.imagen-organiza-rutina {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.25s ease;
+}
+
+
+/* Texto inferior */
+
+.texto-organiza-rutina {
+    margin: 12px 0 0;
+
+    color: #333333;
+
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.35;
+
+    text-decoration: none;
+
+    transition: color 0.25s ease;
+}
+
+
+/* ==================================================
+   TARJETA CENTRAL CON DOS IMÁGENES
+   ================================================== */
+
+.tarjeta-organiza-doble {
+    display: flex;
+    flex-direction: column;
+
+    gap: 0;
+}
+
+
+.enlace-organiza-pequeno {
+    flex: initial;
+}
+
+
+/* Separación entre las dos imágenes */
+
+.enlace-organiza-pequeno + .enlace-organiza-pequeno {
+    margin-top: 20px;
+}
+
+
+/*
+Las imágenes de la tarjeta central son horizontales,
+como aparecen en la captura.
+*/
+
+.contenedor-imagen-pequena {
+    height: auto;
+    aspect-ratio: 16 / 9;
+}
+
+
+/* ==================================================
+   EFECTO HOVER
+   ================================================== */
+
+.enlace-organiza-rutina:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+.enlace-organiza-rutina:hover .imagen-organiza-rutina {
+    transform: scale(1.025);
+}
+
+
+.enlace-organiza-rutina:hover .texto-organiza-rutina {
+    color: #ff6000;
+}
+
+
+/* Navegación mediante teclado */
+
+.enlace-organiza-rutina:focus-visible {
+    border-radius: 8px;
+
+    outline: 3px solid rgba(255, 96, 0, 0.35);
+    outline-offset: 4px;
+}
+
+
+.enlace-organiza-rutina:focus-visible .imagen-organiza-rutina {
+    transform: scale(1.025);
+}
+
+
+.enlace-organiza-rutina:focus-visible .texto-organiza-rutina {
+    color: #ff6000;
+}
+
+
+/* ==================================================
+   FLECHA DEL CARRUSEL
+   ================================================== */
+
+.flecha-organiza-rutina {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    right: -8px;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 60px;
+    padding: 0;
+
+    border: 1px solid #d5d5d5;
+    border-radius: 6px 0 0 6px;
+
+    background-color: #ffffff;
+    color: #333333;
+
+    font-size: 27px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14);
+
+    cursor: pointer;
+
+    transform: translateY(-50%);
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.flecha-organiza-rutina:hover {
+    background-color: #eeeeee;
+    color: #111111;
+}
+
+
+.flecha-organiza-rutina:focus-visible {
+    outline: 3px solid rgba(80, 80, 80, 0.35);
+    outline-offset: 2px;
+}
+
+
+/* ==================================================
+   TABLET
+   TRES TARJETAS Y CUATRO IMÁGENES VISIBLES
+   ================================================== */
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+
+    .seccion-organiza-rutina {
+        padding: 28px 18px 36px;
+    }
+
+
+    .titulo-organiza-rutina {
+        margin-bottom: 30px;
+
+        font-size: 29px;
+    }
+
+
+    /*
+    Se convierte en carrusel horizontal.
+
+    Cada tarjeta ocupa un tercio del espacio:
+    tarjeta izquierda + tarjeta doble + tarjeta derecha.
+    */
+
+    .rejilla-organiza-rutina {
+        display: flex;
+        align-items: stretch;
+
+        width: 100%;
+
+        gap: 28px;
+        padding: 0 0 10px;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+
+    .rejilla-organiza-rutina::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    /*
+    Entre las tres tarjetas existen dos espacios de 28px.
+    */
+
+    .tarjeta-organiza-rutina {
+        flex: 0 0 calc((100% - 56px) / 3);
+        min-width: calc((100% - 56px) / 3);
+        padding: 28px 30px;
+
+        scroll-snap-align: start;
+    }
+
+
+    .titulo-tarjeta-organiza {
+        margin-bottom: 22px;
+
+        font-size: 23px;
+    }
+
+
+    /*
+    Las imágenes laterales son verticales y rectangulares.
+    */
+
+    .contenedor-imagen-organiza {
+        height: auto;
+        aspect-ratio: 4 / 5;
+    }
+
+
+    /*
+    La columna central contiene dos imágenes horizontales.
+    */
+
+    .contenedor-imagen-pequena {
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+
+
+    .texto-organiza-rutina {
+        font-size: 15px;
+    }
+
+
+    /*
+    En tablet aparece la flecha para acceder
+    a la cuarta tarjeta y a la quinta imagen.
+    */
+
+    .flecha-organiza-rutina {
+        display: flex;
+    }
+}
+
+
+/* ==================================================
+   MÓVIL
+   UNA TARJETA Y PARTE DE LA SIGUIENTE
+   ================================================== */
+
+@media (max-width: 767.98px) {
+
+    .seccion-organiza-rutina {
+        padding: 24px 12px 30px;
+    }
+
+
+    .titulo-organiza-rutina {
+        margin-bottom: 20px;
+
+        font-size: 23px;
+    }
+
+
+    .rejilla-organiza-rutina {
+        display: flex;
+        align-items: stretch;
+
+        width: 100%;
+
+        gap: 18px;
+        padding: 0 0 14px;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+
+    .rejilla-organiza-rutina::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    .tarjeta-organiza-rutina {
+        flex: 0 0 min(360px, 84vw);
+        min-width: min(360px, 84vw);
+
+        padding: 20px;
+
+        scroll-snap-align: start;
+    }
+
+
+    .titulo-tarjeta-organiza {
+        margin-bottom: 16px;
+
+        font-size: 21px;
+    }
+
+
+    .contenedor-imagen-organiza {
+        height: auto;
+        aspect-ratio: 4 / 5;
+    }
+
+
+    .contenedor-imagen-pequena {
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+
+
+    .texto-organiza-rutina {
+        font-size: 14px;
+    }
+
+
+    /*
+    La flecha también aparece en móvil.
+    */
+
+    .flecha-organiza-rutina {
+        display: flex;
+
+        right: -5px;
+
+        width: 44px;
+        height: 56px;
+
+        font-size: 23px;
+    }
+}
+
+
+/* ==================================================
+   MÓVILES MUY PEQUEÑOS
+   ================================================== */
+
+@media (max-width: 400px) {
+
+    .seccion-organiza-rutina {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+
+    .titulo-organiza-rutina {
+        font-size: 21px;
+    }
+
+
+    .tarjeta-organiza-rutina {
+        flex-basis: 86vw;
+        min-width: 86vw;
+
+        padding: 16px;
+    }
+
+
+    .titulo-tarjeta-organiza {
+        font-size: 19px;
+    }
+
+
+    .texto-organiza-rutina {
+        font-size: 13px;
+    }
+}
+
+/* ==================================================
+   SECCIÓN DE PRESENTACIÓN DE REACONDICIONADOS
+   ================================================== */
+
+/* Fondo general gris con un ligero tono morado */
+.seccion-presentacion-reacondicionados {
+    margin: 35px 0;
+    padding: 0 24px;
+}
+
+/* Caja principal de la secciÃ³n */
+.contenedor-presentacion-reacondicionados {
+    max-width: 1560px;
+    margin: 0 auto;
+    padding: 64px 70px;
+
+    border-radius: 10px;
+
+    background-color: #f1f0ff;
+}
+
+/* ==================================================
+   PARTE SUPERIOR
+   ================================================== */
+
+.fila-presentacion-reacondicionados {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(330px, 0.8fr);
+    align-items: center;
+    gap: 70px;
+}
+
+/* Columna izquierda */
+.informacion-presentacion-reacondicionados {
+    min-width: 0;
+}
+
+/* ==================================================
+   LOGOTIPO REACONDICIONADOS
+   ================================================== */
+
+.logotipo-reacondicionados {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 12px;
+
+    color: #303030;
+
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-size: 35px;
+    font-weight: 350;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+/* Sí­labas RE con fondo verde */
+.silaba-reacondicionados {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2px 6px;
+
+    background-color: #b5ed13;
+    color: #252525;
+
+    font-size: 46px;
+    line-height: 1;
+}
+
+/* Resto de la palabra */
+.resto-logotipo-reacondicionados {
+    display: inline-block;
+}
+
+/* ==================================================
+   TÍTULO PRINCIPAL
+   ================================================== */
+
+.titulo-presentacion-reacondicionados {
+    max-width: 800px;
+    margin: 0;
+
+    color: #303030;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+/* Palabras destacadas en morado */
+.texto-morado-reacondicionados {
+    color: #5947ff;
+}
+
+/* ==================================================
+   BOTONES DE REACONDICIONADOS
+   ================================================== */
+
+.botones-presentacion-reacondicionados {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-top: 26px;
+}
+
+
+/* Primer botón: fondo negro */
+
+.boton-ver-reacondicionados {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 50px;
+    padding: 11px 20px;
+
+    border: 1px solid #333333;
+    border-radius: 4px;
+
+    background-color: #333333;
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2;
+
+    text-decoration: none;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+/* Hover gris del primer botón */
+
+.boton-ver-reacondicionados:hover {
+    border-color: #999999;
+    background-color: #999999;
+    color: #ffffff;
+
+    text-decoration: none;
+}
+
+
+/* Segundo botón: fondo blanco */
+
+.boton-preguntas-reacondicionados {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 50px;
+    padding: 11px 20px;
+
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+
+    background-color: #ffffff;
+    color: #444444;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.2;
+
+    text-decoration: none;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+/* Hover gris claro del segundo botón */
+
+.boton-preguntas-reacondicionados:hover {
+    border-color: #dddddd;
+    background-color: #f2f2f2;
+    color: #444444;
+
+    text-decoration: none;
+}
+
+
+/* Navegación mediante teclado */
+
+.boton-ver-reacondicionados:focus-visible,
+.boton-preguntas-reacondicionados:focus-visible {
+    outline: 2px solid #666666;
+    outline-offset: 3px;
+}
+
+
+/* ==================================================
+   TABLET Y MÓVIL: BOTONES EN VERTICAL
+   ================================================== */
+
+@media (max-width: 991px) {
+
+    .botones-presentacion-reacondicionados {
+        flex-direction: column;
+        align-items: flex-start;
+        flex-wrap: nowrap;
+        gap: 10px;
+
+        margin-top: 24px;
+    }
+
+    .boton-ver-reacondicionados,
+    .boton-preguntas-reacondicionados {
+        width: 220px;
+        max-width: 100%;
+    }
+}
+
+
+/* ==================================================
+   MÓVIL
+   ================================================== */
+
+@media (max-width: 575px) {
+
+    .botones-presentacion-reacondicionados {
+        margin-top: 20px;
+    }
+
+    .boton-ver-reacondicionados,
+    .boton-preguntas-reacondicionados {
+        width: 100%;
+        min-height: 48px;
+        padding: 10px 16px;
+
+        font-size: 15px;
+    }
+}
+/* ==================================================
+   CUADRO DE VENTAJAS
+   ================================================== */
+
+/* Caja blanca situada a la derecha */
+.cuadro-ventajas-reacondicionados {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    padding: 24px;
+
+    border: 1px solid #d7d7d7;
+    border-radius: 9px;
+
+    background-color: #ffffff;
+}
+
+/* Cada fila del cuadro */
+.ventaja-reacondicionados {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+/* Fondo cuadrado de cada icono */
+.icono-ventaja-reacondicionados {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 42px;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 8px;
+
+    background-color: #f0efff;
+    color: #5b4cff;
+
+    font-size: 19px;
+}
+
+/* Texto de cada ventaja */
+.ventaja-reacondicionados p {
+    margin: 0;
+
+    color: #353535;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+/* ==================================================
+   LOS MÁS BUSCADOS
+   ================================================== */
+
+.zona-mas-buscados-reacondicionados {
+    margin-top: 38px;
+}
+
+/* TÍtulo de la zona */
+.titulo-mas-buscados-reacondicionados {
+    margin: 0 0 17px;
+
+    color: #303030;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Fila de etiquetas */
+.lista-mas-buscados-reacondicionados {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    overflow-x: auto;
+    overflow-y: visible;
+
+    padding: 5px 0 10px;
+
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Oculta la barra horizontal en Chrome y Edge */
+.lista-mas-buscados-reacondicionados::-webkit-scrollbar {
+    display: none;
+}
+
+/* Etiqueta individual */
+.etiqueta-buscada-reacondicionados {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    gap: 7px;
+
+    min-height: 36px;
+    padding: 6px 14px;
+
+    border: 1px solid #5947ff;
+    border-radius: 20px;
+
+    background-color: #ffffff;
+    color: #464646;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1;
+    text-decoration: none;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+/* Tamaño de los iconos */
+.etiqueta-buscada-reacondicionados i {
+    color: #303030;
+    font-size: 19px;
+}
+
+/*
+   Al pasar el ratón, la etiqueta sube
+   unos pocos pixeles.
+*/
+.etiqueta-buscada-reacondicionados:hover {
+
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.13);
+
+    transform: translateY(-4px);
+}
+
+/* Mismo efecto al navegar mediante el teclado */
+.etiqueta-buscada-reacondicionados:focus-visible {
+    border-color: #ff6000;
+
+    outline: 3px solid rgba(255, 96, 0, 0.25);
+    outline-offset: 2px;
+
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.13);
+
+    transform: translateY(-4px);
+}
+
+/* ==================================================
+   TABLETS
+   ================================================== */
+
+@media (max-width: 991.98px) {
+
+    .contenedor-presentacion-reacondicionados {
+        padding: 45px 38px;
+    }
+
+    /*
+       La información principal y el cuadro de ventajas
+       se colocan uno debajo del otro.
+    */
+    .fila-presentacion-reacondicionados {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .cuadro-ventajas-reacondicionados {
+        max-width: 520px;
+    }
+
+    .titulo-presentacion-reacondicionados {
+        font-size: 27px;
+    }
+
+    .zona-mas-buscados-reacondicionados {
+        margin-top: 32px;
+    }
+}
+
+/* ==================================================
+   MÓVILES
+   ================================================== */
+
+@media (max-width: 575.98px) {
+
+    .seccion-presentacion-reacondicionados {
+        margin: 25px 0;
+        padding: 0 10px;
+    }
+
+    .contenedor-presentacion-reacondicionados {
+        padding: 32px 18px;
+    }
+
+    .logotipo-reacondicionados {
+        font-size: 27px;
+        letter-spacing: -0.5px;
+    }
+
+    .silaba-reacondicionados {
+        padding: 2px 4px;
+        font-size: 33px;
+    }
+
+    .titulo-presentacion-reacondicionados {
+        font-size: 23px;
+        line-height: 1.4;
+    }
+
+    /* Conserva los dos botones en la misma lÃ­nea */
+    .botones-presentacion-reacondicionados {
+        flex-wrap: nowrap;
+        gap: 8px;
+
+        margin-top: 22px;
+    }
+
+    .boton-ver-reacondicionados,
+    .boton-preguntas-reacondicionados {
+        flex: 1;
+
+        min-height: 46px;
+        padding: 9px 10px;
+
+        font-size: 13px;
+        text-align: center;
+    }
+
+    .cuadro-ventajas-reacondicionados {
+        gap: 9px;
+        padding: 17px;
+    }
+
+    .icono-ventaja-reacondicionados {
+        flex-basis: 36px;
+
+        width: 36px;
+        height: 36px;
+
+        font-size: 16px;
+    }
+
+    .ventaja-reacondicionados p {
+        font-size: 14px;
+    }
+
+    .titulo-mas-buscados-reacondicionados {
+        font-size: 18px;
+    }
+
+    /*
+       Las etiquetas permanecen en una sola lÃ­nea
+       y se desplazan lateralmente con el dedo.
+    */
+    .lista-mas-buscados-reacondicionados {
+        flex-wrap: nowrap;
+        padding-top: 6px;
+    }
+
+    .etiqueta-buscada-reacondicionados {
+        min-height: 34px;
+        padding: 6px 12px;
+
+        font-size: 14px;
+    }
+
+    .etiqueta-buscada-reacondicionados i {
+        font-size: 17px;
+    }
+}
+
+
+/* ==================================================
+   SECCIÓN DE MARCAS
+   ================================================== */
+
+/*
+Caja principal de la sección.
+
+position: relative permite colocar las flechas
+sobre los laterales de la lista.
+*/
+.seccion-marcas {
+    position: relative;
+
+    width: 100%;
+    padding: 35px 55px;
+
+    overflow: hidden;
+
+    background-color: #ffffff;
+}
+
+
+/*
+Fila horizontal que contiene los nueve logotipos.
+*/
+.lista-marcas {
+    display: flex;
+    align-items: center;
+
+    gap: 25px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+
+    /* Permite deslizar con el dedo en mÃ³vil */
+    -webkit-overflow-scrolling: touch;
+
+    /* Oculta la barra en Firefox */
+    scrollbar-width: none;
+}
+
+
+/* Oculta la barra horizontal en Chrome y Edge */
+.lista-marcas::-webkit-scrollbar {
+    display: none;
+}
+
+
+/*
+Cada enlace contiene una marca.
+
+En ordenador se muestran exactamente siete.
+
+Entre siete elementos existen seis espacios:
+
+6 x— 25px = 150px
+*/
+.marca {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 calc((100% - 150px) / 7);
+
+    height: 110px;
+
+    color: inherit;
+    text-decoration: none;
+
+    scroll-snap-align: start;
+}
+
+
+/*
+Todos los logotipos disponen de la misma caja,
+pero conservan sus proporciones originales.
+*/
+.marca img {
+    display: block;
+
+    width: 100%;
+    max-width: 150px;
+    height: 80px;
+
+    object-fit: contain;
+}
+
+
+/* ==================================================
+   FLECHAS DE LA SECCIÓN DE MARCAS
+   ================================================== */
+
+.flecha-marcas {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 62px;
+
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+
+    background-color: #ffffff;
+    color: #333333;
+
+    font-size: 26px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.20);
+
+    transform: translateY(-50%);
+}
+
+
+/*
+La flecha izquierda comienza oculta.
+
+AparecerÁ cuando la lista se desplace
+hacia la derecha.
+*/
+.flecha-marcas-izquierda {
+    left: 8px;
+    visibility: hidden;
+}
+
+
+/* PosiciÓn de la flecha derecha */
+.flecha-marcas-derecha {
+    right: 8px;
+}
+
+
+/* Cambio ligero de fondo al pasar el ratón */
+.flecha-marcas:hover {
+    background-color: #f2f2f2;
+}
+
+
+/* Marcado visible para navegar con el teclado */
+.flecha-marcas:focus-visible {
+    outline: 3px solid rgba(255, 96, 0, 0.35);
+    outline-offset: 2px;
+}
+
+
+/* ==================================================
+   TABLET: CUATRO MARCAS VISIBLES
+   ================================================== */
+
+@media (max-width: 991px) {
+
+    /*
+    Entre cuatro elementos existen tres espacios:
+
+    3 x 25px = 75px
+    */
+    .marca {
+        flex-basis: calc((100% - 75px) / 4);
+    }
+}
+
+/* ==================================================
+   MÓVIL: DOS MARCAS VISIBLES
+   ================================================== */
+
+@media (max-width: 576px) {
+
+    .seccion-marcas {
+        padding: 20px 45px;
+    }
+
+    /*
+    Entre dos elementos existe un espacio de 25px.
+    */
+    .marca {
+        flex-basis: calc((100% - 25px) / 2);
+        height: 90px;
+    }
+
+    .marca img {
+        height: 65px;
+    }
+
+    .flecha-marcas {
+        width: 36px;
+        height: 52px;
+
+        font-size: 22px;
+    }
+}
+
+/* ==================================================
+   INFORMACIÓN SOBRE PCCOMPONENTES
+   ================================================== */
+
+.seccion-informacion-pccomponentes {
+    width: 100%;
+
+    background-color: #ffffff;
+    color: #333333;
+}
+
+
+/* Caja del texto superior */
+.contenedor-informacion-pccomponentes {
+    width: 100%;
+    padding: 35px 14px 20px;
+}
+
+
+/* TÍ­tulo principal */
+.titulo-informacion-pccomponentes {
+    margin: 0 0 20px;
+
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+
+/* Párrafos informativos */
+.texto-informacion-pccomponentes {
+    margin: 0;
+
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+
+/* Enlaces incluidos dentro del texto */
+.texto-informacion-pccomponentes a {
+    color: #444444;
+    text-decoration: underline;
+}
+
+
+/* Segundo tÍtulo */
+.subtitulo-informacion-pccomponentes {
+    margin: 30px 0 20px;
+
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+
+/* Lista de compromisos */
+.lista-compromisos-pccomponentes {
+    margin: 0;
+    padding-left: 36px;
+
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* SeparaciÓn entre los elementos de la lista */
+.lista-compromisos-pccomponentes li {
+    margin-bottom: 7px;
+}
+
+
+/* Texto final */
+.bienvenida-pccomponentes {
+    margin: 18px 0 0;
+
+    font-size: 16px;
+}
+
+
+/* ==================================================
+   CUATRO CARDS HIPERVINCULADAS
+   ================================================== */
+
+/* Fondo gris de la zona de ventajas */
+.contenedor-ventajas-pccomponentes {
+    width: 100%;
+    padding: 20px 10px;
+
+    background-color: #f5f5f5;
+
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #dddddd;
+}
+
+
+/*
+El enlace ocupa todo el ancho y alto de su columna.
+
+Como la imagen y el texto están dentro del enlace,
+toda la card será pulsable.
+*/
+.enlace-ventaja-pccomponentes {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* Evita que Bootstrap cambie el color del texto */
+.enlace-ventaja-pccomponentes:hover,
+.enlace-ventaja-pccomponentes:focus {
+    color: inherit;
+    text-decoration: none;
+	
+}
+
+
+/*
+Cada card es horizontal:
+
+- imagen a la izquierda;
+- texto a la derecha.
+*/
+.tarjeta-ventaja-pccomponentes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    min-height: 90px;
+
+    padding: 5px 20px;
+
+    border: none;
+    border-right: 1px solid #d5d5d5;
+    border-radius: 0;
+
+    background-color: transparent;
+}
+
+
+/* La última card no lleva línea a la derecha */
+.contenedor-ventajas-pccomponentes .col:last-child
+.tarjeta-ventaja-pccomponentes {
+    border-right: none;
+}
+
+
+/* Imágenes de las ventajas */
+.imagen-ventaja-pccomponentes {
+    display: block;
+    flex: 0 0 auto;
+
+    width: 75px;
+    height: 65px;
+
+    object-fit: contain;
+}
+
+
+/* Cuerpo Bootstrap de cada card */
+.cuerpo-ventaja-pccomponentes {
+    display: flex;
+    align-items: center;
+
+    padding: 5px 0 5px 5px;
+}
+
+
+/* Texto de las cards */
+.texto-ventaja-pccomponentes {
+    margin: 0;
+
+    color: #333333;
+
+    font-size: 15px;
+    line-height: 1.35;
+}
+
+
+/*
+Al pasar el ratón cambiamos ligeramente el fondo
+para indicar que la card es pulsable.
+*/
+.enlace-ventaja-pccomponentes:hover
+.tarjeta-ventaja-pccomponentes {
+    background-color: #eeeeee;
+}
+
+
+/* Marcado para navegación con teclado */
+.enlace-ventaja-pccomponentes:focus-visible {
+    outline: 3px solid rgba(255, 96, 0, 0.35);
+    outline-offset: 2px;
+}
+
+
+/* ==================================================
+   TABLET: 4 CARDS POR FILA
+   ================================================== */
+
+@media (max-width: 1199px) {
+
+    .tarjeta-ventaja-pccomponentes {
+        min-height: 20px;
+        margin: 5px 0;
+
+        border-right: 1px solid #d5d5d5;
+    }
+
+    /*
+    Las cards 2 y 4 están en la segunda columna
+    y no necesitan línea a la derecha.
+    */
+    .contenedor-ventajas-pccomponentes .col:nth-child(2n)
+    .tarjeta-ventaja-pccomponentes {
+        border-right: none;
+    }
+}
+
+
+/* ==================================================
+   MóVIL: UNA CARD DEBAJO DE OTRA
+   ================================================== */
+
+@media (max-width: 767px) {
+
+    .contenedor-informacion-pccomponentes {
+        padding: 25px 16px 15px;
+    }
+
+    .titulo-informacion-pccomponentes,
+    .subtitulo-informacion-pccomponentes {
+        font-size: 19px;
+    }
+
+    .texto-informacion-pccomponentes,
+    .lista-compromisos-pccomponentes,
+    .bienvenida-pccomponentes {
+        font-size: 15px;
+    }
+
+    .contenedor-ventajas-pccomponentes {
+        padding: 15px;
+    }
+
+    /*
+    En mÃ³vil cada card ocupa una fila completa.
+    */
+    .tarjeta-ventaja-pccomponentes {
+        min-height: 95px;
+        margin: 0;
+
+        padding: 15px 10px;
+
+        border-right: none;
+        border-bottom: 1px solid #d5d5d5;
+    }
+
+    /*
+    La Ãºltima card no necesita lÃ­nea inferior.
+    */
+    .contenedor-ventajas-pccomponentes .col:last-child
+    .tarjeta-ventaja-pccomponentes {
+        border-bottom: none;
+    }
+
+    .imagen-ventaja-pccomponentes {
+        width: 65px;
+        height: 60px;
+    }
+
+    .cuerpo-ventaja-pccomponentes {
+        padding-left: 18px;
+    }
+
+    .texto-ventaja-pccomponentes {
+        font-size: 16px;
+    }
+}
+
+
+/* ==================================================
+   ENLACES INFORMATIVOS Y MÉTODOS DE PAGO
+   ================================================== */
+
+.seccion-enlaces-informativos {
+    width: 100%;
+    padding: 28px 16px;
+
+    background-color: #ffffff;
+    color: #333333;
+
+    border-top: 1px solid #eeeeee;
+}
+
+
+/* ==================================================
+   DISTRIBUCION GENERAL EN ORDENADOR
+   ================================================== */
+
+/*
+En ordenador existen dos zonas:
+
+1. Las cinco columnas de enlaces.
+2. La imagen de pagos a la derecha.
+
+La zona de imagen tiene una anchura fija de 360px.
+*/
+.fila-enlaces-pagos {
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) 360px;
+
+    align-items: start;
+
+    width: 100%;
+
+    column-gap: 20px;
+}
+
+
+/*
+Las cinco listas se distribuyen horizontalmente
+dentro del espacio izquierdo.
+*/
+.zona-listas-informativas {
+    display: grid;
+
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+
+    align-items: start;
+
+    min-width: 0;
+
+    column-gap: 10px;
+}
+
+
+/* Cada columna individual */
+.columna-enlaces {
+    min-width: 0;
+}
+
+
+/* ==================================================
+   TITULOS DE LAS COLUMNAS
+   ================================================== */
+
+.boton-titulo-enlaces {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    min-height: 38px;
+    margin: 0 0 4px;
+    padding: 5px 8px;
+
+    border: none;
+
+    background-color: transparent;
+    color: #333333;
+
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: left;
+}
+
+
+/* La flecha permanece oculta en ordenador */
+.flecha-lista {
+    display: none;
+
+    flex: 0 0 auto;
+
+    margin-left: 12px;
+
+    color: #333333;
+
+    font-size: 16px;
+
+    transition: transform 0.25s ease;
+}
+
+
+/* ==================================================
+   LISTAS DE ENLACES
+   ================================================== */
+
+.lista-enlaces-informativos {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    width: 100%;
+
+    gap: 0;
+}
+
+
+/*
+Los enlaces son mÃ¡s compactos que en la versiÃ³n
+anterior, pero conservan un Ã¡rea cÃ³moda para pulsar.
+*/
+.lista-enlaces-informativos a {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    min-height: 42px;
+    padding: 7px 8px;
+
+    gap: 9px;
+
+    color: #444444;
+    background-color: transparent;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.25;
+
+    text-decoration: none;
+
+    transition: background-color 0.2s ease;
+}
+
+
+/*
+Fondo gris claro al pasar el ratÃ³n.
+
+No aparece subrayado ni cambia el color del texto.
+*/
+.lista-enlaces-informativos a:hover {
+    color: #444444;
+    background-color: #f2f2f2;
+
+    text-decoration: none;
+}
+
+
+.lista-enlaces-informativos a:active {
+    color: #444444;
+    background-color: #e8e8e8;
+
+    text-decoration: none;
+}
+
+
+.lista-enlaces-informativos a:visited {
+    color: #444444;
+    text-decoration: none;
+}
+
+
+.lista-enlaces-informativos a:focus-visible {
+    color: #444444;
+    background-color: #f2f2f2;
+
+    text-decoration: none;
+
+    outline: 2px solid #777777;
+    outline-offset: -2px;
+}
+
+
+/* ==================================================
+   ICONOS DE COMUNIDAD
+   ================================================== */
+
+.icono-comunidad {
+    flex: 0 0 auto;
+
+    width: 20px;
+
+    color: #111111;
+
+    font-size: 20px;
+    text-align: center;
+}
+
+
+/* Icono naranja del blog */
+.icono-naranja {
+    color: #ff6000;
+}
+
+
+/* ==================================================
+   IMAGEN DE PREMIOS Y MÓTODOS DE PAGO
+   ================================================== */
+
+.zona-imagen-pagos {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    width: 360px;
+    min-width: 0;
+
+    padding: 12px 8px;
+}
+
+
+/*
+La imagen permanece a la derecha en ordenador
+y conserva sus proporciones.
+*/
+.imagen-metodos-pago {
+    display: block;
+
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* ==================================================
+   ORDENADOR
+   ================================================== */
+
+@media (min-width: 1200px) {
+
+    /*
+    En ordenador todas las listas permanecen abiertas.
+    */
+    .lista-enlaces-informativos.collapse {
+        display: flex !important;
+
+        height: auto !important;
+
+        visibility: visible !important;
+    }
+
+    /*
+    Los tÃ­tulos no se pueden pulsar en ordenador
+    porque las listas siempre estÃ¡n abiertas.
+    */
+    .boton-titulo-enlaces {
+        cursor: default;
+        pointer-events: none;
+    }
+
+    .boton-titulo-enlaces:hover {
+        background-color: transparent;
+    }
+}
+
+
+/* ==================================================
+   TABLET Y MÓVIL
+   ================================================== */
+
+@media (max-width: 1199px) {
+
+    .seccion-enlaces-informativos {
+        padding: 20px 14px;
+    }
+
+    /*
+    En tablet y mÓvil la imagen pasa debajo
+    y las listas ocupan todo el ancho.
+    */
+    .fila-enlaces-pagos {
+        grid-template-columns: 1fr;
+
+        row-gap: 18px;
+    }
+
+    /*
+    Las columnas dejan de mostrarse horizontalmente.
+    */
+    .zona-listas-informativas {
+        grid-template-columns: 1fr;
+
+        column-gap: 0;
+    }
+
+    /*
+    Tí­tulo desplegable.
+    */
+    .boton-titulo-enlaces {
+        min-height: 48px;
+        margin: 0;
+        padding: 10px 18px;
+
+        border-bottom: 1px solid #dddddd;
+
+        font-size: 17px;
+
+        cursor: pointer;
+    }
+
+    /*
+    Efecto hover gris claro en el título.
+    */
+    .boton-titulo-enlaces:hover {
+        background-color: #f2f2f2;
+    }
+
+    /*
+    En tablet y mÃ³vil aparece la flecha.
+    */
+    .flecha-lista {
+        display: block;
+    }
+
+    /*
+    Cuando la lista está abierta, la flecha
+    gira y señala hacia arriba.
+    */
+    .boton-titulo-enlaces[aria-expanded="true"]
+    .flecha-lista {
+        transform: rotate(180deg);
+    }
+
+    /*
+    Cuando Bootstrap abre la lista, usamos flex.
+    */
+    .lista-enlaces-informativos.collapse.show {
+        display: flex;
+    }
+
+    /*
+    Tamaño de los enlaces del desplegable.
+    */
+    .lista-enlaces-informativos a {
+        min-height: 44px;
+        padding: 9px 18px;
+
+        font-size: 16px;
+    }
+
+    /*
+    Imagen de pagos debajo de las listas.
+    */
+    .zona-imagen-pagos {
+        justify-content: flex-start;
+
+        width: 100%;
+        padding: 0px 0px 0;
+
+        border-top: 1px solid #dddddd;
+    }
+
+    .imagen-metodos-pago {
+        max-width: 350px;
+    }
+}
+
+
+/* ==================================================
+   MÓVIL
+   ================================================== */
+
+@media (max-width: 576px) {
+
+    .seccion-enlaces-informativos {
+        padding: 14px 0;
+    }
+
+    .boton-titulo-enlaces {
+        min-height: 46px;
+        padding: 9px 16px;
+
+        font-size: 16px;
+    }
+
+    .lista-enlaces-informativos a {
+        min-height: 42px;
+        padding: 8px 16px;
+
+        font-size: 15px;
+    }
+
+    .icono-comunidad {
+        width: 19px;
+
+        font-size: 19px;
+    }
+
+    .zona-imagen-pagos {
+        justify-content: center;
+
+        padding: 16px 15px 0;
+    }
+
+    .imagen-metodos-pago {
+        max-width: 340px;
+    }
+}
+
+
+/* ==================================================
+   FOOTER
+   ================================================== */
+
+.footer-principal {
+    width: 100%;
+    min-height: 145px;
+    padding: 42px 20px;
+    border-top: 1px solid #dedede;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.texto-legal-footer {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0;
+    color: #555555;
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 0.15px;
+    text-align: center;
+}
+
+
+/* ==================================================
+   ASISTENTE VIRTUAL FLOTANTE
+   ================================================== */
+
+.asistente-virtual {
+    position: fixed;
+    right: 22px;
+    bottom: 18px;
+    z-index: 3000;
+}
+
+
+/* Botón circular */
+
+.boton-asistente {
+    width: 75px;
+    height: 75px;
+    padding: 0;
+    border: 3px solid #d4d4d4;
+    border-radius: 50%;
+    background-color: #19005c;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.boton-asistente:hover {
+    transform: scale(1.06);
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.4);
+}
+
+.boton-asistente:focus-visible {
+    outline: 3px solid #008ed6;
+    outline-offset: 3px;
+}
+
+.imagen-asistente {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+
+/* Mensaje al pasar el ratón */
+
+.mensaje-hover-asistente {
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 25px);
+    width: 250px;
+    padding: 15px 20px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #444444;
+    font-size: 15px;
+    line-height: 1.5;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.23);
+    pointer-events: none;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease,
+        transform 0.2s ease;
+}
+
+.mensaje-hover-asistente.mensaje-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+/* Ventana del asistente */
+
+.ventana-asistente {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: min(400px, calc(100vw - 44px));
+    height: min(400px, calc(100vh - 40px));
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 7px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(20px) scale(0.97);
+    transform-origin: right bottom;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        transform 0.25s ease;
+}
+
+.ventana-asistente.asistente-abierto {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+
+
+/* Cabecera de la ventana */
+
+.cabecera-asistente {
+    min-height: 65px;
+    padding: 14px 20px;
+    background-color: #1c005d;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.cabecera-asistente h2 {
+    margin: 0;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.cerrar-asistente {
+    flex: 0 0 auto;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 39px;
+    font-weight: 300;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cerrar-asistente:hover {
+    color: #dddddd;
+}
+
+.cerrar-asistente:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+
+/* Conversación */
+
+.contenido-asistente {
+    padding: 20px 30px;
+    overflow-y: auto;
+    background-color: #ffffff;
+    color: #242424;
+    font-size: 17px;
+    line-height: 1.45;
+}
+
+.mensaje-asistente p {
+    margin: 0 0 20px;
+}
+
+.enlace-privacidad {
+    color: #0066df;
+    text-decoration: underline;
+}
+
+.enlace-privacidad:hover {
+    color: #004ca8;
+}
+
+
+/* Mensaje escrito por el usuario */
+
+.mensaje-usuario {
+    width: fit-content;
+    max-width: 85%;
+    margin: 12px 0 12px auto;
+    padding: 10px 14px;
+    border-radius: 14px 14px 3px 14px;
+    background-color: #eee9ff;
+    color: #222222;
+    overflow-wrap: anywhere;
+}
+
+
+/* Parte inferior del formulario */
+
+.formulario-asistente {
+    padding: 20px;
+    border-top: 1px solid #e2e2e2;
+    background-color: #ffffff;
+}
+
+.caja-consulta-asistente {
+    min-height: 60px;
+    border: 1px solid #008ed6;
+    border-radius: 5px;
+    box-shadow: 0 0 7px rgba(0, 142, 214, 0.25);
+    display: flex;
+    align-items: center;
+}
+
+.caja-consulta-asistente:focus-within {
+    border-color: #006fa9;
+    box-shadow: 0 0 0 2px rgba(0, 142, 214, 0.18);
+}
+
+.caja-consulta-asistente input {
+    flex: 1;
+    min-width: 0;
+    height: 58px;
+    padding: 0 18px;
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    color: #333333;
+    font-size: 21px;
+}
+
+.caja-consulta-asistente input::placeholder {
+    color: #929292;
+}
+
+.enviar-consulta {
+    flex: 0 0 auto;
+    width: 58px;
+    height: 58px;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    color: #b9b9b9;
+    font-size: 27px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.enviar-consulta:hover {
+    color: #1c005d;
+}
+
+
+/* Texto solo para lectores de pantalla */
+
+.visualmente-oculto {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+
+/* ==================================================
+   TABLET
+   ================================================== */
+
+@media (max-width: 991px) {
+    .footer-principal {
+        min-height: 125px;
+        padding: 32px 20px;
+    }
+
+    .asistente-virtual {
+        right: 18px;
+        bottom: 16px;
+    }
+
+    .boton-asistente {
+        width: 72px;
+        height: 72px;
+    }
+
+    .ventana-asistente {
+        width: min(500px, calc(100vw - 36px));
+        height: min(610px, calc(100vh - 32px));
+    }
+}
+.boton-asistente {
+    width: 62px;
+    height: 62px;
+}
+
+/* ==================================================
+   MÓVIL
+   ================================================== */
+
+@media (max-width: 575px) {
+    .footer-principal {
+        min-height: 110px;
+        padding: 45px 26px;
+    }
+
+    .texto-legal-footer {
+        font-size: 14px;
+        text-align: center;
+	 
+    }
+
+    .asistente-virtual {
+        right: 12px;
+        bottom: 12px;
+    }
+
+    .boton-asistente {
+        width: 64px;
+        height: 64px;
+    }
+
+    .mensaje-hover-asistente {
+        display: none;
+    }
+
+    .ventana-asistente {
+        position: fixed;
+        right: 0px;
+        bottom: 10px;
+        width: calc(100vw - 20px);
+        height: calc(102dvh - 20px);
+        max-height: none;
+        border-radius: 10px;
+    }
+
+    .cabecera-asistente {
+        min-height: 60px;
+        padding: 12px 15px;
+    }
+
+    .cabecera-asistente h2 {
+        font-size: 17px;
+    }
+
+    .contenido-asistente {
+        padding: 18px;
+        font-size: 15px;
+    }
+
+    .formulario-asistente {
+        padding: 12px;
+    }
+
+    .caja-consulta-asistente {
+        min-height: 52px;
+    }
+
+    .caja-consulta-asistente input {
+        height: 50px;
+        padding: 0 12px;
+        font-size: 16px;
+    }
+
+    .enviar-consulta {
+        width: 50px;
+        height: 50px;
+        font-size: 23px;
+    }
+}
+
+/* ==================================================
+   ORDEN DEL LOGOTIPO Y DEL MENÚ
+   ================================================== */
+
+.logo-contenedor {
+    order: 1;
+
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: visible;
+}
+
+
+.boton-menu {
+    order: 2;
+
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+    padding: 6px 10px;
+
+    border: none;
+    background-color: transparent;
+    color: #333333;
+}
+
+
+.boton-menu:hover {
+    background-color: #f2f2f2;
+    color: #333333;
+}
+
+
+/* El resto de elementos continúa después */
+
+.boton-categorias {
+    order: 2;
+}
+
+
+.buscador {
+    order: 3;
+    flex: 1 1 auto;
+
+    min-width: 0;
+}
+
+
+.boton-ia {
+    order: 4;
+}
+
+
+.enlace-navegacion {
+    order: 5;
+}
+
+
+/* ==================================================
+   LOGOTIPO COMPLETO
+   ================================================== */
+
+.logo-completo {
+    display: block;
+
+    width: 180px;
+    max-width: none;
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* ==================================================
+   SÍMBOLO NARANJA PARA MÓVIL
+   ================================================== */
+
+.logo-movil-contenedor {
+    display: block;
+
+    width: 48px;
+    height: 48px;
+
+    overflow: hidden;
+}
+
+
+.logo-movil {
+    display: block;
+
+    width: 155px;
+    max-width: none;
+    height: auto;
+
+    object-fit: contain;
+    object-position: left center;
+}
+
+
+/* ==================================================
+   TABLET
+   Logo completo + menú a su derecha
+   ================================================== */
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+
+    .contenedor-header {
+        display: flex;
+        align-items: center;
+
+        gap: 14px;
+
+        flex-wrap: nowrap;
+    }
+
+
+    .logo-contenedor {
+        order: 1;
+    }
+
+
+    .logo-completo {
+        display: block !important;
+
+        width: 175px;
+        height: auto;
+    }
+
+
+    .logo-movil-contenedor {
+        display: none !important;
+    }
+
+
+    .boton-menu {
+        order: 2;
+
+        width: 48px;
+        height: 48px;
+    }
+
+
+    .buscador {
+        order: 3;
+
+        flex: 1 1 auto;
+        min-width: 180px;
+    }
+}
+
+
+/* ==================================================
+   MÓVIL
+   Símbolo naranja + menú a su derecha
+   ================================================== */
+
+@media (max-width: 767.98px) {
+
+    .contenedor-header {
+        display: flex;
+        align-items: center;
+
+        gap: 8px;
+
+        flex-wrap: nowrap;
+    }
+
+
+    .logo-contenedor {
+        order: 1;
+    }
+
+
+    .logo-completo {
+        display: none !important;
+    }
+
+
+    .logo-movil-contenedor {
+        display: block !important;
+
+        width: 46px;
+        height: 46px;
+    }
+
+
+    .logo-movil {
+        width: 150px;
+    }
+
+
+    .boton-menu {
+        order: 2;
+
+        width: 44px;
+        height: 44px;
+
+        padding: 4px;
+    }
+
+
+    .buscador {
+        order: 3;
+
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+}
+
+
+/* ==================================================
+   TABLET Y MÓVIL
+   Oculta el mensaje hover del asistente
+   ================================================== */
+
+@media (max-width: 1199.98px) {
+	
+    .mensaje-hover-asistente,
+    .mensaje-hover-asistente.mensaje-visible {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+    }
+}
+

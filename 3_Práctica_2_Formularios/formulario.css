@@ -1,0 +1,29 @@
+/* PRODUCTO SELECCIONADO */
+.card.producto-seleccionado {
+    border: 2px solid #ff6000;
+    background-color: #fff8f2;
+}
+
+/* TARJETAS INTERACTIVAS */
+.tarjeta-seleccionable {
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Al pasar el ratón */
+.tarjeta-seleccionable:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Producto seleccionado */
+.card.producto-seleccionado {
+    border: 2px solid #ff6000;
+    background-color: #fff8f2;
+}
+
+/* Accesibilidad con teclado */
+.tarjeta-seleccionable:focus-within {
+    outline: 3px solid #ff6000;
+    outline-offset: 3px;
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de contratación - PCComponentes</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="../bootstrap-icons-1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- CSS del formulario -->
+    <link rel="stylesheet" href="formulario.css">
+</head>
+
+<body>
+
+    <!-- CABECERA DEL FORMULARIO -->
+    <header class="bg-white border-bottom py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <!-- Logotipo -->
+            <a href="../index.html">
+                <img src="../imagenes/Logo_1.png" alt="PCComponentes" width="150">
+            </a>
+
+            <!-- Volver a la página principal -->
+            <a href="../index.html" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left"></i>
+                Volver a la tienda
+            </a>
+
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="container my-5">
+
+        <!-- Título -->
+        <h1 class="mb-3">Formulario de contratación</h1>
+
+        <p class="text-muted mb-4">
+            Completa los siguientes pasos para realizar tu solicitud.
+        </p>
+
+        <!-- Indicador de progreso -->
+        <div class="mb-4">
+            <div class="d-flex justify-content-between mb-2">
+                <span id="textoPaso">Paso 1 de 6</span>
+                <span id="porcentajePaso">17%</span>
+            </div>
+
+            <div class="progress" role="progressbar" aria-label="Progreso del formulario" aria-valuenow="1"
+                aria-valuemin="0" aria-valuemax="6">
+
+                <div id="barraProgreso" class="progress-bar bg-warning" style="width: 16.67%;">
+                </div>
+            </div>
+        </div>
+
+        <form id="formularioContratacion" novalidate>
+
+            <!-- PASO 1: SELECCIÓN DE PRODUCTOS -->
+            <section id="paso1" class="mb-5">
+
+                <h2 class="h4 mb-3">1. Selecciona tu ordenador</h2>
+
+                <p class="text-muted">
+                    Elige uno de los siguientes productos.
+                </p>
+
+                <div class="row g-3">
+
+                    <!-- Producto 1 -->
+                    <div class="col-12 col-md-4">
+                        <label class="card h-100 tarjeta-seleccionable">
+                            <div class="card-body">
+                                <img src="../imagenes/PcCom_Imperial_AMD_Ryzen_7.png" class="card-img-top p-3"
+                                    alt="Ordenador PcCom Imperial Ryzen 7" style="height: 180px; object-fit: contain;">
+                                <h3 class="h5">PcCom Imperial Ryzen 7</h3>
+                                <p>32 GB RAM · 1 TB SSD · RTX 5070</p>
+                                <p class="fw-bold">1.649 €</p>
+
+                                <label>
+                                    <input type="radio" name="producto" value="pccom" data-precio="1649">
+                                    Seleccionar
+                                </label>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Producto 2 -->
+                    <div class="col-12 col-md-4">
+                        <label class="card h-100 tarjeta-seleccionable">
+                            <div class="card-body">
+                                <img src="../imagenes/Portátil_Acer_Nitro_V15_IntelCore_i9.png" class="card-img-top p-3"
+                                    alt="Portátil Acer Nitro V15" style="height: 180px; object-fit: contain;">
+                                <h3 class="h5">Acer Nitro V15</h3>
+                                <p>Intel Core i9 · 32 GB RAM · 1 TB SSD</p>
+                                <p class="fw-bold">1.199 €</p>
+
+                                <label>
+                                    <input type="radio" name="producto" value="acer" data-precio="1199">
+                                    Seleccionar
+                                </label>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="col-12 col-md-4">
+                    <label class="card h-100 tarjeta-seleccionable">
+                        <div class="card-body">
+                            <img src="../imagenes/Sobremesas.png" class="card-img-top p-3" alt="Ordenador PcCom Basic"
+                                style="height: 180px; object-fit: contain;">
+                            <h3 class="h5">PcCom Basic</h3>
+                            <p>Intel Core i5 · 16 GB RAM · 512 GB SSD</p>
+                            <p class="fw-bold">699 €</p>
+
+                            <label>
+                                <input type="radio" name="producto" value="basic" data-precio="699">
+                                Seleccionar
+                            </label>
+                        </div>
+                    </label>
+                </div>
+
+                </div>
+            </section>
+
+        </form>
+
+
+    </main>
+
+
+
+
+    <script src="formulario.js"></script>
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
