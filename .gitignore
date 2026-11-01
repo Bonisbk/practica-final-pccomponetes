@@ -1,0 +1,8 @@
+# Excluir los SVG individuales de Bootstrap Icons
+/bootstrap-icons-1.13.1/*.svg
+
+# Archivos temporales
+*.tmp
+*.bak
+# Archivos temporales de Microsoft Office
+~$*

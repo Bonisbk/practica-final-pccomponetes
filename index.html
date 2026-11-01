@@ -8,134 +8,126 @@
 
     <title>TRABAJO_PC_COMPONENTES_BONI</title>
 
-    <!-- Estilos de Bootstrap -->
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 
     <!-- Iconos de Bootstrap -->
     <link rel="stylesheet" href="bootstrap-icons-1.13.1/font/bootstrap-icons.min.css">
 
-    <!-- Mis estilos personalizados -->
+    <!-- CSS personalizado -->
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body>
 
-    <header>
+    <!-- ==================================================
+         CABECERA
+         ================================================== -->
+
+    <header class="sticky-top cabecera-fija">
 
         <nav class="navbar bg-white border-bottom py-3">
 
             <div class="container-fluid contenedor-header">
 
-                <!-- BOTÓN HAMBURGUESA
-                 Solo aparece en móvil y tablet.
-                 Abre directamente el menú lateral de categorías. -->
-                <button class="btn boton-menu d-xl-none" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#menuCategorias" aria-controls="menuCategorias" aria-label="Abrir categorías">
+                <!-- ==================================================
+     LOGOTIPO
+     En tablet aparece el logotipo completo.
+     En móvil aparece únicamente el símbolo naranja.
+     ================================================== -->
 
-                    <i class="bi bi-list fs-2"></i>
+                <a class="navbar-brand logo-contenedor" href="#" onclick="return false;">
+                    <!-- Logotipo completo para tablet y ordenador -->
 
-                </button>
-
-
-                <!-- LOGOTIPO -->
-                <a class="navbar-brand logo-contenedor" href="#">
-
-                    <!-- Logotipo completo:
-                     solamente se muestra en ordenador -->
-                    <img src="imagenes/Logo_1.png" alt="Logo de PcComponentes" class="logo-completo d-none d-xl-block">
+                    <img src="imagenes/Logo_1.png" alt="Logo de PcComponentes" class="logo-completo d-none d-md-block">
 
 
-                    <!-- En móvil recortamos la imagen para mostrar
-                     solamente el símbolo naranja -->
-                    <span class="logo-movil-contenedor d-xl-none">
+                    <!-- Símbolo naranja solamente para móvil -->
+
+                    <span class="logo-movil-contenedor d-md-none">
 
                         <img src="imagenes/Logo_1.png" alt="PcComponentes" class="logo-movil">
 
                     </span>
-
                 </a>
 
 
-                <!-- BOTÓN DE CATEGORÍAS
-                 Solo aparece en pantallas grandes -->
+                <!-- ==================================================
+     BOTÓN DEL MENÚ DESPLEGABLE
+     Aparece a la derecha del logotipo en tablet y móvil.
+     ================================================== -->
+
+                <button class="btn boton-menu d-xl-none" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#menuCategorias" aria-controls="menuCategorias" aria-label="Abrir categorías">
+                    <i class="bi bi-list fs-2"></i>
+                </button>
+
+
+                <!-- Botón de categorías en ordenador -->
+
                 <button class="btn boton-categorias text-nowrap d-none d-xl-flex" type="button"
                     data-bs-toggle="offcanvas" data-bs-target="#menuCategorias" aria-controls="menuCategorias">
-
                     <i class="bi bi-list fs-3"></i>
 
                     <span>Todas las categorías</span>
-
                 </button>
 
 
-                <!-- BUSCADOR
-                 Siempre permanece visible -->
-                <form class="input-group buscador" role="search" onsubmit="return false;">
+                <!-- Buscador -->
 
-                    <!-- El selector solo aparece en ordenador -->
+                <form class="input-group buscador" role="search" onsubmit="return false;">
                     <select class="form-select selector-catalogo d-none d-xl-block"
                         aria-label="Seleccionar parte del catálogo">
-
                         <option selected>Todo el catálogo</option>
-                        <option value="1">Reacondicionados</option>
-                    </select>
 
+                        <option value="1">
+                            Reacondicionados
+                        </option>
+                    </select>
 
                     <input class="form-control" type="search" placeholder="Buscar" aria-label="Buscar">
 
-
                     <button class="btn btn-outline-secondary boton-lupa" type="submit" aria-label="Realizar búsqueda">
-
                         <i class="bi bi-search fs-4"></i>
-
                     </button>
-
                 </form>
 
 
-                <!-- BUSCAR CON IA
-                 Solo aparece en ordenador porque en móvil
-                 ocuparía demasiado espacio -->
-                <button class="btn btn-outline-secondary boton-ia text-nowrap d-none d-xl-flex">
+                <!-- Buscar con IA -->
 
-                    <span class="icono-ia">✦</span>
+                <button class="btn btn-outline-secondary boton-ia text-nowrap d-none d-xl-flex" type="button">
+                    <i class="bi bi-stars icono-ia"></i>
 
-                    Buscar con IA
-
+                    <span>Buscar con IA</span>
                 </button>
 
 
-                <!-- MI CUENTA
-                 El texto desaparece en móvil, pero el icono permanece -->
-                <a class="nav-link enlace-navegacion" href="#">
+                <!-- Mi cuenta -->
 
+                <a class="nav-link enlace-navegacion" href="#" onclick="return false;">
                     <i class="bi bi-person fs-4"></i>
 
                     <span class="d-none d-xl-inline">
                         Mi cuenta
                     </span>
-
                 </a>
 
 
-                <!-- MI CESTA
-                 El texto desaparece en móvil, pero el icono permanece -->
-                <a class="nav-link enlace-navegacion" href="#">
+                <!-- Mi cesta -->
 
-                    <span class="position-relative">
+                <a class="nav-link enlace-navegacion" href="3_Práctica_2_Formularios/formulario_Contratacion.html">
+                    <i class="bi bi-cart3 fs-4"></i>
 
-                        <i class="bi bi-cart3 fs-4"></i>
-
-                        <span class="badge rounded-pill bg-danger contador-cesta">
-                            0
-                        </span>
+                    <span class="badge rounded-pill bg-danger contador-cesta d-none"> // d-none -> clase de Bootstrap
+                        que oculta el contador sin eliminarlo del código.
+                        0
+                    </span>
 
                     </span>
 
                     <span class="d-none d-xl-inline">
                         Mi cesta
                     </span>
-
                 </a>
 
             </div>
@@ -144,48 +136,40 @@
 
     </header>
 
-    <!-- Menú lateral de categorías -->
 
     <!-- ==================================================
-     MENÚ LATERAL DE CATEGORÍAS
-    ================================================== -->
+         MENÚ LATERAL DE CATEGORÍAS
+         ================================================== -->
 
     <div class="offcanvas offcanvas-start offcanvas-categorias" tabindex="-1" id="menuCategorias"
         aria-labelledby="tituloCategorias">
 
-        <!-- Botón X para cerrar -->
         <div class="offcanvas-header menu-cabecera">
 
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar">
-            </button>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
 
         </div>
 
 
-        <!-- Contenido del menú -->
         <div class="offcanvas-body menu-cuerpo">
 
-            <!-- Esta parte permanece fija y no tiene scroll -->
+            <!-- Parte superior fija -->
+
             <div class="menu-superior">
 
                 <button type="button" class="opcion-ofertas">
-
                     <span>Campañas y ofertas</span>
 
                     <i class="bi bi-chevron-right"></i>
-
                 </button>
 
-                <!-- Línea horizontal -->
                 <hr class="linea-menu">
 
             </div>
 
 
-            <!--
-            El scroll empieza aquí:
-            justo debajo de la línea horizontal.
-        -->
+            <!-- Parte del menú con desplazamiento -->
+
             <div class="menu-scroll">
 
                 <h5 class="titulo-categorias" id="tituloCategorias">
@@ -196,10 +180,9 @@
                 <ul class="lista-categorias">
 
                     <!-- Componentes -->
+
                     <li>
-
                         <button type="button" class="opcion-categoria">
-
                             <span class="contenido-categoria">
 
                                 <i class="bi bi-cpu"></i>
@@ -209,17 +192,14 @@
                             </span>
 
                             <i class="bi bi-chevron-right flecha"></i>
-
                         </button>
-
                     </li>
 
 
                     <!-- Ordenadores -->
+
                     <li>
-
                         <button type="button" class="opcion-categoria">
-
                             <span class="contenido-categoria">
 
                                 <i class="bi bi-pc-display"></i>
@@ -229,17 +209,14 @@
                             </span>
 
                             <i class="bi bi-chevron-right flecha"></i>
-
                         </button>
-
                     </li>
 
 
                     <!-- Periféricos -->
+
                     <li>
-
                         <button type="button" class="opcion-categoria">
-
                             <span class="contenido-categoria">
 
                                 <i class="bi bi-mouse"></i>
@@ -249,17 +226,14 @@
                             </span>
 
                             <i class="bi bi-chevron-right flecha"></i>
-
                         </button>
-
                     </li>
 
 
                     <!-- Consolas y videojuegos -->
+
                     <li>
-
                         <button type="button" class="opcion-categoria">
-
                             <span class="contenido-categoria">
 
                                 <i class="bi bi-controller"></i>
@@ -269,17 +243,14 @@
                             </span>
 
                             <i class="bi bi-chevron-right flecha"></i>
-
                         </button>
-
                     </li>
 
 
                     <!-- Móviles y tablets -->
+
                     <li>
-
                         <button type="button" class="opcion-categoria">
-
                             <span class="contenido-categoria">
 
                                 <i class="bi bi-phone"></i>
@@ -289,17 +260,14 @@
                             </span>
 
                             <i class="bi bi-chevron-right flecha"></i>
-
                         </button>
-
                     </li>
 
 
                     <!-- Televisores -->
+
                     <li>
-
                         <button type="button" class="opcion-categoria">
-
                             <span class="contenido-categoria">
 
                                 <i class="bi bi-tv"></i>
@@ -309,17 +277,14 @@
                             </span>
 
                             <i class="bi bi-chevron-right flecha"></i>
-
                         </button>
-
                     </li>
 
 
                     <!-- Electrodomésticos -->
+
                     <li>
-
                         <button type="button" class="opcion-categoria">
-
                             <span class="contenido-categoria">
 
                                 <i class="bi bi-door-closed"></i>
@@ -329,17 +294,14 @@
                             </span>
 
                             <i class="bi bi-chevron-right flecha"></i>
-
                         </button>
-
                     </li>
 
 
                     <!-- Domótica -->
+
                     <li>
-
                         <button type="button" class="opcion-categoria">
-
                             <span class="contenido-categoria">
 
                                 <i class="bi bi-house-gear"></i>
@@ -349,17 +311,14 @@
                             </span>
 
                             <i class="bi bi-chevron-right flecha"></i>
-
                         </button>
-
                     </li>
 
 
                     <!-- Hogar -->
+
                     <li>
-
                         <button type="button" class="opcion-categoria">
-
                             <span class="contenido-categoria">
 
                                 <i class="bi bi-house-door"></i>
@@ -369,17 +328,14 @@
                             </span>
 
                             <i class="bi bi-chevron-right flecha"></i>
-
                         </button>
-
                     </li>
 
 
                     <!-- Belleza y salud -->
+
                     <li>
-
                         <button type="button" class="opcion-categoria">
-
                             <span class="contenido-categoria">
 
                                 <i class="bi bi-heart-pulse"></i>
@@ -389,17 +345,14 @@
                             </span>
 
                             <i class="bi bi-chevron-right flecha"></i>
-
                         </button>
-
                     </li>
 
 
                     <!-- Sonido -->
+
                     <li>
-
                         <button type="button" class="opcion-categoria">
-
                             <span class="contenido-categoria">
 
                                 <i class="bi bi-headphones"></i>
@@ -409,17 +362,14 @@
                             </span>
 
                             <i class="bi bi-chevron-right flecha"></i>
-
                         </button>
-
                     </li>
 
 
                     <!-- Smartwatches -->
+
                     <li>
-
                         <button type="button" class="opcion-categoria">
-
                             <span class="contenido-categoria">
 
                                 <i class="bi bi-smartwatch"></i>
@@ -429,17 +379,14 @@
                             </span>
 
                             <i class="bi bi-chevron-right flecha"></i>
-
                         </button>
-
                     </li>
 
 
                     <!-- Fotografía -->
+
                     <li>
-
                         <button type="button" class="opcion-categoria">
-
                             <span class="contenido-categoria">
 
                                 <i class="bi bi-camera"></i>
@@ -449,16 +396,14 @@
                             </span>
 
                             <i class="bi bi-chevron-right flecha"></i>
-
                         </button>
-
                     </li>
 
+
                     <!-- Movilidad urbana -->
+
                     <li>
-
                         <button type="button" class="opcion-categoria">
-
                             <span class="contenido-categoria">
 
                                 <i class="bi bi-scooter"></i>
@@ -468,17 +413,14 @@
                             </span>
 
                             <i class="bi bi-chevron-right flecha"></i>
-
                         </button>
-
                     </li>
 
 
                     <!-- Juguetes y juegos -->
+
                     <li>
-
                         <button type="button" class="opcion-categoria">
-
                             <span class="contenido-categoria">
 
                                 <i class="bi bi-star"></i>
@@ -488,17 +430,14 @@
                             </span>
 
                             <i class="bi bi-chevron-right flecha"></i>
-
                         </button>
-
                     </li>
 
 
                     <!-- Productos reacondicionados -->
+
                     <li>
-
                         <button type="button" class="opcion-categoria">
-
                             <span class="contenido-categoria">
 
                                 <i class="bi bi-arrow-repeat"></i>
@@ -508,158 +447,99 @@
                             </span>
 
                             <i class="bi bi-chevron-right flecha"></i>
-
                         </button>
-
                     </li>
 
                 </ul>
 
-                <!-- ==================================================
-                SEPARACIÓN ENTRE CATEGORÍAS Y TRENDING
-                ================================================== -->
+
+                <!-- Segundo apartado -->
 
                 <hr class="linea-trending">
 
 
-                <!-- Título del segundo apartado -->
                 <h5 class="titulo-trending">
                     Trending
                 </h5>
 
 
-                <!-- Lista Trending -->
                 <ul class="lista-trending">
 
-                    <!-- Configurador de PC -->
                     <li>
-
                         <button type="button" class="opcion-trending opcion-configurador">
-
                             <span>Configurador PCs</span>
 
-                            <!--
-                        Esta etiqueta permanece siempre naranja.
-                        No depende del hover. -->
                             <span class="etiqueta-recomendado">
                                 Te recomendamos
                             </span>
-
                         </button>
-
                     </li>
 
 
-                    <!-- Servicios -->
                     <li>
-
                         <button type="button" class="opcion-trending">
                             Servicios
                         </button>
-
                     </li>
 
 
-                    <!-- Reacondicionados -->
                     <li>
-
                         <button type="button" class="opcion-trending">
                             Reacondicionados
                         </button>
-
                     </li>
 
 
-                    <!-- Nuestras tiendas -->
                     <li>
-
                         <button type="button" class="opcion-trending">
                             Nuestras tiendas
                         </button>
-
                     </li>
 
 
-                    <!-- Espacio Apple -->
                     <li>
-
                         <button type="button" class="opcion-trending">
                             Espacio Apple
                         </button>
-
                     </li>
 
 
-                    <!-- Empresas y profesionales -->
                     <li>
-
                         <button type="button" class="opcion-trending">
                             Empresas y profesionales
                         </button>
-
                     </li>
-
-                </ul>
-                </ul>
-
-                <ul class="lista-trending">
-
-                    <!-- Opciones Trending -->
 
                 </ul>
 
             </div>
-            <!-- Fin de menu-scroll -->
 
         </div>
-        <!-- Fin de offcanvas-body -->
 
     </div>
-    <!-- Fin de offcanvas -->
+
 
     <!-- ==================================================
-     CONTENIDO PRINCIPAL
-================================================== -->
+         CONTENIDO PRINCIPAL
+         ================================================== -->
 
     <main>
 
-        <!-- ==================================================
-         FRANJA DE ENLACES SUPERIORES
-    ================================================== -->
+        <!-- Franja superior -->
 
         <section class="border-bottom bg-white">
 
             <div class="container-fluid">
 
-                <!--
-                d-flex:
-                coloca los botones en horizontal.
-
-                justify-content-end:
-                lleva los botones hacia la derecha.
-
-                gap-4:
-                deja separación entre los dos botones.
-            -->
                 <div class="d-flex justify-content-end align-items-center gap-4 py-3">
 
-                    <!--
-                    Usamos button y no un enlace <a>,
-                    por eso no conduce a ninguna página.
-                -->
                     <button type="button" class="btn btn-link text-dark text-decoration-none p-0 boton-superior">
-
                         Reacondicionados
-
                     </button>
 
-
-                    <!-- Campañas y ofertas -->
                     <button type="button"
                         class="btn btn-link text-decoration-none p-0 fw-bold boton-superior texto-naranja">
-
                         Campañas y ofertas
-
                     </button>
 
                 </div>
@@ -669,40 +549,27 @@
         </section>
 
 
-        <!-- ==================================================
-         SECCIÓN DEL BANNER PUBLICITARIO
-        ================================================== -->
+        <!-- Banner publicitario -->
 
         <section class="seccion-publicidad">
 
             <div class="container-fluid py-4">
 
-                <!-- Texto superior de la publicidad -->
                 <p class="mb-4 texto-expertos">
 
                     <strong>Expertos en tecnología</strong>
 
-                    <span> con un servicio 5 estrellas</span>
+                    <span>con un servicio 5 estrellas</span>
 
                 </p>
 
 
-                <!-- Imagen publicitaria hipervinculada -->
                 <div class="overflow-hidden rounded-4">
 
-                    <!--
-        Más adelante sustituiremos # por la dirección
-        de la página de la oferta.
-
-        onclick="return false;" evita que ahora
-        el enlace realice ninguna navegación.
-    -->
                     <a href="#" class="d-block enlace-publicidad" onclick="return false;"
                         aria-label="Ver oferta del iPhone 18 Pro">
-
                         <img src="imagenes/banner-iphone.png" class="img-fluid w-100 d-block imagen-publicidad"
-                            alt="Oferta de iPhone 18 Pro">
-
+                            alt="Oferta del iPhone 18 Pro">
                     </a>
 
                 </div>
@@ -711,16 +578,3172 @@
 
         </section>
 
+
+        <!-- Tres imágenes promocionales -->
+
+        <div class="container-fluid my-2">
+
+            <div class="row g-3">
+
+                <div class="col-12 col-md-4">
+
+                    <a href="#" onclick="return false;" class="d-block">
+                        <img src="imagenes/img_cuerpo1.png" class="img-fluid rounded w-100" alt="Oferta del día 1">
+                    </a>
+
+                </div>
+
+
+                <div class="col-12 col-md-4">
+
+                    <a href="#" onclick="return false;" class="d-block">
+                        <img src="imagenes/img_cuerpo2.png" class="img-fluid rounded w-100" alt="Oferta del día 2">
+                    </a>
+
+                </div>
+
+
+                <div class="col-12 col-md-4">
+
+                    <a href="#" onclick="return false;" class="d-block">
+                        <img src="imagenes/img_cuerpo3.png" class="img-fluid rounded w-100" alt="Oferta del día 3">
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+        <!-- ==================================================
+             CATEGORÍAS DESTACADAS
+             ================================================== -->
+
+        <section class="container-fluid my-5 px-3">
+
+            <h2 class="titulo-categorias mb-4">
+                Explora nuestras categorías destacadas
+            </h2>
+
+            <div class="categorias-contenedor">
+
+                <!-- Primer grupo de categorías -->
+
+                <div class="grupo-categorias">
+
+                    <a href="#" onclick="return false;" class="categoria-enlace">
+                        <div class="categoria-card">
+
+                            <img src="imagenes/Portatiles.png" class="categoria-imagen" alt="Portátiles">
+
+                            <p class="categoria-nombre">
+                                Portátiles
+                            </p>
+
+                        </div>
+                    </a>
+
+
+                    <a href="#" onclick="return false;" class="categoria-enlace">
+                        <div class="categoria-card">
+
+                            <img src="imagenes/Monitores.png" class="categoria-imagen" alt="Monitores">
+
+                            <p class="categoria-nombre">
+                                Monitores
+                            </p>
+
+                        </div>
+                    </a>
+
+
+                    <a href="#" onclick="return false;" class="categoria-enlace">
+                        <div class="categoria-card">
+
+                            <img src="imagenes/Sobremesas.png" class="categoria-imagen" alt="Ordenadores de sobremesa">
+
+                            <p class="categoria-nombre">
+                                Sobremesas
+                            </p>
+
+                        </div>
+                    </a>
+
+
+                    <a href="#" onclick="return false;" class="categoria-enlace">
+                        <div class="categoria-card">
+
+                            <img src="imagenes/Moviles.png" class="categoria-imagen" alt="Móviles">
+
+                            <p class="categoria-nombre">
+                                Móviles
+                            </p>
+
+                        </div>
+                    </a>
+
+
+                    <a href="#" onclick="return false;" class="categoria-enlace">
+                        <div class="categoria-card">
+
+                            <img src="imagenes/Televisores.png" class="categoria-imagen" alt="Televisores">
+
+                            <p class="categoria-nombre">
+                                Televisores
+                            </p>
+
+                        </div>
+                    </a>
+
+
+                    <a href="#" onclick="return false;" class="categoria-enlace">
+                        <div class="categoria-card">
+
+                            <img src="imagenes/Tablets.png" class="categoria-imagen" alt="Tablets">
+
+                            <p class="categoria-nombre">
+                                Tablets
+                            </p>
+
+                        </div>
+                    </a>
+
+                </div>
+
+
+                <!-- Segundo grupo de categorías -->
+
+                <div class="grupo-categorias">
+
+                    <a href="#" onclick="return false;" class="categoria-enlace">
+                        <div class="categoria-card">
+
+                            <img src="imagenes/Sillas.png" class="categoria-imagen" alt="Sillas">
+
+                            <p class="categoria-nombre">
+                                Sillas
+                            </p>
+
+                        </div>
+                    </a>
+
+
+                    <a href="#" onclick="return false;" class="categoria-enlace">
+                        <div class="categoria-card">
+
+                            <img src="imagenes/Auriculares.png" class="categoria-imagen" alt="Auriculares">
+
+                            <p class="categoria-nombre">
+                                Auriculares
+                            </p>
+
+                        </div>
+                    </a>
+
+
+                    <a href="#" onclick="return false;" class="categoria-enlace">
+                        <div class="categoria-card">
+
+                            <img src="imagenes/Tarjetas_Gráficas.png" class="categoria-imagen" alt="Tarjetas gráficas">
+
+                            <p class="categoria-nombre">
+                                Tarjetas gráficas
+                            </p>
+
+                        </div>
+                    </a>
+
+
+                    <a href="#" onclick="return false;" class="categoria-enlace">
+                        <div class="categoria-card">
+
+                            <img src="imagenes/Smarwatches.png" class="categoria-imagen" alt="Smartwatches">
+
+                            <p class="categoria-nombre">
+                                Smartwatches
+                            </p>
+
+                        </div>
+                    </a>
+
+
+                    <a href="#" onclick="return false;" class="categoria-enlace">
+                        <div class="categoria-card">
+
+                            <img src="imagenes/Robot_Aspirador.png" class="categoria-imagen" alt="Robot aspirador">
+
+                            <p class="categoria-nombre">
+                                Robot aspirador
+                            </p>
+
+                        </div>
+                    </a>
+
+
+                    <a href="#" onclick="return false;" class="categoria-enlace">
+                        <div class="categoria-card">
+
+                            <img src="imagenes/Freidoreas_de_aire.png" class="categoria-imagen" alt="Freidoras de aire">
+
+                            <p class="categoria-nombre">
+                                Freidoras de aire
+                            </p>
+
+                        </div>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             LAS MEJORES OFERTAS DE DÍAS NARANJAS
+             ================================================== -->
+
+        <section class="seccion-ofertas-dias-naranjas">
+
+            <div class="cabecera-ofertas">
+
+                <h2 class="titulo-ofertas">
+                    Las mejores ofertas de Días Naranjas
+                </h2>
+
+                <a href="#" onclick="return false;" class="enlace-ver-mas">
+                    Ver más
+
+                    <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                </a>
+
+            </div>
+
+
+            <div class="carrusel-ofertas">
+
+                <!-- Flecha izquierda -->
+
+                <button type="button" class="flecha-ofertas flecha-ofertas-izquierda"
+                    aria-label="Ver productos anteriores" onclick="
+                        document.getElementById('lista-ofertas').scrollBy({
+                            left: -document.getElementById('lista-ofertas').clientWidth * 0.8,
+                            behavior: 'smooth'
+                        });
+                    ">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+
+
+                <div class="lista-ofertas" id="lista-ofertas">
+
+                    <!-- Producto 1 -->
+
+                    <a href="#" onclick="return false;" class="enlace-producto-oferta">
+                        <article class="card tarjeta-producto-oferta">
+
+                            <div class="contenedor-imagen-oferta">
+
+                                <span class="descuento-oferta">
+                                    -22%
+                                </span>
+
+                                <img src="imagenes/PcCom_Imperial_AMD_Ryzen_7.png" class="imagen-producto-oferta"
+                                    alt="PcCom Imperial AMD Ryzen 7">
+
+                            </div>
+
+
+                            <div class="card-body cuerpo-producto-oferta">
+
+                                <h3 class="nombre-producto-oferta">
+                                    PcCom Imperial AMD Ryzen 7 5800XT /
+                                    32GB / 1TB SSD / RTX 5070 /
+                                    Windows 11 Home
+                                </h3>
+
+
+                                <div class="precios-producto-oferta">
+
+                                    <span class="precio-actual-oferta">
+                                        1.649€
+                                    </span>
+
+                                    <del class="precio-anterior-oferta">
+                                        2.139€
+                                    </del>
+
+                                </div>
+
+
+                                <p class="precio-minimo-oferta">
+                                    ¡Precio mínimo histórico!
+                                </p>
+
+
+                                <p class="valoracion-producto-oferta">
+
+                                    <strong>4,9/5</strong>
+
+                                    <i class="bi bi-star-fill estrella-oferta"></i>
+
+                                    <span>11 opiniones</span>
+
+                                </p>
+
+
+                                <p class="envio-producto-oferta">
+
+                                    <i class="bi bi-truck icono-envio-oferta"></i>
+
+                                    <span>Envío gratis. Entrega mañana</span>
+
+                                </p>
+
+                            </div>
+
+                        </article>
+                    </a>
+
+
+                    <!-- Producto 2 -->
+
+                    <a href="#" onclick="return false;" class="enlace-producto-oferta">
+                        <article class="card tarjeta-producto-oferta">
+
+                            <div class="contenedor-imagen-oferta">
+
+                                <span class="descuento-oferta">
+                                    -10%
+                                </span>
+
+                                <img src="imagenes/Apple_iPhone_17_Pro_Max_256.png" class="imagen-producto-oferta"
+                                    alt="Apple iPhone 17 Pro Max naranja">
+
+                            </div>
+
+
+                            <div class="card-body cuerpo-producto-oferta">
+
+                                <h3 class="nombre-producto-oferta">
+                                    Apple iPhone 17 Pro Max 256 GB
+                                    Naranja Cósmico
+                                </h3>
+
+
+                                <div class="precios-producto-oferta">
+
+                                    <span class="precio-actual-oferta">
+                                        1.319€
+                                    </span>
+
+                                    <del class="precio-anterior-oferta">
+                                        1.469€
+                                    </del>
+
+                                </div>
+
+
+                                <p class="valoracion-producto-oferta">
+
+                                    <strong>4,6/5</strong>
+
+                                    <i class="bi bi-star-fill estrella-oferta"></i>
+
+                                    <span>718 opiniones</span>
+
+                                </p>
+
+
+                                <p class="envio-producto-oferta">
+
+                                    <i class="bi bi-truck icono-envio-oferta"></i>
+
+                                    <span>Envío gratis. Entrega mañana</span>
+
+                                </p>
+
+
+                                <div class="opciones-color-oferta" aria-label="Colores disponibles">
+                                    <span class="color-oferta color-azul"></span>
+
+                                    <span class="color-oferta color-naranja"></span>
+
+                                    <span class="color-oferta color-gris"></span>
+
+                                    <span class="texto-otras-opciones">
+                                        Ver otras opciones
+                                    </span>
+                                </div>
+
+                            </div>
+
+                        </article>
+                    </a>
+
+
+                    <!-- Producto 3 -->
+
+                    <a href="#" onclick="return false;" class="enlace-producto-oferta">
+                        <article class="card tarjeta-producto-oferta">
+
+                            <div class="contenedor-imagen-oferta">
+
+                                <span class="descuento-oferta">
+                                    -20%
+                                </span>
+
+                                <img src="imagenes/Portátil_Acer_Nitro_V15_IntelCore_i9.png"
+                                    class="imagen-producto-oferta" alt="Portátil Acer Nitro V15">
+
+                            </div>
+
+
+                            <div class="card-body cuerpo-producto-oferta">
+
+                                <h3 class="nombre-producto-oferta">
+                                    Portátil Acer Nitro V 15 ANV15-52
+                                    15.6 pulgadas Intel Core i9-13900H
+                                    32GB 1TB SSD RTX 5060
+                                </h3>
+
+
+                                <div class="precios-producto-oferta">
+
+                                    <span class="precio-actual-oferta">
+                                        1.199€
+                                    </span>
+
+                                    <del class="precio-anterior-oferta">
+                                        1.499€
+                                    </del>
+
+                                </div>
+
+
+                                <p class="precio-minimo-oferta">
+                                    ¡Precio mínimo histórico!
+                                </p>
+
+
+                                <p class="valoracion-producto-oferta">
+
+                                    <strong>4,4/5</strong>
+
+                                    <i class="bi bi-star-fill estrella-oferta"></i>
+
+                                    <span>1905 opiniones</span>
+
+                                </p>
+
+
+                                <p class="envio-producto-oferta">
+
+                                    <i class="bi bi-truck icono-envio-oferta"></i>
+
+                                    <span>Envío gratis. Entrega mañana</span>
+
+                                </p>
+
+
+                                <div class="opciones-color-oferta">
+
+                                    <span class="color-oferta color-gris-oscuro"></span>
+
+                                    <span class="color-oferta color-negro"></span>
+
+                                    <span class="texto-otras-opciones">
+                                        Ver otras opciones
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+                    </a>
+                    <!-- Producto 4 -->
+
+                    <a href="#" onclick="return false;" class="enlace-producto-oferta">
+                        <article class="card tarjeta-producto-oferta">
+
+                            <div class="contenedor-imagen-oferta">
+
+                                <span class="descuento-oferta">
+                                    -37%
+                                </span>
+
+                                <img src="imagenes/Monitor_Philips.png" class="imagen-producto-oferta"
+                                    alt="Monitor Philips de 27 pulgadas">
+
+                            </div>
+
+
+                            <div class="card-body cuerpo-producto-oferta">
+
+                                <h3 class="nombre-producto-oferta">
+                                    Monitor Philips 27M2N3500NF/00
+                                    27 pulgadas Quad HD 144Hz IPS
+                                    HDR10 Smart MBR
+                                </h3>
+
+
+                                <div class="precios-producto-oferta">
+
+                                    <span class="precio-actual-oferta">
+                                        99,99€
+                                    </span>
+
+                                    <del class="precio-anterior-oferta">
+                                        159,90€
+                                    </del>
+
+                                </div>
+
+
+                                <p class="precio-minimo-oferta">
+                                    ¡Precio mínimo histórico!
+                                </p>
+
+
+                                <p class="valoracion-producto-oferta">
+
+                                    <strong>4,7/5</strong>
+
+                                    <i class="bi bi-star-fill estrella-oferta"></i>
+
+                                    <span>48 opiniones</span>
+
+                                </p>
+
+
+                                <p class="envio-producto-oferta">
+
+                                    <i class="bi bi-truck icono-envio-oferta"></i>
+
+                                    <span>Envío gratis. Entrega mañana</span>
+
+                                </p>
+
+                            </div>
+
+                        </article>
+                    </a>
+
+
+                    <!-- Producto 5 -->
+
+                    <a href="#" onclick="return false;" class="enlace-producto-oferta">
+                        <article class="card tarjeta-producto-oferta">
+
+                            <div class="contenedor-imagen-oferta">
+
+                                <span class="descuento-oferta">
+                                    -5%
+                                </span>
+
+                                <img src="imagenes/Auriculares_Apple_AirPods_5_inalámbricos.png"
+                                    class="imagen-producto-oferta" alt="Auriculares Apple AirPods 5 blancos">
+
+                            </div>
+
+
+                            <div class="card-body cuerpo-producto-oferta">
+
+                                <h3 class="nombre-producto-oferta">
+                                    Auriculares Apple AirPods 5
+                                    inalámbricos Bluetooth con
+                                    cancelación activa de ruido
+                                </h3>
+
+
+                                <div class="precios-producto-oferta">
+
+                                    <span class="precio-actual-oferta">
+                                        159€
+                                    </span>
+
+                                    <del class="precio-anterior-oferta">
+                                        169€
+                                    </del>
+
+                                </div>
+
+
+                                <p class="precio-minimo-oferta">
+                                    ¡Precio mínimo histórico!
+                                </p>
+
+
+                                <p class="valoracion-producto-oferta">
+
+                                    <strong>4,9/5</strong>
+
+                                    <i class="bi bi-star-fill estrella-oferta"></i>
+
+                                    <span>7 opiniones</span>
+
+                                </p>
+
+
+                                <p class="envio-producto-oferta">
+
+                                    <i class="bi bi-truck icono-envio-oferta"></i>
+
+                                    <span>Envío gratis. Entrega mañana</span>
+
+                                </p>
+
+                            </div>
+
+                        </article>
+                    </a>
+
+
+                    <!-- Producto 6 -->
+
+                    <a href="#" onclick="return false;" class="enlace-producto-oferta">
+                        <article class="card tarjeta-producto-oferta">
+
+                            <div class="contenedor-imagen-oferta">
+
+                                <span class="descuento-oferta">
+                                    -20%
+                                </span>
+
+                                <img src="imagenes/Robot_Aspirador_Fregasuelos_Dreame_D20_Pro_Plus_Kit.png"
+                                    class="imagen-producto-oferta" alt="Robot aspirador Dreame D20 Pro Plus">
+
+                            </div>
+
+
+                            <div class="card-body cuerpo-producto-oferta">
+
+                                <h3 class="nombre-producto-oferta">
+                                    Robot Aspirador y Fregasuelos
+                                    Dreame D20 Pro Plus Kit con
+                                    Autovaciado y Navegación Láser
+                                </h3>
+
+
+                                <div class="precios-producto-oferta">
+
+                                    <span class="precio-actual-oferta">
+                                        199€
+                                    </span>
+
+                                    <del class="precio-anterior-oferta">
+                                        249,01€
+                                    </del>
+
+                                </div>
+
+
+                                <p class="precio-minimo-oferta">
+                                    ¡Precio mínimo histórico!
+                                </p>
+
+
+                                <p class="valoracion-producto-oferta">
+
+                                    <strong>4,5/5</strong>
+
+                                    <i class="bi bi-star-fill estrella-oferta"></i>
+
+                                    <span>11 opiniones</span>
+
+                                </p>
+
+
+                                <p class="envio-producto-oferta">
+
+                                    <i class="bi bi-truck icono-envio-oferta"></i>
+
+                                    <span>Envío gratis. Entrega mañana</span>
+
+                                </p>
+
+                            </div>
+
+                        </article>
+                    </a>
+
+
+                    <!-- Producto 7 -->
+
+                    <a href="#" onclick="return false;" class="enlace-producto-oferta">
+                        <article class="card tarjeta-producto-oferta">
+
+                            <div class="contenedor-imagen-oferta">
+
+                                <span class="descuento-oferta">
+                                    -34%
+                                </span>
+
+                                <img src="imagenes/Xiaomi_Electric_Scooter5Max_Patinete_Electrico.png"
+                                    class="imagen-producto-oferta"
+                                    alt="Patinete eléctrico Xiaomi Electric Scooter 5 Max">
+
+                            </div>
+
+
+                            <div class="card-body cuerpo-producto-oferta">
+
+                                <span class="etiqueta-recomendado-oferta">
+                                    Recomendado
+                                </span>
+
+
+                                <h3 class="nombre-producto-oferta">
+                                    Xiaomi Electric Scooter 5 Max
+                                    Patinete Eléctrico 400W
+                                    10 pulgadas Negro
+                                </h3>
+
+
+                                <div class="precios-producto-oferta">
+
+                                    <span class="precio-actual-oferta">
+                                        393€
+                                    </span>
+
+                                    <del class="precio-anterior-oferta">
+                                        599,99€
+                                    </del>
+
+                                </div>
+
+
+                                <p class="precio-minimo-oferta">
+                                    ¡Precio mínimo histórico!
+                                </p>
+
+
+                                <p class="valoracion-producto-oferta">
+
+                                    <strong>4,5/5</strong>
+
+                                    <i class="bi bi-star-fill estrella-oferta"></i>
+
+                                    <span>203 opiniones</span>
+
+                                </p>
+
+
+                                <p class="envio-producto-oferta">
+
+                                    <i class="bi bi-truck icono-envio-oferta"></i>
+
+                                    <span>Envío gratis. Entrega mañana</span>
+
+                                </p>
+
+                            </div>
+
+                        </article>
+                    </a>
+
+
+                    <!-- Producto 8 -->
+
+                    <a href="#" onclick="return false;" class="enlace-producto-oferta">
+                        <article class="card tarjeta-producto-oferta">
+
+                            <div class="contenedor-imagen-oferta">
+
+                                <span class="descuento-oferta">
+                                    -37%
+                                </span>
+
+                                <img src="imagenes/Apple_Watch_Ultra_2_GPS_Cellelar_49mm.png"
+                                    class="imagen-producto-oferta" alt="Apple Watch Ultra 2 con correa verde">
+
+                            </div>
+
+
+                            <div class="card-body cuerpo-producto-oferta">
+
+                                <h3 class="nombre-producto-oferta">
+                                    Apple Watch Ultra 2 GPS +
+                                    Cellular 49mm Caja Negra Titanio
+                                    con Correa Alpine Loop
+                                </h3>
+
+
+                                <div class="precios-producto-oferta">
+
+                                    <span class="precio-actual-oferta">
+                                        689€
+                                    </span>
+
+                                    <del class="precio-anterior-oferta">
+                                        1.099€
+                                    </del>
+
+                                </div>
+
+
+                                <p class="precio-minimo-oferta">
+                                    ¡Precio mínimo histórico!
+                                </p>
+
+
+                                <p class="valoracion-producto-oferta">
+
+                                    <strong>4,7/5</strong>
+
+                                    <i class="bi bi-star-fill estrella-oferta"></i>
+
+                                    <span>74 opiniones</span>
+
+                                </p>
+
+
+                                <p class="envio-producto-oferta">
+
+                                    <i class="bi bi-truck icono-envio-oferta"></i>
+
+                                    <span>Envío gratis. Entrega mañana</span>
+
+                                </p>
+
+
+                                <div class="opciones-color-oferta">
+
+                                    <span class="color-oferta color-negro"></span>
+
+                                    <span class="color-oferta color-gris"></span>
+
+                                    <span class="texto-otras-opciones">
+                                        Ver otras opciones
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+                    </a>
+
+                </div>
+
+
+                <!-- Flecha derecha -->
+
+                <button type="button" class="flecha-ofertas flecha-ofertas-derecha" aria-label="Ver más productos"
+                    onclick="
+                        document.getElementById('lista-ofertas').scrollBy({
+                            left: document.getElementById('lista-ofertas').clientWidth * 0.8,
+                            behavior: 'smooth'
+                        });
+                    ">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             PRODUCTOS BASADOS EN TU NAVEGACIÓN
+             ================================================== -->
+
+        <section class="seccion-ofertas-dias-naranjas">
+
+            <div class="cabecera-ofertas">
+
+                <h2 class="titulo-ofertas">
+                    Basadas en tu navegación
+                </h2>
+
+                <a href="#" onclick="return false;" class="enlace-ver-mas">
+                    Ver más
+
+                    <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                </a>
+
+            </div>
+
+
+            <div class="carrusel-ofertas">
+
+                <!-- Flecha izquierda -->
+
+                <button type="button" class="flecha-ofertas flecha-ofertas-izquierda"
+                    aria-label="Ver productos anteriores" onclick="
+                        document.getElementById('lista-navegacion').scrollBy({
+                            left: -document.getElementById('lista-navegacion').clientWidth * 0.8,
+                            behavior: 'smooth'
+                        });
+                    ">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+
+
+                <div class="lista-ofertas" id="lista-navegacion">
+
+                    <!-- Producto 1 -->
+
+                    <a href="#" onclick="return false;" class="enlace-producto-oferta">
+                        <article class="card tarjeta-producto-oferta">
+
+                            <div class="contenedor-imagen-oferta">
+
+                                <span class="descuento-oferta">
+                                    -22%
+                                </span>
+
+                                <img src="imagenes/PcCom_Imperial_AMD_Ryzen_7.png" class="imagen-producto-oferta"
+                                    alt="PcCom Imperial AMD Ryzen 7">
+
+                            </div>
+
+
+                            <div class="card-body cuerpo-producto-oferta">
+
+                                <h3 class="nombre-producto-oferta">
+                                    PcCom Imperial AMD Ryzen 7 5800XT /
+                                    32GB / 1TB SSD / RTX 5070 /
+                                    Windows 11 Home
+                                </h3>
+
+
+                                <div class="precios-producto-oferta">
+
+                                    <span class="precio-actual-oferta">
+                                        1.649€
+                                    </span>
+
+                                    <del class="precio-anterior-oferta">
+                                        2.139€
+                                    </del>
+
+                                </div>
+
+
+                                <p class="precio-minimo-oferta">
+                                    ¡Precio mínimo histórico!
+                                </p>
+
+
+                                <p class="valoracion-producto-oferta">
+
+                                    <strong>4,9/5</strong>
+
+                                    <i class="bi bi-star-fill estrella-oferta"></i>
+
+                                    <span>11 opiniones</span>
+
+                                </p>
+
+
+                                <p class="envio-producto-oferta">
+
+                                    <i class="bi bi-truck icono-envio-oferta"></i>
+
+                                    <span>Envío gratis. Entrega mañana</span>
+
+                                </p>
+
+                            </div>
+
+                        </article>
+                    </a>
+
+
+                    <!-- Producto 2 -->
+
+                    <a href="#" onclick="return false;" class="enlace-producto-oferta">
+                        <article class="card tarjeta-producto-oferta">
+
+                            <div class="contenedor-imagen-oferta">
+
+                                <span class="descuento-oferta">
+                                    -10%
+                                </span>
+
+                                <img src="imagenes/Apple_iPhone_17_Pro_Max_256.png" class="imagen-producto-oferta"
+                                    alt="Apple iPhone 17 Pro Max naranja">
+
+                            </div>
+
+
+                            <div class="card-body cuerpo-producto-oferta">
+
+                                <h3 class="nombre-producto-oferta">
+                                    Apple iPhone 17 Pro Max 256 GB
+                                    Naranja Cósmico
+                                </h3>
+
+
+                                <div class="precios-producto-oferta">
+
+                                    <span class="precio-actual-oferta">
+                                        1.319€
+                                    </span>
+
+                                    <del class="precio-anterior-oferta">
+                                        1.469€
+                                    </del>
+
+                                </div>
+
+
+                                <p class="valoracion-producto-oferta">
+
+                                    <strong>4,6/5</strong>
+
+                                    <i class="bi bi-star-fill estrella-oferta"></i>
+
+                                    <span>718 opiniones</span>
+
+                                </p>
+
+
+                                <p class="envio-producto-oferta">
+
+                                    <i class="bi bi-truck icono-envio-oferta"></i>
+
+                                    <span>Envío gratis. Entrega mañana</span>
+
+                                </p>
+
+
+                                <div class="opciones-color-oferta" aria-label="Colores disponibles">
+                                    <span class="color-oferta color-azul"></span>
+
+                                    <span class="color-oferta color-naranja"></span>
+
+                                    <span class="color-oferta color-gris"></span>
+
+                                    <span class="texto-otras-opciones">
+                                        Ver otras opciones
+                                    </span>
+                                </div>
+
+                            </div>
+
+                        </article>
+                    </a>
+
+
+                    <!-- Producto 3 -->
+
+                    <a href="#" onclick="return false;" class="enlace-producto-oferta">
+                        <article class="card tarjeta-producto-oferta">
+
+                            <div class="contenedor-imagen-oferta">
+
+                                <span class="descuento-oferta">
+                                    -20%
+                                </span>
+
+                                <img src="imagenes/Portátil_Acer_Nitro_V15_IntelCore_i9.png"
+                                    class="imagen-producto-oferta" alt="Portátil Acer Nitro V15">
+
+                            </div>
+
+
+                            <div class="card-body cuerpo-producto-oferta">
+
+                                <h3 class="nombre-producto-oferta">
+                                    Portátil Acer Nitro V 15 ANV15-52
+                                    15.6 pulgadas Intel Core i9-13900H
+                                    32GB 1TB SSD RTX 5060
+                                </h3>
+
+
+                                <div class="precios-producto-oferta">
+
+                                    <span class="precio-actual-oferta">
+                                        1.199€
+                                    </span>
+
+                                    <del class="precio-anterior-oferta">
+                                        1.499€
+                                    </del>
+
+                                </div>
+
+
+                                <p class="precio-minimo-oferta">
+                                    ¡Precio mínimo histórico!
+                                </p>
+
+
+                                <p class="valoracion-producto-oferta">
+
+                                    <strong>4,4/5</strong>
+
+                                    <i class="bi bi-star-fill estrella-oferta"></i>
+
+                                    <span>1905 opiniones</span>
+
+                                </p>
+
+
+                                <p class="envio-producto-oferta">
+
+                                    <i class="bi bi-truck icono-envio-oferta"></i>
+
+                                    <span>Envío gratis. Entrega mañana</span>
+
+                                </p>
+
+
+                                <div class="opciones-color-oferta">
+
+                                    <span class="color-oferta color-gris-oscuro"></span>
+
+                                    <span class="color-oferta color-negro"></span>
+
+                                    <span class="texto-otras-opciones">
+                                        Ver otras opciones
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+                    </a>
+                    <!-- Producto 4 -->
+
+                    <a href="#" onclick="return false;" class="enlace-producto-oferta">
+
+                        <article class="card tarjeta-producto-oferta">
+
+                            <div class="contenedor-imagen-oferta">
+
+                                <span class="descuento-oferta">
+                                    -37%
+                                </span>
+
+                                <img src="imagenes/Monitor_Philips.png" class="imagen-producto-oferta"
+                                    alt="Monitor Philips de 27 pulgadas">
+
+                            </div>
+
+                            <div class="card-body cuerpo-producto-oferta">
+
+                                <h3 class="nombre-producto-oferta">
+                                    Monitor Philips 27M2N3500NF/00
+                                    27 pulgadas Quad HD 144Hz IPS
+                                    HDR10 Smart MBR
+                                </h3>
+
+                                <div class="precios-producto-oferta">
+
+                                    <span class="precio-actual-oferta">
+                                        99,99€
+                                    </span>
+
+                                    <del class="precio-anterior-oferta">
+                                        159,90€
+                                    </del>
+
+                                </div>
+
+                                <p class="precio-minimo-oferta">
+                                    ¡Precio mínimo histórico!
+                                </p>
+
+                                <p class="valoracion-producto-oferta">
+
+                                    <strong>4,7/5</strong>
+
+                                    <i class="bi bi-star-fill estrella-oferta"></i>
+
+                                    <span>48 opiniones</span>
+
+                                </p>
+
+                                <p class="envio-producto-oferta">
+
+                                    <i class="bi bi-truck icono-envio-oferta"></i>
+
+                                    <span>Envío gratis. Entrega mañana</span>
+
+                                </p>
+
+                            </div>
+
+                        </article>
+
+                    </a>
+
+
+                    <!-- Producto 5 -->
+
+                    <a href="#" onclick="return false;" class="enlace-producto-oferta">
+
+                        <article class="card tarjeta-producto-oferta">
+
+                            <div class="contenedor-imagen-oferta">
+
+                                <span class="descuento-oferta">
+                                    -5%
+                                </span>
+
+                                <img src="imagenes/Auriculares_Apple_AirPods_5_inalámbricos.png"
+                                    class="imagen-producto-oferta" alt="Auriculares Apple AirPods 5 blancos">
+
+                            </div>
+
+                            <div class="card-body cuerpo-producto-oferta">
+
+                                <h3 class="nombre-producto-oferta">
+                                    Auriculares Apple AirPods 5
+                                    inalámbricos Bluetooth con
+                                    cancelación activa de ruido
+                                </h3>
+
+                                <div class="precios-producto-oferta">
+
+                                    <span class="precio-actual-oferta">
+                                        159€
+                                    </span>
+
+                                    <del class="precio-anterior-oferta">
+                                        169€
+                                    </del>
+
+                                </div>
+
+                                <p class="precio-minimo-oferta">
+                                    ¡Precio mínimo histórico!
+                                </p>
+
+                                <p class="valoracion-producto-oferta">
+
+                                    <strong>4,9/5</strong>
+
+                                    <i class="bi bi-star-fill estrella-oferta"></i>
+
+                                    <span>7 opiniones</span>
+
+                                </p>
+
+                                <p class="envio-producto-oferta">
+
+                                    <i class="bi bi-truck icono-envio-oferta"></i>
+
+                                    <span>Envío gratis. Entrega mañana</span>
+
+                                </p>
+
+                            </div>
+
+                        </article>
+
+                    </a>
+
+
+                    <!-- Producto 6 -->
+
+                    <a href="#" onclick="return false;" class="enlace-producto-oferta">
+
+                        <article class="card tarjeta-producto-oferta">
+
+                            <div class="contenedor-imagen-oferta">
+
+                                <span class="descuento-oferta">
+                                    -20%
+                                </span>
+
+                                <img src="imagenes/Robot_Aspirador_Fregasuelos_Dreame_D20_Pro_Plus_Kit.png"
+                                    class="imagen-producto-oferta" alt="Robot aspirador Dreame D20 Pro Plus">
+
+                            </div>
+
+                            <div class="card-body cuerpo-producto-oferta">
+
+                                <h3 class="nombre-producto-oferta">
+                                    Robot Aspirador y Fregasuelos
+                                    Dreame D20 Pro Plus Kit con
+                                    Autovaciado y Navegación Láser
+                                </h3>
+
+                                <div class="precios-producto-oferta">
+
+                                    <span class="precio-actual-oferta">
+                                        199€
+                                    </span>
+
+                                    <del class="precio-anterior-oferta">
+                                        249,01€
+                                    </del>
+
+                                </div>
+
+                                <p class="precio-minimo-oferta">
+                                    ¡Precio mínimo histórico!
+                                </p>
+
+                                <p class="valoracion-producto-oferta">
+
+                                    <strong>4,5/5</strong>
+
+                                    <i class="bi bi-star-fill estrella-oferta"></i>
+
+                                    <span>11 opiniones</span>
+
+                                </p>
+
+                                <p class="envio-producto-oferta">
+
+                                    <i class="bi bi-truck icono-envio-oferta"></i>
+
+                                    <span>Envío gratis. Entrega mañana</span>
+
+                                </p>
+
+                            </div>
+
+                        </article>
+
+                    </a>
+
+
+                    <!-- Producto 7 -->
+
+                    <a href="#" onclick="return false;" class="enlace-producto-oferta">
+
+                        <article class="card tarjeta-producto-oferta">
+
+                            <div class="contenedor-imagen-oferta">
+
+                                <span class="descuento-oferta">
+                                    -34%
+                                </span>
+
+                                <img src="imagenes/Xiaomi_Electric_Scooter5Max_Patinete_Electrico.png"
+                                    class="imagen-producto-oferta"
+                                    alt="Patinete eléctrico Xiaomi Electric Scooter 5 Max">
+
+                            </div>
+
+                            <div class="card-body cuerpo-producto-oferta">
+
+                                <span class="etiqueta-recomendado-oferta">
+                                    Recomendado
+                                </span>
+
+                                <h3 class="nombre-producto-oferta">
+                                    Xiaomi Electric Scooter 5 Max
+                                    Patinete Eléctrico 400W
+                                    10 pulgadas Negro
+                                </h3>
+
+                                <div class="precios-producto-oferta">
+
+                                    <span class="precio-actual-oferta">
+                                        393€
+                                    </span>
+
+                                    <del class="precio-anterior-oferta">
+                                        599,99€
+                                    </del>
+
+                                </div>
+
+                                <p class="precio-minimo-oferta">
+                                    ¡Precio mínimo histórico!
+                                </p>
+
+                                <p class="valoracion-producto-oferta">
+
+                                    <strong>4,5/5</strong>
+
+                                    <i class="bi bi-star-fill estrella-oferta"></i>
+
+                                    <span>203 opiniones</span>
+
+                                </p>
+
+                                <p class="envio-producto-oferta">
+
+                                    <i class="bi bi-truck icono-envio-oferta"></i>
+
+                                    <span>Envío gratis. Entrega mañana</span>
+
+                                </p>
+
+                            </div>
+
+                        </article>
+
+                    </a>
+
+
+                    <!-- Producto 8 -->
+
+                    <a href="#" onclick="return false;" class="enlace-producto-oferta">
+
+                        <article class="card tarjeta-producto-oferta">
+
+                            <div class="contenedor-imagen-oferta">
+
+                                <span class="descuento-oferta">
+                                    -37%
+                                </span>
+
+                                <img src="imagenes/Apple_Watch_Ultra_2_GPS_Cellelar_49mm.png"
+                                    class="imagen-producto-oferta" alt="Apple Watch Ultra 2 con correa verde">
+
+                            </div>
+
+                            <div class="card-body cuerpo-producto-oferta">
+
+                                <h3 class="nombre-producto-oferta">
+                                    Apple Watch Ultra 2 GPS +
+                                    Cellular 49mm Caja Negra Titanio
+                                    con Correa Alpine Loop
+                                </h3>
+
+                                <div class="precios-producto-oferta">
+
+                                    <span class="precio-actual-oferta">
+                                        689€
+                                    </span>
+
+                                    <del class="precio-anterior-oferta">
+                                        1.099€
+                                    </del>
+
+                                </div>
+
+                                <p class="precio-minimo-oferta">
+                                    ¡Precio mínimo histórico!
+                                </p>
+
+                                <p class="valoracion-producto-oferta">
+
+                                    <strong>4,7/5</strong>
+
+                                    <i class="bi bi-star-fill estrella-oferta"></i>
+
+                                    <span>74 opiniones</span>
+
+                                </p>
+
+                                <p class="envio-producto-oferta">
+
+                                    <i class="bi bi-truck icono-envio-oferta"></i>
+
+                                    <span>Envío gratis. Entrega mañana</span>
+
+                                </p>
+
+                                <div class="opciones-color-oferta">
+
+                                    <span class="color-oferta color-negro"></span>
+
+                                    <span class="color-oferta color-gris"></span>
+
+                                    <span class="texto-otras-opciones">
+                                        Ver otras opciones
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+                    </a>
+
+                </div>
+
+
+                <!-- Flecha derecha -->
+
+                <button type="button" class="flecha-ofertas flecha-ofertas-derecha" aria-label="Ver más productos"
+                    onclick="
+                        document.getElementById('lista-navegacion').scrollBy({
+                            left: document.getElementById('lista-navegacion').clientWidth * 0.8,
+                            behavior: 'smooth'
+                        });
+                    ">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             ORGANIZA TU CASA, TU TRABAJO Y TU RUTINA
+             ================================================== -->
+
+        <section class="seccion-organiza-rutina">
+
+            <div class="container-fluid contenedor-organiza-rutina">
+
+                <h2 class="titulo-organiza-rutina">
+                    Organiza tu casa, tu trabajo y tu rutina
+                </h2>
+                <div class="carrusel-organiza-rutina">
+
+                    <div class="rejilla-organiza-rutina" id="rejillaOrganizaRutina">
+
+                        <!-- Aquí permanecen tus cuatro article actuales -->
+                        <!-- Papelería y oficina -->
+
+                        <article class="tarjeta-organiza-rutina">
+
+                            <h3 class="titulo-tarjeta-organiza">
+                                Papelería y oficina
+                            </h3>
+
+                            <a href="#" onclick="return false;" class="enlace-organiza-rutina">
+                                <div class="contenedor-imagen-organiza">
+
+                                    <img src="imagenes/Papeleria_y_oficina.png" class="imagen-organiza-rutina"
+                                        alt="Escritorio para trabajar en casa">
+
+                                </div>
+
+                                <p class="texto-organiza-rutina">
+                                    Todo para tu escritorio
+                                </p>
+                            </a>
+
+                        </article>
+
+
+                        <!-- Vuelta a la rutina -->
+
+                        <article class="tarjeta-organiza-rutina tarjeta-organiza-doble">
+
+                            <h3 class="titulo-tarjeta-organiza">
+                                Vuelta a la rutina
+                            </h3>
+
+                            <a href="#" onclick="return false;" class="enlace-organiza-rutina enlace-organiza-pequeno">
+                                <div class="contenedor-imagen-organiza contenedor-imagen-pequena">
+
+                                    <img src="imagenes/Cocina_saludable.png" class="imagen-organiza-rutina"
+                                        alt="Preparación de una comida saludable">
+
+                                </div>
+
+                                <p class="texto-organiza-rutina">
+                                    Cocina saludable
+                                </p>
+                            </a>
+
+
+                            <a href="#" onclick="return false;" class="enlace-organiza-rutina enlace-organiza-pequeno">
+                                <div class="contenedor-imagen-organiza contenedor-imagen-pequena">
+
+                                    <img src="imagenes/Esenciales_para_entrenar.png" class="imagen-organiza-rutina"
+                                        alt="Material para entrenar en casa">
+
+                                </div>
+
+                                <p class="texto-organiza-rutina">
+                                    Esenciales para entrenar
+                                </p>
+                            </a>
+
+                        </article>
+
+
+                        <!-- Oficina en casa -->
+
+                        <article class="tarjeta-organiza-rutina">
+
+                            <h3 class="titulo-tarjeta-organiza">
+                                Oficina en casa
+                            </h3>
+
+                            <a href="#" onclick="return false;" class="enlace-organiza-rutina">
+                                <div class="contenedor-imagen-organiza">
+
+                                    <img src="imagenes/Oficina_en_casa.png" class="imagen-organiza-rutina"
+                                        alt="Puesto de trabajo en casa">
+
+                                </div>
+
+                                <p class="texto-organiza-rutina">
+                                    Tu puesto de trabajo merece un upgrade
+                                </p>
+                            </a>
+
+                        </article>
+
+
+                        <!-- Hogar -->
+
+                        <article class="tarjeta-organiza-rutina">
+
+                            <h3 class="titulo-tarjeta-organiza">
+                                Hogar
+                            </h3>
+
+                            <a href="#" onclick="return false;" class="enlace-organiza-rutina">
+                                <div class="contenedor-imagen-organiza">
+
+                                    <img src="imagenes/Hogar.png" class="imagen-organiza-rutina"
+                                        alt="Electrodomésticos para el hogar">
+
+                                </div>
+
+                                <p class="texto-organiza-rutina">
+                                    Una casa a tu medida
+                                </p>
+                            </a>
+
+                        </article>
+
+
+                    </div>
+
+                    <button type="button" class="flecha-organiza-rutina flecha-organiza-derecha"
+                        aria-label="Ver la siguiente tarjeta" onclick="
+            document.getElementById('rejillaOrganizaRutina').scrollBy({
+                left: document.getElementById('rejillaOrganizaRutina').clientWidth / 3,
+                behavior: 'smooth'
+            });
+        ">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+
+                </div>
+
+
+
+            </div>
+
+        </section>
+        <!-- ==================================================
+             PRESENTACIÓN DE REACONDICIONADOS
+             ================================================== -->
+
+        <section class="seccion-presentacion-reacondicionados">
+
+            <div class="contenedor-presentacion-reacondicionados">
+
+                <div class="fila-presentacion-reacondicionados">
+
+                    <!-- Información principal -->
+
+                    <div class="informacion-presentacion-reacondicionados">
+
+                        <div class="logotipo-reacondicionados" aria-label="Reacondicionados">
+                            <span class="silaba-reacondicionados">
+                                RE
+                            </span>
+
+                            <span class="resto-logotipo-reacondicionados">
+                                ACONDICIONADOS
+                            </span>
+                        </div>
+
+
+                        <h2 class="titulo-presentacion-reacondicionados">
+
+                            Seleccionados y preparados por
+
+                            <span class="texto-morado-reacondicionados">
+                                nuestros expertos
+                            </span>
+
+                            en
+
+                            <span class="texto-morado-reacondicionados">
+                                nuestros propios talleres.
+                            </span>
+
+                        </h2>
+
+
+                        <div class="botones-presentacion-reacondicionados">
+
+                            <a href="#" onclick="return false;" class="boton-ver-reacondicionados">
+                                Ver reacondicionados
+                            </a>
+
+                            <a href="#" onclick="return false;" class="boton-preguntas-reacondicionados">
+                                Preguntas frecuentes
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Ventajas -->
+
+                    <div class="cuadro-ventajas-reacondicionados">
+
+                        <div class="ventaja-reacondicionados">
+
+                            <span class="icono-ventaja-reacondicionados">
+                                <i class="bi bi-shield-check"></i>
+                            </span>
+
+                            <p>
+                                Hasta 3 años de garantía
+                            </p>
+
+                        </div>
+
+
+                        <div class="ventaja-reacondicionados">
+
+                            <span class="icono-ventaja-reacondicionados">
+                                <i class="bi bi-arrow-counterclockwise"></i>
+                            </span>
+
+                            <p>
+                                Devoluciones gratuitas
+                            </p>
+
+                        </div>
+
+
+                        <div class="ventaja-reacondicionados">
+
+                            <span class="icono-ventaja-reacondicionados">
+                                <i class="bi bi-percent"></i>
+                            </span>
+
+                            <p>
+                                Hasta 20% ahorro frente a nuevo
+                            </p>
+
+                        </div>
+
+
+                        <div class="ventaja-reacondicionados">
+
+                            <span class="icono-ventaja-reacondicionados">
+                                <i class="bi bi-hand-thumbs-up"></i>
+                            </span>
+
+                            <p>
+                                100% revisado por nuestro equipo
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Productos más buscados -->
+
+                <div class="zona-mas-buscados-reacondicionados">
+
+                    <h3 class="titulo-mas-buscados-reacondicionados">
+                        Los más buscados
+                    </h3>
+
+
+                    <div class="lista-mas-buscados-reacondicionados">
+
+                        <a href="#" onclick="return false;" class="etiqueta-buscada-reacondicionados">
+                            <i class="bi bi-phone"></i>
+
+                            <span>iPhone</span>
+                        </a>
+
+
+                        <a href="#" onclick="return false;" class="etiqueta-buscada-reacondicionados">
+                            <i class="bi bi-laptop"></i>
+
+                            <span>MacBook</span>
+                        </a>
+
+
+                        <a href="#" onclick="return false;" class="etiqueta-buscada-reacondicionados">
+                            <i class="bi bi-phone"></i>
+
+                            <span>Smartphones</span>
+                        </a>
+
+
+                        <a href="#" onclick="return false;" class="etiqueta-buscada-reacondicionados">
+                            <i class="bi bi-laptop"></i>
+
+                            <span>Portátiles</span>
+                        </a>
+
+
+                        <a href="#" onclick="return false;" class="etiqueta-buscada-reacondicionados">
+                            <i class="bi bi-motherboard"></i>
+
+                            <span>Componentes</span>
+                        </a>
+
+
+                        <a href="#" onclick="return false;" class="etiqueta-buscada-reacondicionados">
+                            <i class="bi bi-house-door"></i>
+
+                            <span>Hogar</span>
+                        </a>
+
+
+                        <a href="#" onclick="return false;" class="etiqueta-buscada-reacondicionados">
+                            <i class="bi bi-tv"></i>
+
+                            <span>Televisores</span>
+                        </a>
+
+
+                        <a href="#" onclick="return false;" class="etiqueta-buscada-reacondicionados">
+                            <i class="bi bi-controller"></i>
+
+                            <span>Consolas</span>
+                        </a>
+
+
+                        <a href="#" onclick="return false;" class="etiqueta-buscada-reacondicionados">
+                            <span>Ver más</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             CARRUSEL DE REACONDICIONADOS Y SERVICIOS
+             ================================================== -->
+
+        <section class="container-fluid my-5 px-3">
+
+            <div class="carrusel-reacondicionados">
+
+                <!-- Flecha izquierda -->
+
+                <button type="button" class="flecha-reacondicionados flecha-izquierda"
+                    aria-label="Ver elementos anteriores" onclick="
+                        document.getElementById('lista-reacondicionados').scrollBy({
+                            left: -document.getElementById('lista-reacondicionados').clientWidth * 0.8,
+                            behavior: 'smooth'
+                        });
+                    ">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+
+
+                <div class="lista-reacondicionados" id="lista-reacondicionados">
+
+                    <!-- Reacondicionados -->
+
+                    <a href="#" onclick="return false;" class="reacondicionado-enlace">
+                        <div class="reacondicionado-card">
+
+                            <img src="imagenes/reacondicionados.png" class="reacondicionado-imagen"
+                                alt="Productos reacondicionados">
+
+                            <p class="reacondicionado-nombre">
+                                Reacondicionados
+                            </p>
+
+                        </div>
+                    </a>
+
+
+                    <!-- Servicios -->
+
+                    <a href="#" onclick="return false;" class="reacondicionado-enlace">
+                        <div class="reacondicionado-card">
+
+                            <img src="imagenes/Servicios.png" class="reacondicionado-imagen"
+                                alt="Servicios de PcComponentes">
+
+                            <p class="reacondicionado-nombre">
+                                Servicios
+                            </p>
+
+                        </div>
+                    </a>
+
+
+                    <!-- Ordenadores PcCom -->
+
+                    <a href="#" onclick="return false;" class="reacondicionado-enlace">
+                        <div class="reacondicionado-card">
+
+                            <img src="imagenes/Ordenadores_PcCom.png" class="reacondicionado-imagen"
+                                alt="Ordenadores PcCom">
+
+                            <p class="reacondicionado-nombre">
+                                Ordenadores PcCom
+                            </p>
+
+                        </div>
+                    </a>
+
+
+                    <!-- Envío gratuito -->
+
+                    <a href="#" onclick="return false;" class="reacondicionado-enlace">
+                        <div class="reacondicionado-card">
+
+                            <img src="imagenes/Envio_gratuitos_en_pedidos_superiores_a_50€.png"
+                                class="reacondicionado-imagen" alt="Envío gratuito en pedidos superiores a 50 euros">
+
+                            <p class="reacondicionado-nombre">
+                                Envío gratuito en pedidos superiores a 50€
+                            </p>
+
+                        </div>
+                    </a>
+
+
+                    <!-- Pedido en 24 horas -->
+
+                    <a href="#" onclick="return false;" class="reacondicionado-enlace">
+                        <div class="reacondicionado-card">
+
+                            <img src="imagenes/Recibe_tu_pedido_en_24h.png" class="reacondicionado-imagen"
+                                alt="Recibe tu pedido en 24 horas">
+
+                            <p class="reacondicionado-nombre">
+                                Recibe tu pedido en 24h
+                            </p>
+
+                        </div>
+                    </a>
+
+
+                    <!-- Devoluciones gratuitas -->
+
+                    <a href="#" onclick="return false;" class="reacondicionado-enlace">
+                        <div class="reacondicionado-card">
+
+                            <img src="imagenes/Devoluciones_gratuitas.png" class="reacondicionado-imagen"
+                                alt="Devoluciones gratuitas">
+
+                            <p class="reacondicionado-nombre">
+                                Devoluciones gratuitas
+                            </p>
+
+                        </div>
+                    </a>
+
+
+                    <!-- Garantía de solución -->
+
+                    <a href="#" onclick="return false;" class="reacondicionado-enlace">
+                        <div class="reacondicionado-card">
+
+                            <img src="imagenes/Garantía_de_solución_en_24h.png" class="reacondicionado-imagen"
+                                alt="Garantía de solución en 24 horas">
+
+                            <p class="reacondicionado-nombre">
+                                Garantía de solución en 24h
+                            </p>
+
+                        </div>
+                    </a>
+
+                </div>
+
+
+                <!-- Flecha derecha -->
+
+                <button type="button" class="flecha-reacondicionados flecha-derecha" aria-label="Ver más elementos"
+                    onclick="
+                        document.getElementById('lista-reacondicionados').scrollBy({
+                            left: document.getElementById('lista-reacondicionados').clientWidth * 0.8,
+                            behavior: 'smooth'
+                        });
+                    ">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             NUESTRO EQUIPO EXPERTO
+             ================================================== -->
+
+        <section class="seccion-equipo-experto">
+
+            <div class="container-fluid">
+
+                <h2 class="titulo-equipo-experto">
+                    Nuestro equipo experto te ayuda a elegir
+                </h2>
+
+
+                <div class="row row-cols-1 row-cols-md-2 g-4">
+
+                    <!-- Tarjeta 1 -->
+
+                    <div class="col">
+
+                        <div class="card tarjeta-equipo h-100">
+
+                            <a href="#" onclick="return false;" class="enlace-equipo">
+                                <img src="imagenes/cricut.png" class="imagen-equipo"
+                                    alt="Máquina Cricut para personalizar objetos">
+
+                                <div class="card-body cuerpo-tarjeta-equipo">
+
+                                    <h5 class="texto-equipo">
+                                        Con Cricut, personaliza todo lo que imagines
+                                    </h5>
+
+                                </div>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Tarjeta 2 -->
+
+                    <div class="col">
+
+                        <div class="card tarjeta-equipo h-100">
+
+                            <a href="#" onclick="return false;" class="enlace-equipo">
+                                <img src="imagenes/Te_ayudamos_a_elegir.png" class="imagen-equipo"
+                                    alt="Ayuda para elegir una impresora 3D">
+
+                                <div class="card-body cuerpo-tarjeta-equipo">
+
+                                    <h5 class="texto-equipo">
+                                        Te ayudamos a elegir la mejor impresora
+                                        3D para empezar tu universo creativo
+                                    </h5>
+
+                                </div>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!-- ==================================================
+             CARRUSEL HORIZONTAL DE MARCAS
+             ================================================== -->
+
+        <section class="seccion-marcas">
+
+            <div class="lista-marcas" id="lista-marcas" onscroll="
+                    const flechaIzquierda =
+                        document.getElementById('flecha-marcas-izquierda');
+
+                    if (this.scrollLeft > 5) {
+                        flechaIzquierda.style.visibility = 'visible';
+                        flechaIzquierda.disabled = false;
+                    } else {
+                        flechaIzquierda.style.visibility = 'hidden';
+                        flechaIzquierda.disabled = true;
+                    }
+                ">
+
+                <a href="#" onclick="return false;" class="marca">
+                    <img src="imagenes/hp.png" alt="HP">
+                </a>
+
+
+                <a href="#" onclick="return false;" class="marca">
+                    <img src="imagenes/samsum.png" alt="Samsung">
+                </a>
+
+
+                <a href="#" onclick="return false;" class="marca">
+                    <img src="imagenes/manzana.png" alt="Apple">
+                </a>
+
+
+                <a href="#" onclick="return false;" class="marca">
+                    <img src="imagenes/intel.png" alt="Intel">
+                </a>
+
+
+                <a href="#" onclick="return false;" class="marca">
+                    <img src="imagenes/windows11.png" alt="Windows 11">
+                </a>
+
+
+                <a href="#" onclick="return false;" class="marca">
+                    <img src="imagenes/corsair.png" alt="Corsair">
+                </a>
+
+
+                <a href="#" onclick="return false;" class="marca">
+                    <img src="imagenes/chromebook.png" alt="Chromebook">
+                </a>
+
+
+                <a href="#" onclick="return false;" class="marca">
+                    <img src="imagenes/logitech.png" alt="Logitech">
+                </a>
+
+
+                <a href="#" onclick="return false;" class="marca">
+                    <img src="imagenes/azus.png" alt="Asus">
+                </a>
+
+            </div>
+
+
+            <!-- Flecha izquierda -->
+
+            <button type="button" id="flecha-marcas-izquierda" class="flecha-marcas flecha-marcas-izquierda"
+                aria-label="Ver marcas anteriores" disabled onclick="
+                    document.getElementById('lista-marcas').scrollBy({
+                        left: -document.getElementById('lista-marcas').clientWidth * 0.8,
+                        behavior: 'smooth'
+                    });
+                ">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+
+
+            <!-- Flecha derecha -->
+
+            <button type="button" class="flecha-marcas flecha-marcas-derecha" aria-label="Ver más marcas" onclick="
+                    document.getElementById('lista-marcas').scrollBy({
+                        left: document.getElementById('lista-marcas').clientWidth * 0.8,
+                        behavior: 'smooth'
+                    });
+                ">
+                <i class="bi bi-chevron-right"></i>
+            </button>
+
+        </section>
+
+
+        <!-- ==================================================
+             INFORMACIÓN SOBRE PCCOMPONENTES
+             ================================================== -->
+
+        <section class="seccion-informacion-pccomponentes">
+
+            <div class="contenedor-informacion-pccomponentes">
+
+                <h2 class="titulo-informacion-pccomponentes">
+                    PcComponentes es tu tienda online de tecnología
+                    e informática
+                </h2>
+
+
+                <p class="texto-informacion-pccomponentes">
+
+                    Somos la
+
+                    <strong>
+                        tienda online líder en tecnología
+                    </strong>,
+
+                    basada en la confianza, la experiencia de compra
+                    y el conocimiento del sector tecnológico.
+
+                    Desde 2005 somos
+
+                    <strong>expertos</strong>
+
+                    en informática y electrónica. Buscamos innovar,
+                    descubrir y responder día a día a las últimas
+                    necesidades de la comunidad más tecnológica,
+                    siendo el cliente nuestra razón de ser y
+                    superando siempre sus expectativas.
+
+                </p>
+
+
+                <p class="texto-informacion-pccomponentes">
+
+                    Actualmente contamos con más de 100.000 artículos
+                    disponibles y 31.700 metros cuadrados repartidos
+                    entre todas nuestras instalaciones, además de
+                    cuatro
+
+                    <a href="#" onclick="return false;">
+                        tiendas físicas
+                    </a>
+
+                    en
+
+                    <strong>
+                        Madrid, Barcelona, Murcia y Alhama de Murcia.
+                    </strong>
+
+                </p>
+
+
+                <h3 class="subtitulo-informacion-pccomponentes">
+                    Los expertos en tecnología más comprometidos contigo
+                </h3>
+
+
+                <p class="texto-informacion-pccomponentes">
+
+                    Nuestros
+
+                    <a href="#" onclick="return false;">
+                        compromisos
+                    </a>
+
+                    se centran en ser expertos en lo que vendemos y
+                    garantizar al cliente todo lo que necesita:
+
+                </p>
+
+
+                <ul class="lista-compromisos-pccomponentes">
+
+                    <li>
+                        <strong>Envíos gratuitos</strong>
+
+                        a partir de 50€ siempre en
+
+                        <strong>24 horas</strong>.
+
+                        Si excepcionalmente incumplimos la fecha de
+                        entrega, te devolvemos los gastos de envío.
+                    </li>
+
+
+                    <li>
+                        <strong>Garantía</strong>
+
+                        con la mejor solución para ti en
+
+                        <strong>24 horas.</strong>
+                    </li>
+
+
+                    <li>
+                        <strong>Devoluciones gratuitas.</strong>
+                    </li>
+
+
+                    <li>
+                        <strong>
+                            Atención al cliente local y sin esperas.
+                        </strong>
+                    </li>
+
+
+                    <li>
+                        Nos tomamos muy en serio las
+
+                        <strong>opiniones</strong>
+
+                        de nuestros clientes y puedes verlas siempre
+                        en nuestros artículos.
+                    </li>
+
+                </ul>
+
+
+                <p class="bienvenida-pccomponentes">
+                    Bienvenido a PcComponentes.
+                </p>
+
+            </div>
+
+
+            <!-- ==================================================
+                 CUATRO TARJETAS DE VENTAJAS
+                 ================================================== -->
+
+            <div class="contenedor-ventajas-pccomponentes">
+
+                <div class="row row-cols-1 row-cols-md-4 row-cols-xl-4 g-0">
+
+                    <!-- Tarjeta 1 -->
+
+                    <div class="col">
+
+                        <a href="#" onclick="return false;" class="enlace-ventaja-pccomponentes"
+                            aria-label="Más información sobre envíos gratuitos">
+                            <article class="card tarjeta-ventaja-pccomponentes">
+
+                                <img src="imagenes/furgo.png" class="imagen-ventaja-pccomponentes"
+                                    alt="Camión de envíos gratuitos">
+
+                                <div class="card-body cuerpo-ventaja-pccomponentes">
+
+                                    <p class="card-text texto-ventaja-pccomponentes">
+
+                                        <strong>
+                                            Envíos gratuitos
+                                        </strong>
+
+                                        en pedidos a partir de 50€.
+
+                                    </p>
+
+                                </div>
+
+                            </article>
+                        </a>
+
+                    </div>
+
+
+                    <!-- Tarjeta 2 -->
+
+                    <div class="col">
+
+                        <a href="#" onclick="return false;" class="enlace-ventaja-pccomponentes"
+                            aria-label="Más información sobre entregas en 24 horas">
+                            <article class="card tarjeta-ventaja-pccomponentes">
+
+                                <img src="imagenes/Tarjeta.png" class="imagen-ventaja-pccomponentes"
+                                    alt="Entrega de pedidos en 24 horas">
+
+                                <div class="card-body cuerpo-ventaja-pccomponentes">
+
+                                    <p class="card-text texto-ventaja-pccomponentes">
+
+                                        Recibe tu pedido en
+
+                                        <strong>24h.</strong>
+
+                                    </p>
+
+                                </div>
+
+                            </article>
+                        </a>
+
+                    </div>
+
+
+                    <!-- Tarjeta 3 -->
+
+                    <div class="col">
+
+                        <a href="#" onclick="return false;" class="enlace-ventaja-pccomponentes"
+                            aria-label="Más información sobre devoluciones gratuitas">
+                            <article class="card tarjeta-ventaja-pccomponentes">
+
+                                <img src="imagenes/tarjetados.png" class="imagen-ventaja-pccomponentes"
+                                    alt="Devoluciones gratuitas y solución en 24 horas">
+
+                                <div class="card-body cuerpo-ventaja-pccomponentes">
+
+                                    <p class="card-text texto-ventaja-pccomponentes">
+
+                                        <strong>
+                                            Devoluciones gratuitas
+                                        </strong>
+
+                                        y garantía de solución en 24h.
+
+                                    </p>
+
+                                </div>
+
+                            </article>
+                        </a>
+
+                    </div>
+
+
+                    <!-- Tarjeta 4 -->
+
+                    <div class="col">
+
+                        <a href="#" onclick="return false;" class="enlace-ventaja-pccomponentes"
+                            aria-label="Más información sobre atención al cliente">
+                            <article class="card tarjeta-ventaja-pccomponentes">
+
+                                <img src="imagenes/comercial.png" class="imagen-ventaja-pccomponentes"
+                                    alt="Atención al cliente">
+
+                                <div class="card-body cuerpo-ventaja-pccomponentes">
+
+                                    <p class="card-text texto-ventaja-pccomponentes">
+
+                                        <strong>
+                                            Atención al cliente
+                                        </strong>
+
+                                        local y sin esperas.
+
+                                    </p>
+
+                                </div>
+
+                            </article>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!-- ==================================================
+             ENLACES INFORMATIVOS Y MÉTODOS DE PAGO
+             ================================================== -->
+
+        <section class="seccion-enlaces-informativos">
+
+            <div class="fila-enlaces-pagos">
+
+                <!-- Zona izquierda: cinco listas -->
+
+                <div class="zona-listas-informativas">
+
+                    <!-- =====================================
+                         COLUMNA 1: POR QUÉ COMPRAR
+                         ===================================== -->
+
+                    <div class="columna-enlaces">
+
+                        <button type="button" class="boton-titulo-enlaces" data-bs-toggle="collapse"
+                            data-bs-target="#lista-por-que-comprar" aria-expanded="true"
+                            aria-controls="lista-por-que-comprar">
+                            <span>Por qué comprar</span>
+
+                            <i class="bi bi-chevron-down flecha-lista"></i>
+                        </button>
+
+
+                        <nav class="collapse show lista-enlaces-informativos" id="lista-por-que-comprar"
+                            aria-label="Información sobre cómo comprar">
+                            <a href="#" onclick="return false;">
+                                Cómo comprar
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                Formas de pago
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                Gastos de envío
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                Cupones descuento
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                Preguntas frecuentes
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                Opiniones de clientes
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                Tarjetas regalo
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                Condiciones de compra
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                PcComponentes Business
+                            </a>
+                        </nav>
+
+                    </div>
+
+
+                    <!-- =====================================
+                         COLUMNA 2: QUIÉNES SOMOS
+                         ===================================== -->
+
+                    <div class="columna-enlaces">
+
+                        <button type="button" class="boton-titulo-enlaces collapsed" data-bs-toggle="collapse"
+                            data-bs-target="#lista-quienes-somos" aria-expanded="false"
+                            aria-controls="lista-quienes-somos">
+                            <span>Quiénes somos</span>
+
+                            <i class="bi bi-chevron-down flecha-lista"></i>
+                        </button>
+
+
+                        <nav class="collapse lista-enlaces-informativos" id="lista-quienes-somos"
+                            aria-label="Información sobre PcComponentes">
+                            <a href="#" onclick="return false;">
+                                Quiénes somos
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                Compromisos
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                Nuestras tiendas
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                Nuestras Marcas
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                Afiliados
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                Aviso legal
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                Fibra y Móvil
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                Privacidad
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                Condiciones Generales Marketplace
+                            </a>
+                        </nav>
+
+                    </div>
+
+
+                    <!-- =====================================
+                         COLUMNA 3: CONTACTAR
+                         ===================================== -->
+
+                    <div class="columna-enlaces">
+
+                        <button type="button" class="boton-titulo-enlaces collapsed" data-bs-toggle="collapse"
+                            data-bs-target="#lista-contactar" aria-expanded="false" aria-controls="lista-contactar">
+                            <span>Contactar</span>
+
+                            <i class="bi bi-chevron-down flecha-lista"></i>
+                        </button>
+
+
+                        <nav class="collapse lista-enlaces-informativos" id="lista-contactar"
+                            aria-label="Opciones de contacto">
+                            <a href="#" onclick="return false;">
+                                Contacto y Ayuda
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                Devoluciones y Garantías
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                Wiki PcComponentes
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                Opina y Gana
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                Anúnciate con PcAds
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                Trabaja con nosotros
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                Hazte distribuidor
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                Canal ético
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                Política de cookies
+                            </a>
+                        </nav>
+
+                    </div>
+
+
+                    <!-- =====================================
+                         COLUMNA 4: OTROS
+                         ===================================== -->
+
+                    <div class="columna-enlaces">
+
+                        <button type="button" class="boton-titulo-enlaces collapsed" data-bs-toggle="collapse"
+                            data-bs-target="#lista-otros" aria-expanded="false" aria-controls="lista-otros">
+                            <span>Otros</span>
+
+                            <i class="bi bi-chevron-down flecha-lista"></i>
+                        </button>
+
+
+                        <nav class="collapse lista-enlaces-informativos" id="lista-otros" aria-label="Otros servicios">
+                            <a href="#" onclick="return false;">
+                                Black Friday 2026
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                Cyber Monday 2026
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                Reacondicionados
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                PcDays
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                Vender en Marketplace
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                Servicio logístico Fulfillment
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                Servicio de reparaciones
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                Concursos
+                            </a>
+
+                            <a href="#" onclick="return false;">
+                                Cita asistencia técnica
+                            </a>
+                        </nav>
+
+                    </div>
+
+
+                    <!-- =====================================
+                         COLUMNA 5: COMUNIDAD
+                         ===================================== -->
+
+                    <div class="columna-enlaces">
+
+                        <button type="button" class="boton-titulo-enlaces collapsed" data-bs-toggle="collapse"
+                            data-bs-target="#lista-comunidad" aria-expanded="false" aria-controls="lista-comunidad">
+                            <span>Comunidad</span>
+
+                            <i class="bi bi-chevron-down flecha-lista"></i>
+                        </button>
+
+
+                        <nav class="collapse lista-enlaces-informativos" id="lista-comunidad"
+                            aria-label="Redes sociales de PcComponentes">
+                            <a href="#" onclick="return false;">
+
+                                <i class="bi bi-bookmark-fill icono-comunidad icono-naranja"></i>
+
+                                <span>Blog</span>
+
+                            </a>
+
+
+                            <a href="#" onclick="return false;">
+
+                                <i class="bi bi-instagram icono-comunidad"></i>
+
+                                <span>Instagram</span>
+
+                            </a>
+
+
+                            <a href="#" onclick="return false;">
+
+                                <i class="bi bi-twitter-x icono-comunidad"></i>
+
+                                <span>Twitter</span>
+
+                            </a>
+
+
+                            <a href="#" onclick="return false;">
+
+                                <i class="bi bi-facebook icono-comunidad"></i>
+
+                                <span>Facebook</span>
+
+                            </a>
+
+
+                            <a href="#" onclick="return false;">
+
+                                <i class="bi bi-telegram icono-comunidad"></i>
+
+                                <span>Telegram</span>
+
+                            </a>
+
+
+                            <a href="#" onclick="return false;">
+
+                                <i class="bi bi-youtube icono-comunidad"></i>
+
+                                <span>Youtube</span>
+
+                            </a>
+
+
+                            <a href="#" onclick="return false;">
+
+                                <i class="bi bi-tiktok icono-comunidad"></i>
+
+                                <span>TikTok</span>
+
+                            </a>
+
+
+                            <a href="#" onclick="return false;">
+
+                                <i class="bi bi-twitch icono-comunidad"></i>
+
+                                <span>Twitch</span>
+
+                            </a>
+
+
+                            <a href="#" onclick="return false;">
+
+                                <i class="bi bi-linkedin icono-comunidad"></i>
+
+                                <span>LinkedIn</span>
+
+                            </a>
+                        </nav>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Zona derecha: imagen de métodos de pago -->
+
+                <div class="zona-imagen-pagos">
+
+                    <img src="imagenes/metodosdepago.png" class="imagen-metodos-pago"
+                        alt="Premios y métodos de pago disponibles">
+
+                </div>
+
+            </div>
+
+        </section>
+
     </main>
+    <!-- ==================================================
+         FOOTER
+         ================================================== -->
+
+    <footer class="footer-principal">
+
+        <p class="texto-legal-footer">
+
+            PC Componentes y Multimedia SLU CIF B73347494.
+            AVDA Europa, Parcela 2-5 y 2-6.
+            Polígono industrial Las Salinas, 30840,
+            Alhama de Murcia, Murcia. ESPAÑA.
+
+        </p>
+
+    </footer>
+
+
+    <!-- ==================================================
+         ASISTENTE VIRTUAL FLOTANTE
+         ================================================== -->
+
+    <div class="asistente-virtual">
+
+        <!-- Mensaje que aparece al pasar el ratón -->
+
+        <div class="mensaje-hover-asistente" id="mensajeHoverAsistente">
+            Pregúntame, soy el asistente impulsado por IA
+            de PcComponentes
+        </div>
+
+
+        <!-- Botón circular fijo -->
+
+        <button class="boton-asistente" id="botonAsistente" type="button" aria-label="Abrir asistente virtual"
+            aria-controls="ventanaAsistente" aria-expanded="false">
+            <img src="imagenes/ia.png" alt="Asistente virtual de PcComponentes" class="imagen-asistente">
+        </button>
+
+
+        <!-- Ventana del asistente -->
+
+        <section class="ventana-asistente" id="ventanaAsistente" aria-label="Asistente experto en tecnología"
+            aria-hidden="true">
+
+            <!-- Cabecera -->
+
+            <header class="cabecera-asistente">
+
+                <h2>
+                    Asistente experto en tecnología
+                </h2>
+
+
+                <button class="cerrar-asistente" id="cerrarAsistente" type="button" aria-label="Cerrar asistente">
+                    <i class="bi bi-x-lg" aria-hidden="true"></i>
+                </button>
+
+            </header>
+
+
+            <!-- Contenido de la conversación -->
+
+            <div class="contenido-asistente" id="contenidoAsistente" aria-live="polite">
+
+                <div class="mensaje-asistente">
+
+                    <p>
+                        ¡Hola! Soy el
+
+                        <strong>
+                            asistente virtual experto en tecnología
+                        </strong>
+
+                        de PcComponentes impulsado por IA.
+                    </p>
+
+
+                    <p>
+                        Lo que compartas conmigo solo lo usaré para
+                        ayudarte y no guardo datos personales.
+
+                        Más información en nuestra
+
+                        <a href="#" class="enlace-privacidad" onclick="return false;">
+                            Política de privacidad
+                        </a>.
+                    </p>
+
+
+                    <p>
+                        ¿En qué puedo ayudarte hoy?
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Formulario del asistente -->
+
+            <form class="formulario-asistente" id="formularioAsistente">
+
+                <label for="consultaAsistente" class="visualmente-oculto">
+                    Escribe tu consulta
+                </label>
+
+
+                <div class="caja-consulta-asistente">
+
+                    <input type="text" id="consultaAsistente" placeholder="Escribe aquí tu consulta" autocomplete="off">
+
+
+                    <button type="submit" class="enviar-consulta" aria-label="Enviar consulta">
+                        <i class="bi bi-send"></i>
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
 
     </div>
 
-    </div>
 
-    </div>
+    <!-- ==================================================
+         JAVASCRIPT DE BOOTSTRAP
+         Debe aparecer una sola vez
+         ================================================== -->
 
-    <!-- JavaScript de Bootstrap -->
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- ==================================================
+         JAVASCRIPT DEL ASISTENTE
+         ================================================== -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const botonAsistente =
+                document.getElementById("botonAsistente");
+
+            const ventanaAsistente =
+                document.getElementById("ventanaAsistente");
+
+            const cerrarAsistente =
+                document.getElementById("cerrarAsistente");
+
+            const mensajeHover =
+                document.getElementById("mensajeHoverAsistente");
+
+            const formulario =
+                document.getElementById("formularioAsistente");
+
+            const consulta =
+                document.getElementById("consultaAsistente");
+
+            const contenido =
+                document.getElementById("contenidoAsistente");
+
+
+            /*
+             * Abre la ventana del asistente.
+             */
+
+            function abrirAsistente() {
+
+                ventanaAsistente.classList.add(
+                    "asistente-abierto"
+                );
+
+                ventanaAsistente.setAttribute(
+                    "aria-hidden",
+                    "false"
+                );
+
+                botonAsistente.setAttribute(
+                    "aria-expanded",
+                    "true"
+                );
+
+                mensajeHover.classList.remove(
+                    "mensaje-visible"
+                );
+
+                setTimeout(function () {
+
+                    consulta.focus();
+
+                }, 200);
+            }
+
+
+            /*
+             * Cierra la ventana del asistente.
+             */
+
+            function cerrarVentanaAsistente() {
+
+                ventanaAsistente.classList.remove(
+                    "asistente-abierto"
+                );
+
+                ventanaAsistente.setAttribute(
+                    "aria-hidden",
+                    "true"
+                );
+
+                botonAsistente.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                botonAsistente.focus();
+            }
+
+
+            /*
+             * Abre o cierra la ventana al pulsar
+             * el botón circular.
+             */
+
+            botonAsistente.addEventListener(
+                "click",
+                function () {
+
+                    const estaAbierto =
+                        ventanaAsistente.classList.contains(
+                            "asistente-abierto"
+                        );
+
+                    if (estaAbierto) {
+
+                        cerrarVentanaAsistente();
+
+                    } else {
+
+                        abrirAsistente();
+                    }
+                }
+            );
+
+
+            /*
+             * Cierra la ventana al pulsar la X.
+             */
+
+            cerrarAsistente.addEventListener(
+                "click",
+                cerrarVentanaAsistente
+            );
+
+
+            /*
+             * Muestra el mensaje al pasar el ratón.
+             */
+
+            botonAsistente.addEventListener(
+                "mouseenter",
+                function () {
+
+                    if (
+                        !ventanaAsistente.classList.contains(
+                            "asistente-abierto"
+                        )
+                    ) {
+                        mensajeHover.classList.add(
+                            "mensaje-visible"
+                        );
+                    }
+                }
+            );
+
+
+            /*
+             * Oculta el mensaje al retirar el ratón.
+             */
+
+            botonAsistente.addEventListener(
+                "mouseleave",
+                function () {
+
+                    mensajeHover.classList.remove(
+                        "mensaje-visible"
+                    );
+                }
+            );
+
+
+            /*
+             * También muestra el mensaje al seleccionar
+             * el botón mediante el teclado.
+             */
+
+            botonAsistente.addEventListener(
+                "focus",
+                function () {
+
+                    if (
+                        !ventanaAsistente.classList.contains(
+                            "asistente-abierto"
+                        )
+                    ) {
+                        mensajeHover.classList.add(
+                            "mensaje-visible"
+                        );
+                    }
+                }
+            );
+
+
+            /*
+             * Oculta el mensaje al perder el foco.
+             */
+
+            botonAsistente.addEventListener(
+                "blur",
+                function () {
+
+                    mensajeHover.classList.remove(
+                        "mensaje-visible"
+                    );
+                }
+            );
+
+
+            /*
+             * Permite cerrar el asistente con Escape.
+             */
+
+            document.addEventListener(
+                "keydown",
+                function (evento) {
+
+                    if (
+                        evento.key === "Escape" &&
+                        ventanaAsistente.classList.contains(
+                            "asistente-abierto"
+                        )
+                    ) {
+                        cerrarVentanaAsistente();
+                    }
+                }
+            );
+
+
+            /*
+             * Añade dentro de la conversación
+             * el mensaje escrito por el usuario.
+             */
+
+            formulario.addEventListener(
+                "submit",
+                function (evento) {
+
+                    evento.preventDefault();
+
+                    const textoConsulta =
+                        consulta.value.trim();
+
+
+                    if (textoConsulta === "") {
+
+                        consulta.focus();
+
+                        return;
+                    }
+
+
+                    const nuevoMensaje =
+                        document.createElement("div");
+
+                    nuevoMensaje.classList.add(
+                        "mensaje-usuario"
+                    );
+
+                    nuevoMensaje.textContent =
+                        textoConsulta;
+
+                    contenido.appendChild(
+                        nuevoMensaje
+                    );
+
+                    consulta.value = "";
+
+                    contenido.scrollTop =
+                        contenido.scrollHeight;
+
+                    consulta.focus();
+                }
+            );
+
+        });
+    </script>
 
 </body>
 
