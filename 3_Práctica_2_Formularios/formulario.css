@@ -1,29 +1,87 @@
-/* PRODUCTO SELECCIONADO */
-.card.producto-seleccionado {
-    border: 2px solid #ff6000;
-    background-color: #fff8f2;
-}
+/* ==========================================
+   PASO 1 - TARJETAS DE PRODUCTOS
+   ========================================== */
 
-/* TARJETAS INTERACTIVAS */
+/* Estilo general de las tarjetas */
 .tarjeta-seleccionable {
     cursor: pointer;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    border: 2px solid #dee2e6;
+    transition: transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-/* Al pasar el ratón */
+/* Efecto al pasar el ratón */
 .tarjeta-seleccionable:hover {
-    transform: translateY(-6px);
+    transform: translateY(-8px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* Producto seleccionado */
-.card.producto-seleccionado {
-    border: 2px solid #ff6000;
+.tarjeta-seleccionable:has(.radio-producto:checked) {
+    border-color: #ff6000;
     background-color: #fff8f2;
+    box-shadow: 0 0 0 2px rgba(255, 96, 0, 0.15);
 }
 
-/* Accesibilidad con teclado */
-.tarjeta-seleccionable:focus-within {
+/* Accesibilidad mediante teclado */
+.tarjeta-seleccionable:has(.radio-producto:focus-visible) {
     outline: 3px solid #ff6000;
+    outline-offset: 3px;
+}
+
+/* ==========================================
+   PASO 6: CONSENTIMIENTOS
+   ========================================== */
+
+/* Botones sin seleccionar */
+#paso6 .btn-check+.btn-outline-primary {
+    background-color: #fff;
+    color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+/* Botones seleccionados */
+#paso6 .btn-check:checked+.btn-outline-primary {
+    background-color: #0d6efd;
+    color: #fff;
+    border-color: #0d6efd;
+}
+
+/* Resaltar el botón al navegar con teclado */
+#paso6 .btn-check:focus-visible+.btn-outline-primary {
+    outline: 3px solid #ffc107;
+    outline-offset: 3px;
+}
+
+/* ==========================================
+   PASO 2: COMPLEMENTOS SELECCIONABLES
+   ========================================== */
+
+/* Ocultar visualmente los checkbox */
+#paso2 input[type="checkbox"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    overflow: hidden;
+}
+
+/* Tarjetas de complementos */
+#paso2 input[type="checkbox"]+label {
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+/* Tarjeta seleccionada */
+#paso2 input[type="checkbox"]:checked+label {
+    border: 2px solid #0d6efd;
+    background-color: #e7f1ff;
+    transform: translateY(-2px);
+}
+
+/* Navegación mediante teclado */
+#paso2 input[type="checkbox"]:focus-visible+label {
+    outline: 3px solid #ffc107;
     outline-offset: 3px;
 }

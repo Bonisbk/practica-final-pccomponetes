@@ -63,12 +63,13 @@
 
         <form id="formularioContratacion" novalidate>
 
+
             <!-- PASO 1: SELECCIÓN DE PRODUCTOS -->
             <section id="paso1" class="mb-5">
 
                 <h2 class="h4 mb-3">1. Selecciona tu ordenador</h2>
 
-                <p class="text-muted">
+                <p class="text-muted mb-4">
                     Elige uno de los siguientes productos.
                 </p>
 
@@ -77,70 +78,564 @@
                     <!-- Producto 1 -->
                     <div class="col-12 col-md-4">
                         <label class="card h-100 tarjeta-seleccionable">
-                            <div class="card-body">
+
+                            <input type="radio" name="producto" value="pccom" data-precio="1649"
+                                class="radio-producto visually-hidden">
+
+                            <div class="card-body text-center">
                                 <img src="../imagenes/PcCom_Imperial_AMD_Ryzen_7.png" class="card-img-top p-3"
                                     alt="Ordenador PcCom Imperial Ryzen 7" style="height: 180px; object-fit: contain;">
+
                                 <h3 class="h5">PcCom Imperial Ryzen 7</h3>
                                 <p>32 GB RAM · 1 TB SSD · RTX 5070</p>
                                 <p class="fw-bold">1.649 €</p>
-
-                                <label>
-                                    <input type="radio" name="producto" value="pccom" data-precio="1649">
-                                    Seleccionar
-                                </label>
                             </div>
+
                         </label>
                     </div>
 
                     <!-- Producto 2 -->
                     <div class="col-12 col-md-4">
                         <label class="card h-100 tarjeta-seleccionable">
-                            <div class="card-body">
+
+                            <input type="radio" name="producto" value="acer" data-precio="1199"
+                                class="radio-producto visually-hidden">
+
+                            <div class="card-body text-center">
                                 <img src="../imagenes/Portátil_Acer_Nitro_V15_IntelCore_i9.png" class="card-img-top p-3"
                                     alt="Portátil Acer Nitro V15" style="height: 180px; object-fit: contain;">
+
                                 <h3 class="h5">Acer Nitro V15</h3>
                                 <p>Intel Core i9 · 32 GB RAM · 1 TB SSD</p>
                                 <p class="fw-bold">1.199 €</p>
+                            </div>
 
-                                <label>
-                                    <input type="radio" name="producto" value="acer" data-precio="1199">
-                                    Seleccionar
-                                </label>
                         </label>
                     </div>
-                </div>
 
-                <!-- Producto 3 -->
-                <div class="col-12 col-md-4">
-                    <label class="card h-100 tarjeta-seleccionable">
-                        <div class="card-body">
-                            <img src="../imagenes/Sobremesas.png" class="card-img-top p-3" alt="Ordenador PcCom Basic"
-                                style="height: 180px; object-fit: contain;">
-                            <h3 class="h5">PcCom Basic</h3>
-                            <p>Intel Core i5 · 16 GB RAM · 512 GB SSD</p>
-                            <p class="fw-bold">699 €</p>
+                    <!-- Producto 3 -->
+                    <div class="col-12 col-md-4">
+                        <label class="card h-100 tarjeta-seleccionable">
 
-                            <label>
-                                <input type="radio" name="producto" value="basic" data-precio="699">
-                                Seleccionar
-                            </label>
-                        </div>
-                    </label>
-                </div>
+                            <input type="radio" name="producto" value="basic" data-precio="699"
+                                class="radio-producto visually-hidden">
+
+                            <div class="card-body text-center">
+                                <img src="../imagenes/Sobremesas.png" class="card-img-top p-3"
+                                    alt="Ordenador PcCom Basic" style="height: 180px; object-fit: contain;">
+
+                                <h3 class="h5">PcCom Basic</h3>
+                                <p>Intel Core i5 · 16 GB RAM · 512 GB SSD</p>
+                                <p class="fw-bold">699 €</p>
+                            </div>
+
+                        </label>
+                    </div>
 
                 </div>
             </section>
+
+
+            <!-- PASO 2: COMPLEMENTOS -->
+
+            <section id="paso2" class="mb-5 d-none">
+
+                <h2 class="h4 mb-3">2. Selecciona tus complementos</h2>
+
+                <p class="text-muted mb-4">
+                    Personaliza tu compra con complementos opcionales.
+                </p>
+
+                <div class="row g-3">
+
+                    <!-- Complemento 1: Seguro -->
+                    <div class="col-12 col-md-6">
+
+                        <input class="btn-check" type="checkbox" id="seguro" name="complementos" value="seguro"
+                            data-precio="89" autocomplete="off">
+
+                        <label class="card h-100 p-3" for="seguro">
+                            <div class="card-body">
+                                <h3 class="h5 fw-bold">
+                                    Seguro de protección
+                                </h3>
+
+                                <p class="mt-2 mb-1">
+                                    Protección adicional para tu ordenador.
+                                </p>
+
+                                <p class="fw-bold mb-0">
+                                    89 € (pago único)
+                                </p>
+                            </div>
+                        </label>
+
+                    </div>
+
+                    <!-- Complemento 2: Soporte Premium -->
+                    <div class="col-12 col-md-6">
+
+                        <input class="btn-check" type="checkbox" id="soporte" name="complementos" value="soporte"
+                            data-precio="9.99" autocomplete="off">
+
+                        <label class="card h-100 p-3" for="soporte">
+                            <div class="card-body">
+                                <h3 class="h5 fw-bold">
+                                    Soporte técnico premium
+                                </h3>
+
+                                <p class="mt-2 mb-1">
+                                    Asistencia técnica especializada.
+                                </p>
+
+                                <p class="fw-bold mb-0">
+                                    9,99 €/mes
+                                </p>
+                            </div>
+                        </label>
+
+                    </div>
+
+                    <!-- Complemento 3: Instalación -->
+                    <div class="col-12 col-md-6">
+
+                        <input class="btn-check" type="checkbox" id="instalacion" name="complementos"
+                            value="instalacion" data-precio="49" autocomplete="off">
+
+                        <label class="card h-100 p-3" for="instalacion">
+                            <div class="card-body">
+                                <h3 class="h5 fw-bold">
+                                    Instalación y configuración
+                                </h3>
+
+                                <p class="mt-2 mb-1">
+                                    Preparación inicial del equipo.
+                                </p>
+
+                                <p class="fw-bold mb-0">
+                                    49 € (pago único)
+                                </p>
+                            </div>
+                        </label>
+
+                    </div>
+
+                </div>
+
+                <!-- RESUMEN DE PRECIOS -->
+                <div class="card bg-light mt-4">
+                    <div class="card-body">
+                        <h3 class="h5 mb-3">Resumen de precios</h3>
+
+                        <p class="mb-2">
+                            Pago único:
+                            <strong id="totalUnico">0,00 €</strong>
+                        </p>
+
+                        <p class="mb-0">
+                            Cuota mensual:
+                            <strong id="totalMensual">0,00 €/mes</strong>
+                        </p>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- PASO 3: DATOS PERSONALES -->
+            <section id="paso3" class="mb-5 d-none">
+
+                <h2 class="h4 mb-3">3. Datos personales</h2>
+                <p class="text-muted mb-4">
+                    Introduce tus datos para continuar con la contratación.
+                </p>
+
+                <div class="row g-3">
+
+                    <!-- Nombre -->
+                    <div class="col-12 col-md-6">
+                        <label for="nombre" class="form-label">Nombre *</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" autocomplete="given-name"
+                            required>
+                    </div>
+
+                    <!-- Apellidos -->
+                    <div class="col-12 col-md-6">
+                        <label for="apellidos" class="form-label">Apellidos *</label>
+                        <input type="text" class="form-control" id="apellidos" name="apellidos"
+                            autocomplete="family-name" required>
+                    </div>
+
+
+                    <!-- DNI -->
+                    <div class="col-12 col-md-6">
+                        <label for="dni" class="form-label">DNI *</label>
+
+                        <input type="text" class="form-control" id="dni" name="dni" maxlength="9"
+                            placeholder="12345678Z" aria-describedby="errorDni" required>
+
+                        <div id="errorDni" class="invalid-feedback">
+                            Introduce un DNI válido (8 números y su letra correcta).
+                        </div>
+                    </div>
+
+
+
+                    <!-- Teléfono -->
+                    <div class="col-12 col-md-6">
+                        <label for="telefono" class="form-label">Teléfono *</label>
+
+                        <input type="tel" class="form-control" id="telefono" name="telefono" autocomplete="tel"
+                            maxlength="9" placeholder="612345678" aria-describedby="errorTelefono" required>
+
+                        <div id="errorTelefono" class="invalid-feedback">
+                            Introduce un teléfono español válido de 9 dígitos.
+                        </div>
+                    </div>
+
+
+
+                    <!-- Correo electrónico -->
+                    <div class="col-12 col-md-6">
+                        <label for="email" class="form-label">Correo electrónico *</label>
+
+                        <input type="email" class="form-control" id="email" name="email" autocomplete="email"
+                            aria-describedby="errorEmail" required>
+
+                        <div id="errorEmail" class="invalid-feedback">
+                            Introduce un correo electrónico válido.
+                        </div>
+                    </div>
+
+                    <!-- Confirmar correo electrónico -->
+                    <div class="col-12 col-md-6">
+                        <label for="confirmarEmail" class="form-label">
+                            Confirmar correo electrónico *
+                        </label>
+
+                        <input type="email" class="form-control" id="confirmarEmail" name="confirmarEmail"
+                            aria-describedby="errorConfirmarEmail" required>
+
+                        <div id="errorConfirmarEmail" class="invalid-feedback">
+                            Los correos electrónicos no coinciden.
+                        </div>
+                    </div>
+
+                    <!-- Fecha de nacimiento -->
+                    <div class="col-12 col-md-6">
+                        <label for="fechaNacimiento" class="form-label">
+                            Fecha de nacimiento *
+                        </label>
+
+                        <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento"
+                            aria-describedby="errorFechaNacimiento" required>
+
+                        <div id="errorFechaNacimiento" class="invalid-feedback">
+                            Introduce una fecha válida. Debes tener al menos 18 años.
+                        </div>
+                    </div>
+
+
+                </div>
+            </section>
+
+
+            <!-- PASO 4: DIRECCIÓN -->
+            <section id="paso4" class="mb-5 d-none">
+                <h2 class="h4 mb-3">4. Dirección de facturación</h2>
+                <p class="text-muted">Introduce tu dirección en España.</p>
+
+                <div class="row g-3 mt-2">
+
+                    <!-- Dirección -->
+                    <div class="col-12">
+                        <label for="direccion" class="form-label">Dirección *</label>
+                        <input type="text" class="form-control" id="direccion" name="direccion"
+                            autocomplete="street-address" required>
+                        <div class="invalid-feedback">
+                            Introduce una dirección válida.
+                        </div>
+                    </div>
+
+                    <!-- Ciudad -->
+                    <div class="col-12 col-md-6">
+                        <label for="ciudad" class="form-label">Ciudad / Municipio *</label>
+                        <input type="text" class="form-control" id="ciudad" name="ciudad" required>
+                        <div class="invalid-feedback">
+                            Introduce una ciudad o municipio válido.
+                        </div>
+                    </div>
+
+                    <!-- Código postal -->
+                    <div class="col-12 col-md-6">
+                        <label for="codigoPostal" class="form-label">Código postal *</label>
+                        <input type="text" class="form-control" id="codigoPostal" name="codigoPostal"
+                            inputmode="numeric" maxlength="5" placeholder="37001" required>
+                        <div class="invalid-feedback">
+                            Introduce un código postal válido que corresponda a la provincia.
+                        </div>
+
+                    </div>
+
+                    <!-- Provincia -->
+                    <div class="col-12 col-md-6">
+                        <label for="provincia" class="form-label">Provincia *</label>
+                        <select class="form-select" id="provincia" name="provincia" required>
+                            <option value="">Selecciona una provincia</option>
+                        </select>
+
+                        <div class="invalid-feedback">
+                            Selecciona la provincia correspondiente al código postal.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- PASO 5: PAGO SIMULADO -->
+            <section id="paso5" class="mb-5 d-none">
+
+                <h2 class="h4 mb-3">5. Método de pago</h2>
+
+                <p class="text-muted">
+                    Selecciona un método de pago simulado.
+                </p>
+
+                <!-- Selección del método de pago -->
+                <div class="row g-3 mb-4">
+
+                    <!-- Tarjeta bancaria -->
+                    <div class="col-md-6">
+
+                        <input class="btn-check" type="radio" name="metodoPago" id="pagoTarjeta" value="tarjeta"
+                            autocomplete="off">
+
+                        <label class="btn btn-outline-primary w-100 py-3" for="pagoTarjeta">
+                            <i class="bi bi-credit-card me-2"></i>
+                            Tarjeta bancaria
+                        </label>
+
+                    </div>
+
+                    <!-- Cuenta bancaria -->
+                    <div class="col-md-6">
+
+                        <input class="btn-check" type="radio" name="metodoPago" id="pagoIBAN" value="iban"
+                            autocomplete="off">
+
+                        <label class="btn btn-outline-primary w-100 py-3" for="pagoIBAN">
+                            <i class="bi bi-bank me-2"></i>
+                            Cuenta bancaria (IBAN español)
+                        </label>
+
+                    </div>
+
+                </div>
+
+                <!-- Datos de tarjeta -->
+                <div id="datosTarjeta" class="d-none">
+
+                    <h3 class="h5 mb-3">Datos de la tarjeta</h3>
+
+                    <div class="row g-3">
+
+                        <div class="col-12">
+                            <label for="numeroTarjeta" class="form-label">
+                                Número de tarjeta *
+                            </label>
+
+                            <input type="text" class="form-control" id="numeroTarjeta" maxlength="19"
+                                placeholder="1234 5678 9012 3456">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="caducidad" class="form-label">
+                                Caducidad (MM/AA) *
+                            </label>
+
+                            <input type="text" class="form-control" id="caducidad" maxlength="5" placeholder="MM/AA">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="cvv" class="form-label">
+                                CVV *
+                            </label>
+
+                            <input type="text" class="form-control" id="cvv" maxlength="3" placeholder="123">
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Datos de IBAN -->
+                <div id="datosIBAN" class="d-none">
+
+                    <h3 class="h5 mb-3">Datos bancarios</h3>
+
+                    <label for="iban" class="form-label">
+                        IBAN español *
+                    </label>
+
+                    <input type="text" class="form-control" id="iban" maxlength="34"
+                        placeholder="ES00 0000 0000 0000 0000 0000">
+
+                </div>
+
+                <p class="text-muted small mt-4">
+                    Este formulario es una simulación académica.
+                    No introduzcas datos bancarios reales.
+                </p>
+
+            </section>
+
+            <!-- PASO 6: RESUMEN -->
+            <section id="paso6" class="mb-5 d-none">
+                <h2 class="h4 mb-3">6. Resumen y confirmación</h2>
+                <p class="text-muted">Revisa tu solicitud antes de confirmarla.</p>
+
+                <!-- RESUMEN DEL PEDIDO -->
+                <div class="card mt-4 mb-4">
+                    <div class="card-header fw-bold">
+                        <i class="bi bi-receipt me-2"></i>
+                        Resumen del pedido
+                    </div>
+
+                    <div class="card-body">
+
+                        <h5 class="mb-3">Producto seleccionado</h5>
+                        <p id="resumenProducto"></p>
+
+                        <hr>
+
+                        <h5 class="mb-3">Complementos contratados</h5>
+                        <div id="resumenComplementos"></div>
+
+                        <hr>
+
+                        <div class="d-flex justify-content-between mb-2">
+                            <strong>Total de pago único:</strong>
+                            <strong id="resumenTotalUnico"></strong>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <strong>Total mensual:</strong>
+                            <strong id="resumenTotalMensual"></strong>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- CONSENTIMIENTOS -->
+                <div class="mt-4 mb-4">
+
+                    <h5 class="mb-3">Consentimientos</h5>
+
+                    <!-- Condiciones de contratación -->
+                    <input type="checkbox" class="btn-check" id="aceptarCondiciones" autocomplete="off">
+
+                    <label for="aceptarCondiciones" class="btn btn-outline-primary w-100 text-start mb-3 p-3">
+                        <i class="bi bi-check-circle me-2"></i>
+                        Acepto las condiciones de contratación. *
+                    </label>
+
+                    <!-- Política de privacidad -->
+                    <input type="checkbox" class="btn-check" id="aceptarPrivacidad" autocomplete="off">
+
+                    <label for="aceptarPrivacidad" class="btn btn-outline-primary w-100 text-start mb-3 p-3">
+                        <i class="bi bi-shield-check me-2"></i>
+                        He leído y acepto la política de privacidad. *
+                    </label>
+
+                    <!-- Comunicaciones comerciales -->
+                    <input type="checkbox" class="btn-check" id="aceptarPublicidad" autocomplete="off">
+
+                    <label for="aceptarPublicidad" class="btn btn-outline-primary w-100 text-start p-3">
+                        <i class="bi bi-envelope me-2"></i>
+                        Deseo recibir ofertas y comunicaciones comerciales (opcional).
+                    </label>
+
+                    <p class="text-muted small mt-3">
+                        * Consentimientos obligatorios para confirmar la solicitud.
+                    </p>
+                    <!-- Mensaje de error de los consentimientos -->
+                    <div id="errorConsentimientos" class="alert alert-danger d-none mt-3" role="alert"
+                        aria-live="polite">
+                        Debes aceptar las condiciones de contratación y la política de privacidad.
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- MODAL DE CONFIRMACIÓN -->
+            <div class="modal fade" id="modalConfirmacion" tabindex="-1" aria-labelledby="tituloModalConfirmacion"
+                aria-hidden="true">
+
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h2 class="modal-title fs-5" id="tituloModalConfirmacion">
+                                Confirmar solicitud
+                            </h2>
+
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar">
+                            </button>
+                        </div>
+
+                        <div class="modal-body">
+                            <p>
+                                ¿Deseas confirmar la contratación
+                                con los datos seleccionados?
+                            </p>
+                            <p class="text-muted mb-0">
+                                Revisa que toda la información sea correcta.
+                            </p>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                Cancelar
+                            </button>
+
+                            <button type="button" class="btn btn-primary" id="btnConfirmarDefinitivo">
+                                Confirmar solicitud
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- BOTONES DE NAVEGACIÓN -->
+            <div class="d-flex justify-content-between mt-4">
+
+                <button type="button" id="btnAnterior" class="btn btn-outline-secondary" disabled>
+                    <i class="bi bi-arrow-left"></i> Anterior
+                </button>
+
+                <button type="button" id="btnSiguiente" class="btn btn-warning">
+                    Siguiente <i class="bi bi-arrow-right"></i>
+                </button>
+
+            </div>
+
 
         </form>
 
 
     </main>
 
-
-
-
-    <script src="formulario.js"></script>
+    <!-- Bootstrap 5 -->
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript del formulario -->
+    <script src="formulario.js"></script>
+
+
 </body>
 
 </html>
